@@ -384,6 +384,7 @@ document.addEventListener("mozfullscreenchange", paintFsIcon, false);
 setInterval(paintFsIcon, 2000);
 
 buildSettings();
+if (location.search.indexOf("panel=1") > -1) { el("set").style.display = "block"; }
 paintFsIcon();
 drawTimeline();
 poll();
