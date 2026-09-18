@@ -70,12 +70,12 @@ PAGE = """<!doctype html>
 <style>
   html,body{margin:0;padding:0;height:100%;background:#fff;overflow:hidden;
             font-family:Georgia,'Times New Roman',serif;color:#000}
-  #wrap{position:fixed;top:0;bottom:33%;left:0;right:0}
+  #wrap{position:fixed;top:0;bottom:38vh;left:0;right:0}
   img#p{width:100%;height:100%;object-fit:contain;display:block}
-  #cap{position:fixed;bottom:22%;left:0;right:0;height:11%;text-align:center;padding:0 7%}
-  #common{font-size:3.6vh;letter-spacing:0.02em}
-  #sci{font-size:2.3vh;font-style:italic;color:#444;margin-top:0.3vh}
-  #fact{font-size:1.95vh;font-style:italic;color:#666;margin-top:0.9vh;line-height:1.35}
+  #cap{position:fixed;bottom:23.5vh;left:0;right:0;text-align:center;padding:0 6%}
+  #common{font-size:3.4vh;letter-spacing:0.02em;line-height:1.2}
+  #sci{font-size:2.2vh;font-style:italic;color:#444;margin-top:0.4vh;line-height:1.2}
+  #fact{font-size:1.85vh;font-style:italic;color:#666;margin-top:0.8vh;line-height:1.3}
   /* Icons float over the plate, small and out of the way. A hairline box keeps
      them findable against a light passage in the artwork. */
   #icons{position:fixed;top:1.4%;right:1.4%;z-index:12}
@@ -83,7 +83,7 @@ PAGE = """<!doctype html>
       border:1px solid #999;background:#fff;text-align:center;line-height:0;
       -webkit-tap-highlight-color:transparent}
   .ic svg{width:3.4vh;height:3.4vh;margin-top:0.95vh}
-  #tl{position:fixed;bottom:0;left:0;right:0;height:21%;
+  #tl{position:fixed;bottom:0;left:0;right:0;height:22vh;
       border-top:1px solid #000;box-sizing:border-box}
   #tlrow{position:absolute;top:7%;left:0;right:0;height:60%;white-space:nowrap}
   .cell{display:inline-block;width:7.1%;height:100%;text-align:center;
@@ -509,7 +509,7 @@ def make_handler(state: State):
                 state.pollers.setdefault(client, 0)
                 print("[%s] page loaded by %s  (%s)" % (
                     time.strftime("%H:%M:%S"), client,
-                    self.headers.get("User-Agent", "?")[:70]), flush=True)
+                    self.headers.get("User-Agent", "?")), flush=True)
                 nudge = "reload"   # the only strategy confirmed on the Papyr
                 if "nudge=" in self.path:
                     nudge = self.path.split("nudge=")[1].split("&")[0]
