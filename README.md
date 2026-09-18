@@ -124,3 +124,32 @@ open question, not a settled one. Worth a long unattended run before deciding.
 Two things are worth writing down here as you go, because you will not remember
 them in a year: the **mic node's IP and port settings**, and the **tuned gamma/cutoff
 values**.
+
+## Credits
+
+This stands on other people's work.
+
+- **[fugleramme](https://github.com/arnegiacomo/fugleramme)** by Arne Giacomo (MIT)
+  is the original: BirdNET-Go detections composed as public-domain natural-history
+  cutouts on an Inky Impression. It does the hard part. Nothing here vendors its
+  code — `papyr-view` sits in front of it and reduces its output for a greyscale
+  panel it was never built for.
+- **[BirdNET-Go](https://github.com/tphakala/birdnet-go)** by Tomi Phakala does the
+  listening and classification, and its
+  [remote-mic](https://github.com/tphakala/birdnet-go-remote-mic) appliance is one
+  of the microphone options.
+- **BirdNET** itself is a project of the K. Lisa Yang Center for Conservation
+  Bioacoustics at the Cornell Lab of Ornithology and Chemnitz University of
+  Technology.
+- The artwork is **John Gould, _The Birds of Australia_ (1840–48)**, lithographed
+  by Elizabeth Gould and H.C. Richter — public domain, sourced via
+  [Wikimedia Commons](https://commons.wikimedia.org) and the
+  [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/bibliography/105698).
+
+Plates are not committed to this repository. `artwork/plate-names.example.json`
+shows the species-mapping format; see [artwork/MAPPING.md](artwork/MAPPING.md)
+for how to build a set.
+
+## Licence
+
+MIT — see [LICENSE](LICENSE).
