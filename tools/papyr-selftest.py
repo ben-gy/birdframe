@@ -76,13 +76,14 @@ PAGE = """<!doctype html>
   #common{font-size:3.4vh;letter-spacing:0.02em;line-height:1.2}
   #sci{font-size:2.2vh;font-style:italic;color:#444;margin-top:0.4vh;line-height:1.2}
   #fact{font-size:1.85vh;font-style:italic;color:#666;margin-top:0.8vh;line-height:1.3}
-  /* Icons float over the plate, small and out of the way. A hairline box keeps
-     them findable against a light passage in the artwork. */
-  #icons{position:fixed;top:1.4%;right:1.4%;z-index:12}
-  .ic{display:inline-block;width:5.4vh;height:5.4vh;margin-left:0.9vh;
-      border:1px solid #999;background:#fff;text-align:center;line-height:0;
+  /* Two small icons in opposite corners, deliberately unobtrusive: this is a
+     picture frame, and controls should be findable rather than present. */
+  .ic{position:fixed;top:1.1vh;width:3.5vh;height:3.5vh;z-index:12;
+      border:1px solid #c8c8c8;background:#fff;text-align:center;line-height:0;
       -webkit-tap-highlight-color:transparent}
-  .ic svg{width:3.4vh;height:3.4vh;margin-top:0.95vh}
+  #ic_set{left:1.1vh}
+  #ic_full{right:1.1vh}
+  .ic svg{width:2.2vh;height:2.2vh;margin-top:0.6vh}
   #tl{position:fixed;bottom:0;left:0;right:0;height:22vh;
       border-top:1px solid #000;box-sizing:border-box}
   #tlrow{position:absolute;top:7%;left:0;right:0;height:60%;white-space:nowrap}
@@ -109,14 +110,19 @@ PAGE = """<!doctype html>
 <div id="wrap"><img id="p" src="/collage.png?g=__TOKEN__" alt=""></div>
 <div id="cap"><div id="common">__COMMON__</div><div id="sci">__SCI__</div><div id="fact">__FACT__</div></div>
 
-<div id="icons">
-  <span class="ic" id="ic_set"><svg viewBox="0 0 24 24" fill="none" stroke="#000"
-    stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.6v2.6M12 18.8v2.6
-    M21.4 12h-2.6M5.2 12H2.6M18.6 5.4l-1.8 1.8M7.2 16.8l-1.8 1.8M18.6 18.6l-1.8-1.8
-    M7.2 7.2L5.4 5.4"/></svg></span>
-  <span class="ic" id="ic_full"><svg viewBox="0 0 24 24" fill="none" stroke="#000"
-    stroke-width="2"><path d="M3 9V3h6M21 9V3h-6M3 15v6h6M21 15v6h-6"/></svg></span>
-</div>
+<span class="ic" id="ic_set"><svg viewBox="0 0 24 24" fill="none" stroke="#000"
+  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12"
+  r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65
+  1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9
+  19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0
+  .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0
+  0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0
+  1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0
+  0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0
+  4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+<span class="ic" id="ic_full"><svg viewBox="0 0 24 24" fill="none" stroke="#000"
+  stroke-width="2.2" stroke-linecap="round"><path d="M3 9V3h6M21 9V3h-6M3 15v6h6M21 15v6h-6"/>
+  </svg></span>
 
 <div id="tl"><div id="tlrow"></div><div id="axis"></div></div>
 <div id="ov"></div>
