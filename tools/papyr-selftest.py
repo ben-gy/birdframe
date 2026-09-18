@@ -113,7 +113,7 @@ PAGE = """<!doctype html>
   <span class="s" onclick="goFull()">FULLSCREEN</span><span
         class="s" onclick="exitFull()">EXIT FS</span><span
         class="s" onclick="testSoon()">TEST 5s</span><span
-        class="s" onclick="location.href='/?nudge='+MODE+'&ms='+MS">RELOAD PAGE</span>
+        class="s" onclick="location.href='/?nudge='+MODE+'&ms='+MS">RELOAD</span>
   <div id="close" onclick="closeSet()">CLOSE</div>
 </div>
 
