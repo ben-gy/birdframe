@@ -10,6 +10,27 @@ domain, and exactly the target aesthetic.
 
 Also usable: **Gracius Broinowski, _The Birds of Australia_ (1890)**.
 
+## What exists
+
+`gould-plate-index.json` in this directory maps **737 identified plates across 685
+names** — effectively the whole of Gould's 681-plate work — to their Wikimedia
+Commons filenames. `gould-unidentified.json` lists the 78 that resisted.
+
+Built by walking
+[Category:The Birds of Australia (John Gould)](https://commons.wikimedia.org/wiki/Category:The_Birds_of_Australia_(John_Gould))
+and reading each file's **description**, not its categories. Only 61 of 815 files
+carry a `<binomial> (illustrations)` category, and that set is noisy - it includes
+New Zealand birds and at least one plant. Descriptions carry the species for ~90%.
+
+**Names in the index are Gould's, not BirdNET's.** Against 24 common Australian
+garden birds: 15 match a modern binomial exactly, the rest need synonym
+resolution - *Halcyon sanctus* → *Todiramphus sanctus*, *Myzantha garrula* →
+*Manorina melanocephala*, *Aprosmictus scapulatus* → *Alisterus scapularis*.
+
+A blind epithet match already produced a false positive here: searching
+*leucophrys* for the Willie Wagtail returns *Porzana leucophrys*, a crake. That is
+the whole reason for the warning below.
+
 ## Do this demand-driven
 
 Don't process 681 plates. Let BirdNET-Go run about a week, see which 15–40
