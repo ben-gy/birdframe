@@ -267,20 +267,25 @@ function goFull() {
   setTimeout(function () { paintFsIcon(); diag("fullscreen: " + (isFull() ? "on" : "no")); }, 900);
 }
 function exitFull() {
-  if (!isFull()) {
-    // Worth saying rather than silently doing nothing: a reload drops out of
-    // fullscreen, so by the time you reach for this there is often nothing left
-    // to exit and the button looks broken.
-    diag("not in fullscreen - a reload already dropped it");
-    paintFsIcon();
-    return;
-  }
+  if (!isFull()) { diag("not in fullscreen"); paintFsIcon(); return; }
+
+  // Try the API first - it is correct everywhere else - but do not trust it.
+  // On the Papyr it reports success and leaves the panel in immersive mode.
   var x = document.exitFullscreen || document.webkitExitFullscreen ||
           document.webkitCancelFullScreen || document.mozCancelFullScreen;
-  if (!x) { diag("exit fullscreen: not supported"); return; }
-  try { x.call(document); } catch (e) { diag("exit fullscreen: rejected"); return; }
-  setTimeout(function () { paintFsIcon(); diag("fullscreen: " + (isFull() ? "on" : "no")); }, 900);
+  if (x) { try { x.call(document); } catch (e) {} }
+
+  // A reload drops fullscreen on this device, reliably - it is the same
+  // mechanism the repaint strategy leans on. So if the API has not taken
+  // effect shortly, navigate instead. Costs nothing: the URL carries the bird
+  // being shown, so the page comes back exactly where it was.
+  setTimeout(function () {
+    if (isFull()) { go(shown, true); return; }
+    paintFsIcon();
+    diag("fullscreen: off");
+  }, 600);
 }
+
 function isFull() {
   return !!(document.fullscreenElement || document.webkitFullscreenElement ||
             document.webkitCurrentFullScreenElement || document.mozFullScreenElement);
