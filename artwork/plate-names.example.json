@@ -1,0 +1,47 @@
+{
+  "p01.jpg": {
+    "common": "Wedge-tailed Eagle",
+    "fact": "Australia's largest raptor, with a wingspan reaching 2.3 metres.",
+    "sci": "Aquila audax"
+  },
+  "p02.jpg": {
+    "common": "Sulphur-crested Cockatoo",
+    "fact": "Regularly lives beyond forty years in the wild, and far longer in captivity.",
+    "sci": "Cacatua galerita"
+  },
+  "p03.jpg": {
+    "common": "Galah",
+    "fact": "So familiar across Australia that 'galah' became slang for a fool.",
+    "sci": "Eolophus roseicapilla"
+  },
+  "p04.jpg": {
+    "common": "Red-tailed Black-Cockatoo",
+    "fact": "Named for Joseph Banks, botanist on Cook's first voyage.",
+    "sci": "Calyptorhynchus banksii"
+  },
+  "p05.jpg": {
+    "common": "Yellow-tailed Black-Cockatoo",
+    "fact": "Tears open branches and strips bark to reach wood-boring grubs.",
+    "sci": "Zanda funerea"
+  },
+  "p06.jpg": {
+    "common": "Gang-gang Cockatoo",
+    "fact": "Its creaking call is often likened to a rusty gate hinge.",
+    "sci": "Callocephalon fimbriatum"
+  },
+  "p07.jpg": {
+    "common": "Australian Owlet-nightjar",
+    "fact": "Nocturnal and widespread, yet seldom seen: it roosts by day in tree hollows.",
+    "sci": "Aegotheles cristatus"
+  },
+  "p09.jpg": {
+    "common": "Swift Parrot",
+    "fact": "Breeds only in Tasmania, crossing Bass Strait each year to winter on the mainland.",
+    "sci": "Lathamus discolor"
+  },
+  "p11.jpg": {
+    "common": "Large-tailed Nightjar",
+    "fact": "Its steady chopping call earned it the nickname 'hammer bird'.",
+    "sci": "Caprimulgus macrurus"
+  }
+}

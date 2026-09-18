@@ -32,7 +32,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "papyr-view"))
 
-from PIL import Image, ImageDraw, ImageOps  # noqa: E402
+from PIL import Image, ImageOps  # noqa: E402
 
 import app  # papyr-view  # noqa: E402
 
@@ -55,8 +55,13 @@ MARGIN = 0.04  # matches fugleramme's default passepartout allowance
 HISTORY_HOURS = 6
 THUMB_H = 190
 # Enough cells to read as a timeline, few enough to stay legible on the panel.
-BUCKETS = 20
-PAPER = (240, 236, 229)
+BUCKETS = 14
+# White, not cream. These plates are JPEG crops that carry their own white
+# background rather than being cut out with alpha, so a cream page leaves a
+# visible rectangle around every bird - which on a frame reads as a mistake.
+# Autocontrast pushes the paper to white anyway. Real cutouts can have the
+# cream back.
+PAPER = (255, 255, 255)
 
 PAGE = """<!doctype html>
 <html><head><meta charset="utf-8">
@@ -65,12 +70,12 @@ PAGE = """<!doctype html>
 <style>
   html,body{margin:0;padding:0;height:100%;background:#fff;overflow:hidden;
             font-family:Georgia,'Times New Roman',serif;color:#000}
-  #wrap{position:fixed;top:0;bottom:29%;left:0;right:0}
+  #wrap{position:fixed;top:0;bottom:33%;left:0;right:0}
   img#p{width:100%;height:100%;object-fit:contain;display:block}
-  #cap{position:fixed;bottom:20.5%;left:0;right:0;height:8.5%;text-align:center;padding:0 8%}
+  #cap{position:fixed;bottom:22%;left:0;right:0;height:11%;text-align:center;padding:0 7%}
   #common{font-size:3.6vh;letter-spacing:0.02em}
   #sci{font-size:2.3vh;font-style:italic;color:#444;margin-top:0.3vh}
-  #fact{font-size:2vh;font-style:italic;color:#666;margin-top:0.7vh;line-height:1.3}
+  #fact{font-size:1.95vh;font-style:italic;color:#666;margin-top:0.9vh;line-height:1.35}
   /* Icons float over the plate, small and out of the way. A hairline box keeps
      them findable against a light passage in the artwork. */
   #icons{position:fixed;top:1.4%;right:1.4%;z-index:12}
@@ -78,14 +83,14 @@ PAGE = """<!doctype html>
       border:1px solid #999;background:#fff;text-align:center;line-height:0;
       -webkit-tap-highlight-color:transparent}
   .ic svg{width:3.4vh;height:3.4vh;margin-top:0.95vh}
-  #tl{position:fixed;bottom:0;left:0;right:0;height:20%;
+  #tl{position:fixed;bottom:0;left:0;right:0;height:21%;
       border-top:1px solid #000;box-sizing:border-box}
-  #tlrow{position:absolute;top:5%;left:0;right:0;height:70%;white-space:nowrap}
-  .cell{display:inline-block;width:5%;height:100%;text-align:center;
+  #tlrow{position:absolute;top:7%;left:0;right:0;height:60%;white-space:nowrap}
+  .cell{display:inline-block;width:7.1%;height:100%;text-align:center;
         vertical-align:bottom;-webkit-tap-highlight-color:transparent}
   .cell img{max-width:94%;max-height:100%}
   .cell.now img{outline:2px solid #000}
-  #axis{position:absolute;bottom:2%;left:0;right:0;height:20%;font-size:1.9vh;color:#444}
+  #axis{position:absolute;bottom:3%;left:0;right:0;height:22%;font-size:1.9vh;color:#444}
   .tick{position:absolute;bottom:0;border-left:1px solid #999;padding-left:0.5%;height:55%}
   #ov{position:fixed;top:0;left:0;right:0;bottom:0;background:#000;display:none;z-index:9}
   /* Settings stays available behind the cog, but never on screen otherwise. */
@@ -134,6 +139,12 @@ var DURATIONS = [150, 400, 800, 1500];
 var MODE = "__NUDGE__";
 var MS = __MS__;
 var shown = "__TOKEN__";
+// Tapping a bird on the timeline should hold it long enough to read. Without
+// this the next poll drags you straight back to whatever is current, which
+// makes the timeline look broken rather than interactive. Carried in the URL
+// because the reload strategy throws away in-page state.
+var PIN_MS = 60000;
+var pinnedUntil = (location.search.indexOf("pin=1") > -1) ? (Date.now() + PIN_MS) : 0;
 
 function el(id) { return document.getElementById(id); }
 function diag(m) { el("diag").innerHTML = m; }
@@ -170,14 +181,16 @@ function nudge() {
   }
 }
 
-function go(gen) {
+function go(gen, pinned) {
   // Navigation, not a swap. Only a page load repaints this panel - see
   // docs/eink-refresh.md - and it also lets the server render the caption.
-  location.href = "/?nudge=" + MODE + "&ms=" + MS + "&g=" + gen;
+  location.href = "/?nudge=" + MODE + "&ms=" + MS + "&g=" + gen +
+                  (pinned ? "&pin=1" : "");
 }
 
-function show(gen) {
-  if (MODE === "reload") { go(gen); return; }
+function show(gen, pinned) {
+  if (pinned) { pinnedUntil = Date.now() + PIN_MS; }
+  if (MODE === "reload") { go(gen, pinned); return; }
   var img = el("p");
   img.onload = function () { nudge(); };
   img.src = "/collage.png?g=" + gen;
@@ -279,12 +292,15 @@ function drawTimeline() {
     for (i = 0; i < cells.length; i++) {
       (function (node) {
         var g = node.getAttribute("data-g");
-        if (g !== null) { node.onclick = function () { show(g); }; }
+        if (g !== null) { node.onclick = function () { show(g, true); }; }
       })(cells[i]);
     }
     var ax = "";
     for (i = d.hours; i >= 0; i--) {
-      ax += '<span class="tick" style="left:' + ((1 - i / d.hours) * 100).toFixed(1) + '%">' +
+      // Span 1.5%..93% rather than 0..100: at the extremes the label runs off
+      // the edge of the panel and the last one ("now") disappears entirely.
+      var lx = 1.5 + (1 - i / d.hours) * 91.5;
+      ax += '<span class="tick" style="left:' + lx.toFixed(1) + '%">' +
             (i === 0 ? "now" : "-" + i + "h") + '</span>';
     }
     el("axis").innerHTML = ax;
@@ -300,7 +316,9 @@ function poll() {
     if (x.status === 200) {
       try {
         var d = JSON.parse(x.responseText);
-        if (d.token !== shown) { shown = d.token; show(d.token); drawTimeline(); }
+        if (d.token !== shown && Date.now() >= pinnedUntil) {
+          shown = d.token; show(d.token); drawTimeline();
+        }
       } catch (e) {}
     }
     setTimeout(poll, 3000);
@@ -359,10 +377,6 @@ def compose(plates: list[Path], generation: int) -> bytes:
     scale = min(avail_w / bird.width, avail_h / bird.height)
     bird = bird.resize((round(bird.width * scale), round(bird.height * scale)), Image.LANCZOS)
     page.paste(bird, ((RENDER_W - bird.width) // 2, inset + (avail_h - bird.height) // 2))
-    # Marker so you can tell from across the room that it really changed.
-    draw = ImageDraw.Draw(page)
-    label = "generation %d  -  %s" % (generation, time.strftime("%H:%M:%S"))
-    draw.text((inset, RENDER_H - 60), label, fill=(120, 120, 120))
     out = io.BytesIO()
     page.save(out, format="PNG")
     return out.getvalue()
