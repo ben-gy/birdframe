@@ -1,12 +1,15 @@
 # birdframe - birdsong to 1800s plates, on a QuirkLogic Papyr.
 #
-# Adapted from fugleramme's examples/docker-compose.yml, with two changes:
+# One standalone unit on the verandah: a Pi in a sealed enclosure with the mic
+# on a gland-sealed cable, running the whole stack. The Papyr is a browser
+# pointed at it over wi-fi. Nothing else on the network is involved.
 #
-#  * No /dev/snd. The mic is a Pi Zero 2 W under the eave running
-#    birdnet-go-remote-mic; audio arrives over the network as RTSP, so nothing
-#    here needs a sound card and none of this is Linux-audio-specific.
-#  * papyr-view sits in front of the frame and reduces the collage to the
-#    Papyr's 16 greys. See papyr-view/app.py for why that is not upstream's job.
+# Adapted from fugleramme's examples/docker-compose.yml. The one addition is
+# papyr-view, which reduces the collage to the Papyr's 16 greys - see
+# papyr-view/app.py for why that is not upstream's job.
+#
+# Both upstream images publish linux/arm64, so this runs on a Pi as-is. Use a
+# 64-bit Pi OS.
 
 services:
   fugleramme:
@@ -19,9 +22,9 @@ services:
       # SEED ONLY - see the warning in README.md. These apply to a fresh volume
       # and are ignored once the setting has been saved on the admin page.
       #
-      # 4K renders 2880x2160, which papyr-view downsamples to the panel's
+      # 4K renders 2880x2160, which papyr-view downsamples to the Papyr's
       # 2200x1650. Downsampling into the dither is much cleaner than scaling up
-      # to it, and 4:3 means no cropping either way.
+      # to it, and 4:3 either side means no cropping.
       FUGLERAMME_WEB_RESOLUTION: 4K
       # 40 birds on a 16-grey panel is soup. Fewer, larger plates read.
       FUGLERAMME_SPECIES_LIMIT: "16"
@@ -29,9 +32,8 @@ services:
       FUGLERAMME_PRIMARY_LANGUAGE: en
     expose:
       - "8080"
-    # Not published to the LAN: the Papyr talks to papyr-view, and the admin is
-    # reachable through it on the same port. Add a "8080:8080" ports line if you
-    # want the colour kiosk directly as well.
+    # Not published: the Papyr talks to papyr-view, and the admin is reachable
+    # through it on the same port. Add "8080:8080" to see the colour kiosk too.
     volumes:
       - fugleramme:/data
     depends_on:
@@ -46,7 +48,7 @@ services:
       PAPYR_WIDTH: "2200"
       PAPYR_HEIGHT: "1650"
       PAPYR_LEVELS: "16"
-      # Tune these against a browser first: /collage.png?gamma=0.7&cutoff=2
+      # Tune against a browser first: /collage.png?gamma=0.7&cutoff=2
       PAPYR_GAMMA: "0.85"
       PAPYR_CUTOFF: "1"
       TZ: ${TZ:-Australia/Sydney}
@@ -65,10 +67,19 @@ services:
       TZ: ${TZ:-Australia/Sydney}
       BIRDNET_UID: ${BIRDNET_UID:-1000}
       BIRDNET_GID: ${BIRDNET_GID:-1000}
+      # Set if the Pi has several cards and the wrong one is picked - `arecord -l`.
+      ALSA_CARD: ${ALSA_CARD:-}
+    # The mic is plugged into this Pi, so audio is a local device rather than a
+    # network stream. Linux only, which the Pi is.
+    devices:
+      - /dev/snd:/dev/snd
+    group_add:
+      - audio  # or the number from `getent group audio`, if the name does not resolve
     volumes:
       - birdnet-config:/config
       - birdnet-data:/data
     # Debug logs run to a 26GB ceiling at BirdNET-Go's defaults; HLS is churn.
+    # On a Pi this also spares the SD card a great deal of writing.
     tmpfs:
       - /data/logs:size=128M,uid=${BIRDNET_UID:-1000},gid=${BIRDNET_GID:-1000},mode=0755
       - /config/hls:exec,size=50M,uid=${BIRDNET_UID:-1000},gid=${BIRDNET_GID:-1000},mode=0755

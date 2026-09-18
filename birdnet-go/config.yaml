@@ -1,4 +1,4 @@
-# BirdNET-Go config for birdframe.
+# BirdNET-Go config for birdframe, running on the standalone verandah Pi.
 #
 # Adapted from fugleramme's detector/config/config.yaml.template, which is
 # deliberately stricter than BirdNET-Go's own defaults about false positives.
@@ -41,16 +41,9 @@ realtime:
     export:
       enabled: true          # 15s mp3 per detection — worth keeping, it's how you audit a suspicious species
 
-  # The mic node. See ../pi-mic/README.md.
-  #
-  # Use the IP, not <host>.local: mDNS discovery does not cross Docker's bridge
-  # network, so neither does .local resolution.
-  rtsp:
-    streams:
-      - name: garden-mic
-        url: rtsp://192.168.1.50:8554/garden    # >>> SET THIS <<<
-        type: rtsp
-        transport: tcp
+  # No rtsp block: the mic is plugged into this same Pi, so BirdNET-Go takes it
+  # as a local capture device. Pick it in the UI under Settings -> Audio (it is
+  # not set here); `arecord -l` names the card if the wrong one is chosen.
 
 output:
   sqlite:
