@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import argparse
 import io
+import json
 import random
 import sys
 import threading
@@ -31,7 +32,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "papyr-view"))
 
-from PIL import Image, ImageDraw  # noqa: E402
+from PIL import Image, ImageDraw, ImageOps  # noqa: E402
 
 import app  # papyr-view  # noqa: E402
 
@@ -50,6 +51,11 @@ WATERMARK_FRACTION = 0.13
 # Ink is anything below this; the cream ground sits well above it.
 INK_THRESHOLD = 232
 MARGIN = 0.04  # matches fugleramme's default passepartout allowance
+
+HISTORY_HOURS = 6
+THUMB_H = 190
+# Enough cells to read as a timeline, few enough to stay legible on the panel.
+BUCKETS = 20
 PAPER = (240, 236, 229)
 
 PAGE = """<!doctype html>
@@ -57,19 +63,27 @@ PAGE = """<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>birdframe self-test</title>
 <style>
-  /* Absolute positioning throughout, not flexbox: this has to lay out on
-     whatever Chrome the Papyr shipped with, and floats never surprise you. */
+  /* Absolute positioning throughout, not flexbox: the Papyr's Chrome version is
+     unknown and floats never surprise you. */
   html,body{margin:0;padding:0;height:100%;background:#fff;font-family:sans-serif}
-  #bar{position:fixed;top:0;left:0;right:0;height:15%;padding:1%;box-sizing:border-box}
-  .b{display:inline-block;width:31%;height:44%;margin:0.8%;box-sizing:border-box;
-     border:3px solid #000;background:#fff;color:#000;font-size:3.2vh;font-weight:bold;
-     text-align:center;line-height:1.5;text-decoration:none;-webkit-tap-highlight-color:transparent}
+  #bar{position:fixed;top:0;left:0;right:0;height:14%;padding:0.8%;box-sizing:border-box}
+  .b{display:inline-block;width:23.4%;height:44%;margin:0.6%;box-sizing:border-box;
+     border:3px solid #000;background:#fff;color:#000;font-size:2.7vh;font-weight:bold;
+     text-align:center;line-height:1.6;text-decoration:none;
+     -webkit-tap-highlight-color:transparent}
   .b.on{background:#000;color:#fff}
-  #wrap{position:fixed;top:15%;bottom:7%;left:0;right:0}
-  img{width:100%;height:100%;object-fit:contain;display:block}
-  #foot{position:fixed;bottom:0;left:0;right:0;height:7%;font-size:3.4vh;
+  #wrap{position:fixed;top:14%;bottom:27%;left:0;right:0}
+  img#p{width:100%;height:100%;object-fit:contain;display:block}
+  #tl{position:fixed;bottom:7%;left:0;right:0;height:20%;border-top:2px solid #000;
+      box-sizing:border-box;padding-top:0.4%}
+  #tlrow{position:absolute;top:4%;left:0;right:0;height:72%;white-space:nowrap}
+  .cell{display:inline-block;width:5%;height:100%;text-align:center;vertical-align:top}
+  .cell img{max-width:96%;max-height:100%}
+  #axis{position:absolute;bottom:1%;left:0;right:0;height:22%;font-size:2vh;color:#000}
+  .tick{position:absolute;bottom:0;border-left:2px solid #000;padding-left:0.4%;height:60%}
+  #foot{position:fixed;bottom:0;left:0;right:0;height:7%;font-size:3vh;
         border-top:2px solid #000;padding:0.5% 2%;box-sizing:border-box}
-  #cd{float:right;font-weight:bold;font-size:5.2vh;min-width:2.2em;text-align:right}
+  #cd{float:right;font-weight:bold;font-size:5vh;min-width:2.2em;text-align:right}
   #ov{position:fixed;top:0;left:0;right:0;bottom:0;background:#000;display:none;z-index:9}
 </style></head>
 <body>
@@ -79,10 +93,13 @@ PAGE = """<!doctype html>
         class="b" id="m_opacity" onclick="setMode('opacity')">OPACITY</span><span
         class="b" id="m_overlay" onclick="setMode('overlay')">OVERLAY</span><span
         class="b" id="m_reload"  onclick="setMode('reload')">RELOAD</span><span
-        class="b" id="m_none"    onclick="setMode('none')">NONE</span>
+        class="b" id="m_none"    onclick="setMode('none')">NONE</span><span
+        class="b" id="m_full"    onclick="goFull()">FULLSCREEN</span><span
+        class="b" id="m_exit"    onclick="exitFull()">EXIT FS</span>
 </div>
 <div id="wrap"><img id="p" src="/collage.png?g=__TOKEN__" alt=""></div>
-<div id="foot"><span id="st">mode: __NUDGE__</span><span id="cd">&nbsp;</span></div>
+<div id="tl"><div id="tlrow"></div><div id="axis"></div></div>
+<div id="foot"><span id="st">mode: __NUDGE__</span><span id="cd">__LEFT__</span></div>
 <div id="ov"></div>
 <script>
 // XHR and string concat throughout: this runs on the Papyr's stock Chrome.
@@ -91,10 +108,38 @@ var MODE = "__NUDGE__";
 var shown = "__TOKEN__";
 var left = __LEFT__;
 
+function status(msg) { document.getElementById("st").innerHTML = msg; }
+
+// ---- fullscreen -----------------------------------------------------------
+// Must be called from a user gesture, which a tap is. Note that a page reload
+// drops out of fullscreen, so fullscreen and the "reload" repaint strategy may
+// not survive together - which is precisely worth finding out here.
+function goFull() {
+  var e = document.documentElement;
+  var f = e.requestFullscreen || e.webkitRequestFullscreen ||
+          e.webkitRequestFullScreen || e.mozRequestFullScreen || e.msRequestFullscreen;
+  if (!f) { status("fullscreen: NOT SUPPORTED by this browser"); return; }
+  try { f.call(e); status("fullscreen: requested"); }
+  catch (err) { status("fullscreen: rejected - " + err); }
+  setTimeout(reportFull, 800);
+}
+function exitFull() {
+  var x = document.exitFullscreen || document.webkitExitFullscreen ||
+          document.webkitCancelFullScreen || document.mozCancelFullScreen;
+  if (x) { try { x.call(document); } catch (e) {} }
+  setTimeout(reportFull, 800);
+}
+function isFull() {
+  return !!(document.fullscreenElement || document.webkitFullscreenElement ||
+            document.webkitCurrentFullScreenElement || document.mozFullScreenElement);
+}
+function reportFull() {
+  status("mode: " + MODE + " &nbsp;-&nbsp; fullscreen: " + (isFull() ? "YES" : "no"));
+}
+
+// ---- repaint strategy -----------------------------------------------------
 // Swapping img.src updates the framebuffer, but an e-ink controller only pushes
-// a new waveform on events it recognises - touch, scroll, page load. Without a
-// nudge the old plate stays on the glass, which looks exactly like "it never
-// rotated". Which nudge works is a property of this device's firmware.
+// a new waveform on events it recognises - touch, scroll, page load.
 function nudge() {
   var b = document.body;
   if (MODE === "invert") {
@@ -111,7 +156,6 @@ function nudge() {
     o.style.display = "block";
     setTimeout(function () { o.style.display = "none"; }, 150);
   }
-  // "none" deliberately does nothing - the baseline that already failed.
 }
 
 function setMode(m) {
@@ -120,15 +164,10 @@ function setMode(m) {
     document.getElementById("m_" + MODES[i]).className =
       (MODES[i] === m) ? "b on" : "b";
   }
-  // Keep the mode in the URL so it survives a reload - whether that reload is
-  // the "reload" strategy firing, or you pressing refresh yourself.
   try { history.replaceState(null, "", "/?nudge=" + m); } catch (e) {}
-
-  // Deliberately does NOT swap the image. Your tap is itself an e-ink refresh
-  // event, so swapping here would repaint regardless of the mode and every
-  // button would look like it works. Wait for the countdown instead.
-  document.getElementById("st").innerHTML =
-    "mode: " + m + " &nbsp;-&nbsp; hands off until 0 &nbsp;&rarr;";
+  // Deliberately does NOT swap the image: a tap is itself an e-ink refresh
+  // event, so every button would appear to work. Wait for the countdown.
+  status("mode: " + m + " &nbsp;-&nbsp; hands off until 0 &rarr;");
 }
 
 function swap(token) {
@@ -137,6 +176,49 @@ function swap(token) {
   img.src = "/collage.png?g=" + token;
 }
 
+// ---- timeline -------------------------------------------------------------
+// Bucketed rather than absolutely positioned: real detections cluster, and
+// overlapping thumbnails on a greyscale panel turn into an unreadable pile.
+// One cell per time slot, showing the last bird heard in it.
+function drawTimeline() {
+  var x = new XMLHttpRequest();
+  x.open("GET", "/history?t=" + Date.now(), true);
+  x.onreadystatechange = function () {
+    if (x.readyState !== 4 || x.status !== 200) return;
+    var d;
+    try { d = JSON.parse(x.responseText); } catch (e) { return; }
+    var span = d.hours * 3600, from = d.now - span;
+    var slots = [];
+    for (var i = 0; i < d.buckets; i++) { slots.push(null); }
+    for (var j = 0; j < d.events.length; j++) {
+      var ev = d.events[j];
+      var b = Math.floor((ev.t - from) / span * d.buckets);
+      // An event at exactly "now" lands on d.buckets, one past the end. Clamp
+      // rather than drop it: that event is the bird showing right now, which is
+      // the single one you most want on the timeline.
+      if (b >= d.buckets) { b = d.buckets - 1; }
+      if (b >= 0) { slots[b] = ev; }
+    }
+    var html = "";
+    for (var k = 0; k < d.buckets; k++) {
+      html += '<span class="cell">';
+      if (slots[k]) { html += '<img src="/thumb.png?p=' + slots[k].p + '">'; }
+      html += '</span>';
+    }
+    document.getElementById("tlrow").innerHTML = html;
+
+    var ax = "";
+    for (var h = d.hours; h >= 0; h--) {
+      var pct = (1 - h / d.hours) * 100;
+      var lbl = (h === 0) ? "now" : ("-" + h + "h");
+      ax += '<span class="tick" style="left:' + pct.toFixed(1) + '%">' + lbl + '</span>';
+    }
+    document.getElementById("axis").innerHTML = ax;
+  };
+  x.send();
+}
+
+// ---- poll -----------------------------------------------------------------
 function poll() {
   var x = new XMLHttpRequest();
   x.open("GET", "/state?t=" + Date.now(), true);
@@ -148,14 +230,10 @@ function poll() {
         left = d.left;
         if (d.token !== shown) {
           shown = d.token;
-          if (MODE === "reload") {
-            // NOT location.reload(): that re-requests "/" with no query, so the
-            // server re-serves its default mode and silently switches you back.
-            location.href = "/?nudge=reload";
-            return;
-          }
+          if (MODE === "reload") { location.href = "/?nudge=reload"; return; }
           swap(d.token);
-          document.getElementById("st").innerHTML = "mode: " + MODE + " - gen " + d.token;
+          drawTimeline();
+          status("mode: " + MODE + " - gen " + d.token);
         }
       } catch (e) {}
     }
@@ -164,19 +242,14 @@ function poll() {
   x.send();
 }
 
-// Shown continuously, because a countdown you cannot see is not a countdown.
-//
-// The risk this accepts: the digits repainting each second may themselves make
-// the panel refresh, which would repaint the bird too and make every mode look
-// like it works. That is exactly what the NONE button is for - it is the
-// control. If NONE also changes the bird, the countdown is doing the work and
-// the result means nothing.
 function tick() {
   if (left > 0) { left = left - 1; }
   document.getElementById("cd").innerHTML = String(left);
 }
 
 setMode("__NUDGE__");
+reportFull();
+drawTimeline();
 setInterval(tick, 1000);
 poll();
 </script>
@@ -222,6 +295,23 @@ def compose(plates: list[Path], generation: int) -> bytes:
     return out.getvalue()
 
 
+def thumbnail(path: Path) -> bytes:
+    """A small, high-contrast crop for the timeline.
+
+    No dithering here. Floyd-Steinberg on a 190px-tall bird turns feather detail
+    into noise - the dot pattern stops reading as tone and starts reading as
+    dirt. Plain greyscale scales down far better at this size; the panel's own
+    rendering does the rest.
+    """
+    bird = trim_to_ink(Image.open(path).convert("RGB"))
+    bird = ImageOps.autocontrast(ImageOps.grayscale(bird), cutoff=1)
+    w = max(1, round(bird.width * THUMB_H / bird.height))
+    bird = bird.resize((w, THUMB_H), Image.LANCZOS)
+    out = io.BytesIO()
+    bird.save(out, format="PNG", optimize=True)
+    return out.getvalue()
+
+
 class State:
     def __init__(self, plates, seconds, generations):
         self.plates = plates
@@ -229,11 +319,40 @@ class State:
         self.generations = generations
         self.started = time.time()
         self.cache: dict[int, bytes] = {}
+        self.thumbs: dict[int, bytes] = {}
         self.lock = threading.Lock()
         self.pollers: dict[str, int] = {}
+        # Fixed seed, so the timeline does not reshuffle on every reload. In
+        # reload mode the page reloads constantly, and a timeline that rearranged
+        # itself each time would look broken and muddy the actual test.
+        rng = random.Random(20260918)
+        self.seeded = sorted(
+            (self.started - rng.randint(60, HISTORY_HOURS * 3600),
+             rng.randrange(len(self.plates)))
+            for _ in range(16)
+        )
 
     def token(self) -> int:
         return int((time.time() - self.started) // self.seconds) % self.generations
+
+    def thumb(self, index: int) -> bytes:
+        with self.lock:
+            if index not in self.thumbs:
+                self.thumbs[index] = thumbnail(self.plates[index % len(self.plates)])
+            return self.thumbs[index]
+
+    def history(self) -> list[dict]:
+        """Seeded past plus every cycle that has actually elapsed.
+
+        The elapsed part is derived from the clock rather than recorded as it
+        happens, so it stays correct across a restart and needs no bookkeeping.
+        """
+        now = time.time()
+        events = list(self.seeded)
+        for cycle in range(int((now - self.started) // self.seconds) + 1):
+            events.append((self.started + cycle * self.seconds, cycle % len(self.plates)))
+        cutoff = now - HISTORY_HOURS * 3600
+        return [{"t": round(t), "p": p} for t, p in sorted(events) if t >= cutoff]
 
     def left(self) -> int:
         """Whole seconds until the next change, for the on-screen countdown."""
@@ -296,6 +415,22 @@ def make_handler(state: State):
                         time.strftime("%H:%M:%S"), client, n, state.token()), flush=True)
                 self._send(200, b'{"token":"%d","left":%d}' % (state.token(), state.left()),
                            "application/json", {"Cache-Control": "no-store"})
+            elif path == "/history":
+                payload = {
+                    "now": round(time.time()),
+                    "hours": HISTORY_HOURS,
+                    "buckets": BUCKETS,
+                    "events": state.history(),
+                }
+                self._send(200, json.dumps(payload).encode(), "application/json",
+                           {"Cache-Control": "no-store"})
+            elif path == "/thumb.png":
+                try:
+                    idx = int(self.path.split("p=")[1].split("&")[0])
+                except (IndexError, ValueError):
+                    idx = 0
+                self._send(200, state.thumb(idx), "image/png",
+                           {"Cache-Control": "max-age=3600"})
             elif path == "/collage.png":
                 try:
                     g = int(self.path.split("g=")[1])
