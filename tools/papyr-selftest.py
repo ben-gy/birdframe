@@ -178,18 +178,36 @@ function pin() {
 }
 
 function buildSettings() {
+  // Data attributes plus wired handlers, never inline onclick built by string
+  // concatenation: the quote escaping for that has to survive both Python's
+  // triple-quoted string and the browser, and it did not - it collapsed to bare
+  // quotes, produced invalid JS, and killed the whole script.
   var h = "", i;
   for (i = 0; i < MODES.length; i++) {
-    h += '<span class="s' + (MODES[i] === MODE ? " on" : "") + '" onclick="setMode(\'' +
-         MODES[i] + '\')">' + MODES[i].toUpperCase() + '</span>';
+    h += '<span class="s' + (MODES[i] === MODE ? " on" : "") +
+         '" data-mode="' + MODES[i] + '">' + MODES[i].toUpperCase() + '</span>';
   }
   el("strategies").innerHTML = h;
   h = "";
   for (i = 0; i < DURATIONS.length; i++) {
-    h += '<span class="s' + (DURATIONS[i] === MS ? " on" : "") + '" onclick="setMs(' +
-         DURATIONS[i] + ')">' + DURATIONS[i] + 'ms</span>';
+    h += '<span class="s' + (DURATIONS[i] === MS ? " on" : "") +
+         '" data-ms="' + DURATIONS[i] + '">' + DURATIONS[i] + 'ms</span>';
   }
   el("durations").innerHTML = h;
+  wire("strategies", "data-mode");
+  wire("durations", "data-ms");
+}
+
+function wire(containerId, attr) {
+  var kids = el(containerId).getElementsByTagName("span");
+  for (var i = 0; i < kids.length; i++) {
+    (function (node) {
+      node.onclick = function () {
+        var v = node.getAttribute(attr);
+        if (attr === "data-mode") { setMode(v); } else { setMs(parseInt(v, 10)); }
+      };
+    })(kids[i]);
+  }
 }
 
 function setMode(m) { MODE = m; pin(); buildSettings(); footer(); }
