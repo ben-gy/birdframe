@@ -46,17 +46,13 @@ works and runs cooler, at the cost of speed.
 | [Clippy EM272Z1 Mono](https://micbooster.com/product/clippy-em272-microphone/), single, SKU FC169 | £39.20 |
 | [Radius Puffer Urchin for Clippy](https://micbooster.com/?s=windshield&post_type=product) — fur windshield | £15.00 |
 | Shipping to Australia | Not quoted on site; added at checkout |
+| [UGREEN US205, article 30724](https://www.ebay.com.au/itm/135786312775) — from eBay AU, not micbooster | ~$15–25 AUD |
 
 Listed prices include UK VAT, which normally comes off for export — so expect
 roughly **AU$105–135 landed**, and possibly local GST on the way in.
 
 Foam windshields are £2–3 but fur is the right call outdoors; wind straight on
 the capsule drowns out everything else.
-
-| [UGREEN US205, article 30724](https://www.ebay.com.au/itm/135786312775) (eBay AU) | ~$15–25 |
-| --- | --- |
-
-This is a **named part, not a category** — see below.
 
 ### Enclosure — [Jaycar](https://www.jaycar.com.au) + element14
 
