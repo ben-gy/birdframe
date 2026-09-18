@@ -1,0 +1,81 @@
+# birdframe - birdsong to 1800s plates, on a QuirkLogic Papyr.
+#
+# Adapted from fugleramme's examples/docker-compose.yml, with two changes:
+#
+#  * No /dev/snd. The mic is a Pi Zero 2 W under the eave running
+#    birdnet-go-remote-mic; audio arrives over the network as RTSP, so nothing
+#    here needs a sound card and none of this is Linux-audio-specific.
+#  * papyr-view sits in front of the frame and reduces the collage to the
+#    Papyr's 16 greys. See papyr-view/app.py for why that is not upstream's job.
+
+services:
+  fugleramme:
+    image: ghcr.io/arnegiacomo/fugleramme:latest
+    container_name: fugleramme
+    restart: unless-stopped
+    environment:
+      FUGLERAMME_DETECTOR_URL: http://birdnet-go:8080
+      TZ: ${TZ:-Australia/Sydney}
+      # SEED ONLY - see the warning in README.md. These apply to a fresh volume
+      # and are ignored once the setting has been saved on the admin page.
+      #
+      # 4K renders 2880x2160, which papyr-view downsamples to the panel's
+      # 2200x1650. Downsampling into the dither is much cleaner than scaling up
+      # to it, and 4:3 means no cropping either way.
+      FUGLERAMME_WEB_RESOLUTION: 4K
+      # 40 birds on a 16-grey panel is soup. Fewer, larger plates read.
+      FUGLERAMME_SPECIES_LIMIT: "16"
+      FUGLERAMME_MODE: collage
+      FUGLERAMME_PRIMARY_LANGUAGE: en
+    expose:
+      - "8080"
+    # Not published to the LAN: the Papyr talks to papyr-view, and the admin is
+    # reachable through it on the same port. Add a "8080:8080" ports line if you
+    # want the colour kiosk directly as well.
+    volumes:
+      - fugleramme:/data
+    depends_on:
+      - birdnet-go
+
+  papyr-view:
+    build: ./papyr-view
+    container_name: papyr-view
+    restart: unless-stopped
+    environment:
+      PAPYR_UPSTREAM: http://fugleramme:8080
+      PAPYR_WIDTH: "2200"
+      PAPYR_HEIGHT: "1650"
+      PAPYR_LEVELS: "16"
+      # Tune these against a browser first: /collage.png?gamma=0.7&cutoff=2
+      PAPYR_GAMMA: "0.85"
+      PAPYR_CUTOFF: "1"
+      TZ: ${TZ:-Australia/Sydney}
+    ports:
+      - "8081:8081"
+    depends_on:
+      - fugleramme
+
+  birdnet-go:
+    # Upstream tags by date. Pinned, not :latest, so an unattended pull cannot
+    # swap the detector under a working install.
+    image: ghcr.io/tphakala/birdnet-go:20260823
+    container_name: birdnet-go
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ:-Australia/Sydney}
+      BIRDNET_UID: ${BIRDNET_UID:-1000}
+      BIRDNET_GID: ${BIRDNET_GID:-1000}
+    volumes:
+      - birdnet-config:/config
+      - birdnet-data:/data
+    # Debug logs run to a 26GB ceiling at BirdNET-Go's defaults; HLS is churn.
+    tmpfs:
+      - /data/logs:size=128M,uid=${BIRDNET_UID:-1000},gid=${BIRDNET_GID:-1000},mode=0755
+      - /config/hls:exec,size=50M,uid=${BIRDNET_UID:-1000},gid=${BIRDNET_GID:-1000},mode=0755
+    ports:
+      - "8090:8080"
+
+volumes:
+  fugleramme:
+  birdnet-config:
+  birdnet-data:  # the detections live here - keep it

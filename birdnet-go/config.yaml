@@ -1,0 +1,69 @@
+# BirdNET-Go config for birdframe.
+#
+# Adapted from fugleramme's detector/config/config.yaml.template, which is
+# deliberately stricter than BirdNET-Go's own defaults about false positives.
+# Only keys differing from those defaults are set.
+# Reference: https://github.com/tphakala/birdnet-go/wiki
+#
+# This lives in the `birdnet-config` volume once the stack has run. To apply it
+# to a fresh install:
+#   docker compose up -d birdnet-go        # let it create the volume
+#   docker compose cp birdnet-go/config.yaml birdnet-go:/config/config.yaml
+#   docker compose restart birdnet-go
+# After that, edit in the UI on :8090 — this file is a starting point, not the
+# source of truth.
+
+birdnet:
+  # en-us is what upstream ships and is known good. If Australian common names
+  # read oddly, try en-uk from the Settings dropdown.
+  locale: en-us
+  threshold: 0.8
+
+  # >>> SET THESE. <<<
+  # The range filter is the single most important setting here: it restricts the
+  # species list to what is plausible at this lat/lon in this week of the year.
+  # Left at 0.000 you will get confident detections of European birds.
+  # Example below is Sydney — replace with your actual coordinates.
+  latitude: -33.87
+  longitude: 151.21
+
+  overlap: 2.2               # 0.8s stride over the 3s window, ~4 looks at each sound; upstream default 0 looks once
+  rangefilter:
+    threshold: 0.05          # up from the 0.01 default: cut species unlikely at this lat/lon + week
+
+realtime:
+  interval: 15               # min seconds between repeat detections of a species
+  falsepositivefilter:
+    level: 2                 # 0 off, 1 lenient, 2 moderate, 3 balanced, 4 strict, 5 max
+  dynamicthreshold:
+    enabled: false           # defaults to true upstream: lets a confident hit lower the bar to 0.2 for 24h
+  audio:
+    export:
+      enabled: true          # 15s mp3 per detection — worth keeping, it's how you audit a suspicious species
+
+  # The mic node. See ../pi-mic/README.md.
+  #
+  # Use the IP, not <host>.local: mDNS discovery does not cross Docker's bridge
+  # network, so neither does .local resolution.
+  rtsp:
+    streams:
+      - name: garden-mic
+        url: rtsp://192.168.1.50:8554/garden    # >>> SET THIS <<<
+        type: rtsp
+        transport: tcp
+
+output:
+  sqlite:
+    enabled: true
+    path: /data/birdnet.db
+
+# BirdNET-Go defaults every module to debug, ~82MB/day. default_level alone will
+# not do it — the per-module defaults outrank it. Flip one back to debug to
+# troubleshoot that module.
+logging:
+  default_level: info
+  file_output:
+    max_size: 10             # MB before rotation
+    max_age: 7
+    max_rotated_files: 2
+    compress: true
