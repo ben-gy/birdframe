@@ -20,17 +20,65 @@ not a marginal one.
 
 ## Bill of materials
 
-| Part | What and why |
+Prices checked September 2026, AUD inc GST unless noted. Links go to the
+specific part, not a category.
+
+### Compute — [Core Electronics](https://core-electronics.com.au)
+
+| Part | Price | Stock |
+| --- | --- | --- |
+| [Raspberry Pi 5 Model B 2GB](https://core-electronics.com.au/catalogsearch/result/?q=Raspberry+Pi+5+Model+B+2GB) | $132.39 | **Lead time** |
+| [Pi 5 Active Cooler](https://core-electronics.com.au/catalogsearch/result/?q=Raspberry+Pi+5+Active+Cooler) | $8.80 | In stock |
+| [Official 27 W USB-C supply](https://core-electronics.com.au/catalogsearch/result/?q=Raspberry+Pi+27W+USB-C+Power+Supply) | $21.07 | In stock |
+| microSD, 32 GB+ A2 | ~$20 | Official 32 GB card is out of stock; any A2 card works, or the [64 GB preloaded](https://core-electronics.com.au/catalogsearch/result/?q=Raspberry+Pi+OS+64GB) at $51.85 |
+| Shipping | $7+ | |
+
+**The Pi is the long pole.** Core Electronics lists both the 2GB and 4GB
+($179.55) as lead-time items — the 4GB quoted dispatch Oct 13–23. Check
+[Little Bird](https://littlebirdelectronics.com.au/search?q=Raspberry+Pi+5),
+who list Pi 5 boards from ~$89, before committing to the wait. A **Pi 4** also
+works and runs cooler, at the cost of speed.
+
+### Audio — [micbooster](https://micbooster.com) (UK, ships worldwide)
+
+| Part | Price |
 | --- | --- |
-| [Raspberry Pi 5, 2 GB](https://www.raspberrypi.com/products/raspberry-pi-5/) | What upstream tests against. 2 GB is enough — BirdNET-Go classifies, fugleramme renders a collage every few minutes. A Pi 4 also works and runs cooler, at the cost of speed. |
-| [Active Cooler](https://www.raspberrypi.com/products/active-cooler/) | **Not optional.** Continuous inference makes a Pi 5 run surprisingly hot. In a sealed box the fan stirs internal air and the case does the dissipating — that combination is what keeps it in spec. |
-| microSD, 32 GB+ | Holds the sound clips and artwork. |
-| [Official 27 W USB-C supply](https://www.raspberrypi.com/products/27w-power-supply/) | Anything weaker and the Pi throttles or browns out under load. |
-| [Clippy EM272Z1 mono](https://micbooster.com/product/clippy-em272-microphone/), 3.5 mm | The mic matters more than the Pi. Low self-noise, high sensitivity, 1 m cable. |
-| **UGREEN US205 USB audio adapter** (article 30724) | See below. |
-| Die-cast aluminium IP66 enclosure | Metal, not ABS: the case is the heatsink. |
-| M12 Gore vent, desiccant pack, 2× cable glands | Condensation control — see below. |
-| Fur windshield ("dead cat") for the capsule | Wind straight on the capsule drowns out everything else. |
+| [Clippy EM272Z1 Mono](https://micbooster.com/product/clippy-em272-microphone/), single, SKU FC169 | £39.20 |
+| [Radius Puffer Urchin for Clippy](https://micbooster.com/?s=windshield&post_type=product) — fur windshield | £15.00 |
+| Shipping to Australia | Not quoted on site; added at checkout |
+
+Listed prices include UK VAT, which normally comes off for export — so expect
+roughly **AU$105–135 landed**, and possibly local GST on the way in.
+
+Foam windshields are £2–3 but fur is the right call outdoors; wind straight on
+the capsule drowns out everything else.
+
+| [UGREEN US205, article 30724](https://www.ebay.com.au/itm/135786312775) (eBay AU) | ~$15–25 |
+| --- | --- |
+
+This is a **named part, not a category** — see below.
+
+### Enclosure — [Jaycar](https://www.jaycar.com.au) + element14
+
+| Part | Price |
+| --- | --- |
+| [HB5050 sealed diecast aluminium, 222×146×55 mm, IP65](https://www.jaycar.com.au/sealed-diecast-aluminium-enclosure-222-x-146-x-55mm/p/HB5050) | $39.95 |
+| [HB5046, 171×121×55 mm](https://www.jaycar.com.au/sealed-diecast-aluminium-enclosure-171-x-121-x-55/p/HB5046) — tighter alternative | $36.95 |
+| Cable glands ×2 | ~$8 |
+| [M12 protective vent](https://au.element14.com/c/enclosures-racks-cabinets/enclosure-rack-cabinet-accessories/vent-drains) (Gore, or Amphenol LTW from [Mouser AU](https://au.mouser.com/en/new/amphenol/amphenol-screw-vent-m12/)) | ~$15–25 |
+| Desiccant packs | ~$10 |
+
+Take the **HB5050**. The extra surface area is free cooling, and 55 mm depth
+clears the Pi with the Active Cooler fitted.
+
+### Total
+
+**Roughly AU$410–460**, with the mic and the Pi accounting for over half.
+
+Using the Papyr as the display is what keeps that number down: an Inky
+Impression 13.3" would add **$434.95** (Waveshare, the only 13.3" in stock in
+Australia — and it needs a driver shim) or **£191.25** (Pimoroni, currently out
+of stock and not carried by Australian retailers at all).
 
 ### The sound card is a named part, not a guess
 
@@ -39,8 +87,8 @@ of the 3.5 mm jack. Plenty of USB dongles supply none, and the failure mode is
 not an error but perfect silence.
 
 Upstream names the exact adapter it verified: **UGREEN US205, article 30724**.
-Buy that one rather than something that looks similar. If you end up with a
-substitute, put a multimeter across the jack's ring and sleeve and confirm
+Buy that one rather than something that merely looks similar. If you end up with
+a substitute, put a multimeter across the jack's ring and sleeve and confirm
 ~2–5 V **before** it goes into a sealed box on a wall.
 
 ## Enclosure
@@ -48,7 +96,7 @@ substitute, put a multimeter across the jack's ring and sleeve and confirm
 - **Aluminium, thermally coupled.** A thermal pad between the Pi's cooler or a
   heatsink case and the enclosure wall turns the box into the radiator. Mount it
   in shade; a metal box in direct sun is an oven regardless of what's inside.
-- **Gore vent (~$5, M12), not holes.** A sealed box warms through the day, the
+- **An M12 protective vent, not holes.** A sealed box warms through the day, the
   air inside contracts overnight and draws in moist air, and you get
   condensation on the board. A Gore vent equalises pressure while blocking
   liquid water and insects. Holes with mesh let both in.
