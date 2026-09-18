@@ -69,7 +69,7 @@ PAGE = """<!doctype html>
   img{width:100%;height:100%;object-fit:contain;display:block}
   #foot{position:fixed;bottom:0;left:0;right:0;height:7%;font-size:3.4vh;
         border-top:2px solid #000;padding:0.5% 2%;box-sizing:border-box}
-  #cd{float:right;font-weight:bold;font-size:4.6vh}
+  #cd{float:right;font-weight:bold;font-size:5.2vh;min-width:2.2em;text-align:right}
   #ov{position:fixed;top:0;left:0;right:0;bottom:0;background:#000;display:none;z-index:9}
 </style></head>
 <body>
@@ -89,7 +89,7 @@ PAGE = """<!doctype html>
 var MODES = ["invert","scroll","opacity","overlay","reload","none"];
 var MODE = "__NUDGE__";
 var shown = "__TOKEN__";
-var left = 99;
+var left = __LEFT__;
 
 // Swapping img.src updates the framebuffer, but an e-ink controller only pushes
 // a new waveform on events it recognises - touch, scroll, page load. Without a
@@ -124,7 +124,7 @@ function setMode(m) {
   // event, so swapping here would repaint regardless of the mode and every
   // button would look like it works. Wait for the countdown instead.
   document.getElementById("st").innerHTML =
-    "mode: " + m + " &nbsp;-&nbsp; wait for 0, hands off";
+    "mode: " + m + " &nbsp;-&nbsp; hands off until 0 &nbsp;&rarr;";
 }
 
 function swap(token) {
@@ -155,13 +155,16 @@ function poll() {
   x.send();
 }
 
-// Only render the last 5 seconds. A clock ticking every second would repaint
-// the panel constantly and mask the very thing we are testing.
+// Shown continuously, because a countdown you cannot see is not a countdown.
+//
+// The risk this accepts: the digits repainting each second may themselves make
+// the panel refresh, which would repaint the bird too and make every mode look
+// like it works. That is exactly what the NONE button is for - it is the
+// control. If NONE also changes the bird, the countdown is doing the work and
+// the result means nothing.
 function tick() {
-  left = left - 1;
-  var el = document.getElementById("cd");
-  if (left <= 5 && left >= 0) { el.innerHTML = String(left); }
-  else { el.innerHTML = "&nbsp;"; }
+  if (left > 0) { left = left - 1; }
+  document.getElementById("cd").innerHTML = String(left);
 }
 
 setMode("__NUDGE__");
@@ -270,6 +273,7 @@ def make_handler(state: State):
                 if "nudge=" in self.path:
                     nudge = self.path.split("nudge=")[1].split("&")[0]
                 body = (PAGE.replace("__TOKEN__", str(state.token()))
+                            .replace("__LEFT__", str(state.left()))
                             .replace("__NUDGE__", nudge))
                 print("    nudge mode: %s" % nudge, flush=True)
                 self._send(200, body.encode(), "text/html; charset=utf-8",
