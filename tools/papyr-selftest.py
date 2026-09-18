@@ -35,7 +35,21 @@ from PIL import Image, ImageDraw  # noqa: E402
 
 import app  # papyr-view  # noqa: E402
 
-RENDER_W, RENDER_H = 2880, 2160  # what fugleramme emits at FUGLERAMME_WEB_RESOLUTION=4K
+# Portrait, because that is how the Papyr stands. Gould's plates are folio
+# portrait too, so one bird fills a portrait frame far better than a landscape
+# one. Production handles this natively via FUGLERAMME_ROTATION.
+RENDER_W, RENDER_H = 2160, 2880
+
+# The Papyr's panel is 2200x1650 native (landscape). Stood on its short edge it
+# is 1650x2200, and papyr-view's reduction resizes to app.WIDTH/app.HEIGHT - so
+# those have to be turned too, or the portrait page gets squashed back flat.
+PANEL_PORTRAIT = (1650, 2200)
+
+# The rawpixel scans carry a watermark and a caption strip along the bottom.
+WATERMARK_FRACTION = 0.13
+# Ink is anything below this; the cream ground sits well above it.
+INK_THRESHOLD = 232
+MARGIN = 0.04  # matches fugleramme's default passepartout allowance
 PAPER = (240, 236, 229)
 
 PAGE = """<!doctype html>
@@ -78,22 +92,39 @@ poll();
 """
 
 
+def trim_to_ink(bird: Image.Image) -> Image.Image:
+    """Crop the watermark strip, then shrink to the plate's actual drawn area.
+
+    Scanned plates carry a lot of blank paper. Pasting one whole leaves the bird
+    small in the middle of its own margins, which on a frame reads as a mistake.
+    Trimming to the ink is what makes it fill the page.
+    """
+    bird = bird.crop((0, 0, bird.width, int(bird.height * (1 - WATERMARK_FRACTION))))
+    mask = bird.convert("L").point(lambda v: 255 if v < INK_THRESHOLD else 0)
+    box = mask.getbbox()
+    if box:
+        pad = int(min(bird.width, bird.height) * 0.01)
+        bird = bird.crop((
+            max(0, box[0] - pad), max(0, box[1] - pad),
+            min(bird.width, box[2] + pad), min(bird.height, box[3] + pad),
+        ))
+    return bird
+
+
 def compose(plates: list[Path], generation: int) -> bytes:
-    """A stand-in collage: a few plates on cream paper, different each cycle."""
-    rng = random.Random(generation)
+    """One bird, as large as the page allows."""
     page = Image.new("RGB", (RENDER_W, RENDER_H), PAPER)
-    picks = rng.sample(plates, min(3, len(plates)))
-    slots = [((120, 260), 0.62), ((1050, 90), 0.94), ((2020, 480), 0.68)]
-    for path, (pos, scale) in zip(picks, slots):
-        bird = Image.open(path).convert("RGB")
-        h = int(RENDER_H * scale)
-        bird = bird.resize((round(bird.width * h / bird.height), h), Image.LANCZOS)
-        page.paste(bird, pos)
+    bird = trim_to_ink(Image.open(plates[generation % len(plates)]).convert("RGB"))
+
+    inset = int(min(RENDER_W, RENDER_H) * MARGIN)
+    avail_w, avail_h = RENDER_W - 2 * inset, RENDER_H - 2 * inset - 60
+    scale = min(avail_w / bird.width, avail_h / bird.height)
+    bird = bird.resize((round(bird.width * scale), round(bird.height * scale)), Image.LANCZOS)
+    page.paste(bird, ((RENDER_W - bird.width) // 2, inset + (avail_h - bird.height) // 2))
     # Marker so you can tell from across the room that it really changed.
     draw = ImageDraw.Draw(page)
     label = "generation %d  -  %s" % (generation, time.strftime("%H:%M:%S"))
-    draw.rectangle([40, RENDER_H - 90, 40 + 12 * len(label) + 30, RENDER_H - 30], fill=PAPER)
-    draw.text((60, RENDER_H - 75), label, fill=(40, 40, 40))
+    draw.text((inset, RENDER_H - 60), label, fill=(120, 120, 120))
     out = io.BytesIO()
     page.save(out, format="PNG")
     return out.getvalue()
@@ -183,7 +214,8 @@ def main():
     ap.add_argument("--plates", required=True, help="directory of plate images")
     ap.add_argument("--port", type=int, default=8081)
     ap.add_argument("--seconds", type=int, default=40, help="seconds per generation")
-    ap.add_argument("--generations", type=int, default=5)
+    ap.add_argument("--generations", type=int, default=0, help="0 = one per plate")
+    ap.add_argument("--landscape", action="store_true", help="tablet on its long edge")
     args = ap.parse_args()
 
     plates = sorted(p for p in Path(args.plates).iterdir()
@@ -191,8 +223,16 @@ def main():
     if not plates:
         sys.exit("no images in %s" % args.plates)
 
-    state = State(plates, args.seconds, args.generations)
-    print("%d plates, %d generations, %ds each" % (len(plates), args.generations, args.seconds))
+    generations = args.generations or len(plates)
+    if args.landscape:
+        globals()["RENDER_W"], globals()["RENDER_H"] = RENDER_H, RENDER_W
+        app.WIDTH, app.HEIGHT = PANEL_PORTRAIT[1], PANEL_PORTRAIT[0]
+    else:
+        app.WIDTH, app.HEIGHT = PANEL_PORTRAIT
+    print("panel %dx%d, composing at %dx%d" % (app.WIDTH, app.HEIGHT, RENDER_W, RENDER_H))
+
+    state = State(plates, args.seconds, generations)
+    print("%d plates, %d generations, %ds each" % (len(plates), generations, args.seconds))
     print("rendering (this takes a moment - it is the real dither, at 2200x1650)...")
     state.prewarm()
     print("\nready on port %d\n" % args.port, flush=True)
