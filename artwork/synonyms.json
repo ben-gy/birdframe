@@ -1,0 +1,142 @@
+{
+ "Acanthagenys rufogularis": {
+  "gould": "Acanthogenys rufogularis",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Alisterus scapularis": {
+  "gould": "Aprosmictus scapulatus",
+  "note": "Gould's Aprosmictus scapulatus; genus and epithet both changed"
+ },
+ "Aythya australis": {
+  "gould": "Nyroca australis",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Caligavis chrysops": {
+  "gould": "Ptilotis chrysops",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Chenonetta jubata": {
+  "gould": "Bernicla jubata",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Chroicocephalus novaehollandiae": {
+  "gould": "Xema jamesonii",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Coracina novaehollandiae": {
+  "gould": "Graucalus melanops",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Dacelo novaeguineae": {
+  "gould": "Dacelo gigantic",
+  "note": "Gould's Dacelo gigantea; the index carries it as 'Dacelo gigantic', a typo in the Commons description"
+ },
+ "Entomyzon cyanotis": {
+  "gould": "Entomyza cyanotis",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Eudynamys orientalis": {
+  "gould": "Eudynamys flindersii",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Fulica atra": {
+  "gould": "Fulica australis",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Lalage leucomela": {
+  "gould": "Campephaga leucomela",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Manorina flavigula": {
+  "gould": "Myzantha flavigula",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Manorina melanocephala": {
+  "gould": "Myzantha garrula",
+  "note": "Gould's Myzantha garrula; genus and epithet both changed"
+ },
+ "Manorina melanophrys": {
+  "gould": "Myzantha melanophrys",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Myiagra inquieta": {
+  "gould": "Seisura inquieta",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Nesoptilotis leucotis": {
+  "gould": "Ptilotis leucotis",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Phaps chalcoptera": {
+  "gould": "Peristera chalcoptera",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Philemon citreogularis": {
+  "gould": "Tropidorhynchus citreogularis",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Philemon corniculatus": {
+  "gould": "Tropidorhynchus corniculatus",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Platycercus elegans": {
+  "gould": "Platycercus pennantii",
+  "note": "Gould's P. pennantii; epithet changed, verified by hand"
+ },
+ "Podargus strigoides": {
+  "gould": "Podargus cuvieri",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Poliocephalus poliocephalus": {
+  "gould": "Podiceps poliocephalus",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Pomatostomus superciliosus": {
+  "gould": "Pomatorhinus superciliosus",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Pomatostomus temporalis": {
+  "gould": "Pomatorhinus temporalis",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Poodytes gramineus": {
+  "gould": "Sphenoeacus gramineus",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Porphyrio porphyrio": {
+  "gould": "Porphyrio melanotus",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Rhipidura leucophrys": {
+  "gould": "Rhipidura motacilloides",
+  "note": "Gould's R. motacilloides; epithet changed"
+ },
+ "Stizoptera bichenovii": {
+  "gould": "Estrelda bichenovii",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Strepera versicolor": {
+  "gould": "Strepera anaphonensis",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Tadorna tadornoides": {
+  "gould": "Casarca tadornoides",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Todiramphus sanctus": {
+  "gould": "Halcyon sanctus",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Trichoglossus moluccanus": {
+  "gould": "Trichoglossus swainsonii",
+  "note": "Gould's T. swainsonii; epithet changed"
+ },
+ "Vanellus miles": {
+  "gould": "Lobivanellus personatus",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Zosterops lateralis": {
+  "gould": "Zosterops dorsalis",
+  "note": "Gould's Z. dorsalis; epithet changed"
+ }
+}

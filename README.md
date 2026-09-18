@@ -204,34 +204,40 @@ A cog (top left) opens the strategy panel; the fullscreen toggle sits top right.
 
 ## Artwork
 
-Fugleramme ships 800+ cutouts over 400+ species, weighted to the Nordics, British
-Isles and Germany. Elsewhere, most detections will have no plate.
+The frame needs a plate whenever BirdNET names a bird, so the anchor is **the
+list of birds that exist** — [880 Australian species ranked by record count](artwork/checklist-au.json),
+from the Atlas of Living Australia's 111.8 million records. Books are consulted
+to satisfy that list, not the other way round.
 
-For Australia the fix is arguably better than the original: **John Gould, _The Birds
-of Australia_ (1840–48)** — 681 hand-coloured lithographs covering essentially every
-Australian bird then known.
+That is a correction. Anchoring on Gould's *The Birds of Australia* because the
+upstream project did produced a pack containing a **Western Wattlebird** — three
+records at this location — while missing the **Little Raven**, the ninth
+commonest bird here.
 
-Species names come from each plate's Wikimedia Commons `<binomial> (illustrations)`
-category, which is a reliable mapping. **Plates without a confirmed species are
-dropped rather than captioned with a guess** — a wrong species under a plate is worse
-than no caption.
+| | Species | Observations |
+| --- | ---: | ---: |
+| Exact modern-name match | 258 (29%) | 49% |
+| Plus curated synonyms | **289 (33%)** | **66%** |
 
-Watch for archaic binomials: Gould's *Dacelo gigantea* is today's *Dacelo
-novaeguineae*. Match on common name plus an [Avibase](https://avibase.bsc-eoc.org/)
-synonym check, never a blind binomial join.
+A third of the species covers two thirds of the birds you will actually hear,
+because abundance is heavily skewed. Sources are consulted in a waterfall —
+Gould's *Birds of Australia* (685 names), Broinowski 1890/91, then Gould's
+*Birds of Europe* for the introduced species no 1848 Australian book could
+contain.
 
-**[artwork/plates/](artwork/plates/) already holds 36 cut-out Australian garden
-birds** — magpie, kookaburra, galah, lorikeet, currawong, wattlebird, fairywren
-and the rest — with transparent backgrounds, resolved names and facts. See
-[artwork/MAPPING.md](artwork/MAPPING.md) for how they were built and
-[artwork/gould-plate-index.json](artwork/gould-plate-index.json) for the other
-685 names.
+**Names are the hard part and they stay manual.** Four automated routes were
+tested and all failed; matching on a shared epithet — the obvious shortcut —
+offers a **heron** for the treecreeper and a **crake** for the Willie Wagtail.
+See [artwork/MAPPING.md](artwork/MAPPING.md) and
+[artwork/rejected-matches.json](artwork/rejected-matches.json).
+
+```bash
+python3 tools/build-pack.py --lat -37.74 --lon 145.22 --radius 6
+```
 
 > **The plates are CC BY-SA 4.0, not MIT.** Most are Rawpixel restorations: the
 > lithographs are public domain, the restorations are not. See
 > [artwork/ATTRIBUTION.md](artwork/ATTRIBUTION.md).
-
----
 
 ## Credits
 

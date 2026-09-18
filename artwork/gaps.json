@@ -1,0 +1,747 @@
+[
+ {
+  "species": "Corvus mellori",
+  "records": 5160,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Grallina cyanoleuca",
+  "records": 4929,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Anas superciliosa",
+  "records": 4038,
+  "note": "background not removed (1.00 opaque, broinowski-1890)"
+ },
+ {
+  "species": "Acridotheres tristis",
+  "records": 3941,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Spilopelia chinensis",
+  "records": 2968,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Cormobates leucophaea",
+  "records": 2491,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Turdus merula",
+  "records": 2473,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Melithreptus lunatus",
+  "records": 2179,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Cacomantis flabelliformis",
+  "records": 2161,
+  "note": "background not removed (1.00 opaque, broinowski-1890)"
+ },
+ {
+  "species": "Corcorax melanorhamphos",
+  "records": 1932,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Cacatua tenuirostris",
+  "records": 1851,
+  "note": "background not removed (0.94 opaque, broinowski-1890)"
+ },
+ {
+  "species": "Neochmia temporalis",
+  "records": 1624,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Egretta novaehollandiae",
+  "records": 1492,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Microcarbo melanoleucos",
+  "records": 1490,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Sturnus vulgaris",
+  "records": 1410,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Cacatua sanguinea",
+  "records": 1161,
+  "note": "background not removed (0.93 opaque, broinowski-1890)"
+ },
+ {
+  "species": "Oriolus sagittatus",
+  "records": 1093,
+  "note": "background not removed (1.00 opaque, broinowski-1890)"
+ },
+ {
+  "species": "Pachycephala rufiventris",
+  "records": 1038,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Threskiornis moluccus",
+  "records": 1026,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Columba livia",
+  "records": 990,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Anas castanea",
+  "records": 794,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Accipiter fasciatus",
+  "records": 765,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Phylidonyris novaehollandiae",
+  "records": 764,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Ptilotula penicillata",
+  "records": 762,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Chalcites lucidus",
+  "records": 660,
+  "note": "background not removed (0.95 opaque, broinowski-1890)"
+ },
+ {
+  "species": "Tachybaptus novaehollandiae",
+  "records": 655,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Artamus cyanopterus",
+  "records": 623,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Daphoenositta chrysoptera",
+  "records": 575,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Passer domesticus",
+  "records": 550,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Petroica boodang",
+  "records": 522,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Anhinga novaehollandiae",
+  "records": 412,
+  "note": "background not removed (1.00 opaque, broinowski-1890)"
+ },
+ {
+  "species": "Ninox strenua",
+  "records": 395,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Acanthiza chrysorrhoa",
+  "records": 372,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Anas gracilis",
+  "records": 362,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Heteroscenes pallidus",
+  "records": 335,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Turdus philomelos",
+  "records": 229,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Melithreptus brevirostris",
+  "records": 219,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Rhipidura fuliginosa",
+  "records": 219,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Anthochaera chrysoptera",
+  "records": 211,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Ninox boobook",
+  "records": 202,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Zoothera lunulata",
+  "records": 200,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Myzomela sanguinolenta",
+  "records": 193,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Phalacrocorax carbo",
+  "records": 189,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Chalcites basalis",
+  "records": 179,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Elanus axillaris",
+  "records": 176,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Hypotaenidia philippensis",
+  "records": 154,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Accipiter cirrocephalus",
+  "records": 153,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Anas platyrhynchos",
+  "records": 136,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Cacomantis variolosus",
+  "records": 135,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Petroica rosea",
+  "records": 134,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Passer montanus",
+  "records": 128,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Glossopsitta concinna",
+  "records": 126,
+  "note": "background not removed (1.00 opaque, broinowski-1890)"
+ },
+ {
+  "species": "Ceyx azureus",
+  "records": 123,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Falco longipennis",
+  "records": 117,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Falco peregrinus",
+  "records": 105,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Lalage tricolor",
+  "records": 99,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Ardea alba",
+  "records": 94,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Myiagra cyanoleuca",
+  "records": 93,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Falco cenchroides",
+  "records": 88,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Haliastur sphenurus",
+  "records": 81,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Chloris chloris",
+  "records": 79,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Phaps elegans",
+  "records": 77,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Myiagra rubecula",
+  "records": 74,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Phylidonyris pyrrhopterus",
+  "records": 72,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Microeca fascinans",
+  "records": 71,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Petrochelidon nigricans",
+  "records": 64,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Petroica rodinogaster",
+  "records": 64,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Petrochelidon ariel",
+  "records": 62,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Turnix varius",
+  "records": 62,
+  "note": "background not removed (1.00 opaque, broinowski-1890)"
+ },
+ {
+  "species": "Gallinago hardwickii",
+  "records": 61,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Hieraaetus morphnoides",
+  "records": 57,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Anthus novaeseelandiae",
+  "records": 54,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Cisticola exilis",
+  "records": 54,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Alauda arvensis",
+  "records": 52,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Elseyornis melanops",
+  "records": 42,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Apus pacificus",
+  "records": 40,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Cincloramphus mathewsi",
+  "records": 35,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Bubulcus ibis",
+  "records": 32,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Parvipsitta pusilla",
+  "records": 28,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Phalacrocorax varius",
+  "records": 26,
+  "note": "background not removed (1.00 opaque, broinowski-1890)"
+ },
+ {
+  "species": "Synoicus ypsilophora",
+  "records": 25,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Artamus superciliosus",
+  "records": 24,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Pyrrholaemus sagittatus",
+  "records": 24,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Zapornia pusilla",
+  "records": 23,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Accipiter novaehollandiae",
+  "records": 17,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Parvipsitta porphyrocephala",
+  "records": 16,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Ptilonorhynchus violaceus",
+  "records": 16,
+  "note": "background not removed (1.00 opaque, broinowski-1890)"
+ },
+ {
+  "species": "Zapornia tabuensis",
+  "records": 15,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Haliaeetus leucogaster",
+  "records": 14,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Nymphicus hollandicus",
+  "records": 14,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Anser anser",
+  "records": 13,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Artamus personatus",
+  "records": 13,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Gerygone olivacea",
+  "records": 13,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Mirafra javanica",
+  "records": 13,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Neophema chrysostoma",
+  "records": 13,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Lewinia pectoralis",
+  "records": 12,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Anthochaera phrygia",
+  "records": 11,
+  "note": "background not removed (1.00 opaque, broinowski-1890)"
+ },
+ {
+  "species": "Barnardius zonarius",
+  "records": 10,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Gerygone fusca",
+  "records": 10,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Psophodes olivaceus",
+  "records": 10,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Circus approximans",
+  "records": 8,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Climacteris erythrops",
+  "records": 8,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Lophoictinia isura",
+  "records": 8,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Meliphaga lewinii",
+  "records": 8,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Menura novaehollandiae",
+  "records": 8,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Tyto javanica",
+  "records": 8,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Cairina moschata",
+  "records": 7,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Ptilotula fusca",
+  "records": 7,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Hylacola pyrrhopygia",
+  "records": 6,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Milvus migrans",
+  "records": 6,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Egretta garzetta",
+  "records": 5,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Epthianura albifrons",
+  "records": 5,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Geopelia placida",
+  "records": 5,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Himantopus himantopus",
+  "records": 5,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Oxyura australis",
+  "records": 5,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Pavo cristatus",
+  "records": 5,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Eurostopodus mystacalis",
+  "records": 4,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Ninox connivens",
+  "records": 4,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Scythrops novaehollandiae",
+  "records": 4,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Todiramphus macleayii",
+  "records": 4,
+  "note": "background not removed (1.00 opaque, broinowski-1891)"
+ },
+ {
+  "species": "Dendrocygna eytoni",
+  "records": 3,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Ardea intermedia",
+  "records": 2,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Calidris ferruginea",
+  "records": 2,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Chlidonias hybrida",
+  "records": 2,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Falco subniger",
+  "records": 2,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Melanodryas cucullata",
+  "records": 2,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Psittacula krameri",
+  "records": 2,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Stagonopleura bella",
+  "records": 2,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Taeniopygia guttata",
+  "records": 2,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Todiramphus pyrrhopygius",
+  "records": 2,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Vanellus tricolor",
+  "records": 2,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Burhinus grallarius",
+  "records": 1,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Calidris ruficollis",
+  "records": 1,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Callipepla californica",
+  "records": 1,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Coracina papuensis",
+  "records": 1,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Eudyptula minor",
+  "records": 1,
+  "note": "background not removed (1.00 opaque, broinowski-1890)"
+ },
+ {
+  "species": "Gallus gallus",
+  "records": 1,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Gavicalis virescens",
+  "records": 1,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Grantiella picta",
+  "records": 1,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Lonchura castaneothorax",
+  "records": 1,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Lophochroa leadbeateri",
+  "records": 1,
+  "note": "background not removed (0.95 opaque, broinowski-1890)"
+ },
+ {
+  "species": "Neophema splendida",
+  "records": 1,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Ninox novaeseelandiae",
+  "records": 1,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Psittacula eupatria",
+  "records": 1,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Sericornis magnirostra",
+  "records": 1,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Stagonopleura guttata",
+  "records": 1,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Stercorarius parasiticus",
+  "records": 1,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Stomiopera flava",
+  "records": 1,
+  "note": "no plate in any source"
+ },
+ {
+  "species": "Tregellasia capito",
+  "records": 1,
+  "note": "no plate in any source"
+ }
+]
