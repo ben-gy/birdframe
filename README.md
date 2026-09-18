@@ -102,6 +102,21 @@ Upstream's kiosk page polls `/state` and swaps the image only when the collage
 actually changed — it never reloads itself. That's what we want on e-ink, and
 `papyr-view` proxies it untouched rather than reimplementing it.
 
+### Measured on the hardware
+
+Verified on the actual Papyr (it reports as `ENT-13T1`) with `tools/papyr-selftest.py`:
+
+- It **does** repaint on its own. Image swapped 14 s after a page load with no
+  reload in between, then kept cycling — six plates over several minutes.
+- Stock Chrome sustained a 3-second poll for **minutes at a time** with the tab
+  in the foreground. An earlier 60-second gap looked like a sleep but coincided
+  with the device being handled, so it is **not** established that stock Chrome
+  sleeps on its own here.
+
+So Fully Kiosk is still wanted for fullscreen, auto-start on boot and a wakelock
+you can rely on 24/7 — but whether stock Chrome would survive unattended is an
+open question, not a settled one. Worth a long unattended run before deciding.
+
 **Note:** wall-mounting the Papyr retires it as a writing tablet.
 
 ## Record what you learn
