@@ -120,6 +120,10 @@ function setMode(m) {
     document.getElementById("m_" + MODES[i]).className =
       (MODES[i] === m) ? "b on" : "b";
   }
+  // Keep the mode in the URL so it survives a reload - whether that reload is
+  // the "reload" strategy firing, or you pressing refresh yourself.
+  try { history.replaceState(null, "", "/?nudge=" + m); } catch (e) {}
+
   // Deliberately does NOT swap the image. Your tap is itself an e-ink refresh
   // event, so swapping here would repaint regardless of the mode and every
   // button would look like it works. Wait for the countdown instead.
@@ -144,7 +148,12 @@ function poll() {
         left = d.left;
         if (d.token !== shown) {
           shown = d.token;
-          if (MODE === "reload") { location.reload(); return; }
+          if (MODE === "reload") {
+            // NOT location.reload(): that re-requests "/" with no query, so the
+            // server re-serves its default mode and silently switches you back.
+            location.href = "/?nudge=reload";
+            return;
+          }
           swap(d.token);
           document.getElementById("st").innerHTML = "mode: " + MODE + " - gen " + d.token;
         }
@@ -275,7 +284,8 @@ def make_handler(state: State):
                 body = (PAGE.replace("__TOKEN__", str(state.token()))
                             .replace("__LEFT__", str(state.left()))
                             .replace("__NUDGE__", nudge))
-                print("    nudge mode: %s" % nudge, flush=True)
+                print("[%s] %s page load, nudge mode: %s" % (
+                    time.strftime("%H:%M:%S"), client, nudge), flush=True)
                 self._send(200, body.encode(), "text/html; charset=utf-8",
                            {"Cache-Control": "no-store"})
             elif path == "/state":
