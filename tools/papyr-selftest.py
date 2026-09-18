@@ -63,157 +63,221 @@ PAGE = """<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>birdframe self-test</title>
 <style>
-  /* Absolute positioning throughout, not flexbox: the Papyr's Chrome version is
-     unknown and floats never surprise you. */
   html,body{margin:0;padding:0;height:100%;background:#fff;font-family:sans-serif}
-  #bar{position:fixed;top:0;left:0;right:0;height:14%;padding:0.8%;box-sizing:border-box}
-  .b{display:inline-block;width:23.4%;height:44%;margin:0.6%;box-sizing:border-box;
-     border:3px solid #000;background:#fff;color:#000;font-size:2.7vh;font-weight:bold;
-     text-align:center;line-height:1.6;text-decoration:none;
-     -webkit-tap-highlight-color:transparent}
-  .b.on{background:#000;color:#fff}
-  #wrap{position:fixed;top:14%;bottom:27%;left:0;right:0}
+  #bar{position:fixed;top:0;left:0;right:0;height:8%;padding:0.6%;box-sizing:border-box}
+  .t{display:inline-block;width:32%;height:88%;margin:0.5%;box-sizing:border-box;
+     border:3px solid #000;background:#fff;color:#000;font-size:2.6vh;font-weight:bold;
+     text-align:center;line-height:2.1;-webkit-tap-highlight-color:transparent}
+  #wrap{position:fixed;top:8%;bottom:27%;left:0;right:0}
   img#p{width:100%;height:100%;object-fit:contain;display:block}
   #tl{position:fixed;bottom:7%;left:0;right:0;height:20%;border-top:2px solid #000;
       box-sizing:border-box;padding-top:0.4%}
   #tlrow{position:absolute;top:4%;left:0;right:0;height:72%;white-space:nowrap}
   .cell{display:inline-block;width:5%;height:100%;text-align:center;vertical-align:top}
   .cell img{max-width:96%;max-height:100%}
-  #axis{position:absolute;bottom:1%;left:0;right:0;height:22%;font-size:2vh;color:#000}
+  #axis{position:absolute;bottom:1%;left:0;right:0;height:22%;font-size:2vh}
   .tick{position:absolute;bottom:0;border-left:2px solid #000;padding-left:0.4%;height:60%}
-  #foot{position:fixed;bottom:0;left:0;right:0;height:7%;font-size:3vh;
-        border-top:2px solid #000;padding:0.5% 2%;box-sizing:border-box}
+  #foot{position:fixed;bottom:0;left:0;right:0;height:7%;font-size:2.8vh;
+        border-top:2px solid #000;padding:0.6% 2%;box-sizing:border-box}
   #cd{float:right;font-weight:bold;font-size:5vh;min-width:2.2em;text-align:right}
   #ov{position:fixed;top:0;left:0;right:0;bottom:0;background:#000;display:none;z-index:9}
+  /* Settings sits over everything; hidden until asked for, so the bird keeps
+     the screen during an actual test. */
+  #set{position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:20;
+       display:none;padding:2%;box-sizing:border-box;overflow:auto}
+  #set h2{font-size:3.4vh;margin:1.5% 0 0.8% 0}
+  .s{display:inline-block;width:23.5%;margin:0.6%;padding:1.6% 0;box-sizing:border-box;
+     border:3px solid #000;background:#fff;color:#000;font-size:2.5vh;font-weight:bold;
+     text-align:center;-webkit-tap-highlight-color:transparent}
+  .s.on{background:#000;color:#fff}
+  #close{display:block;width:100%;margin-top:3%;padding:2.4% 0;border:4px solid #000;
+         background:#000;color:#fff;font-size:3.4vh;font-weight:bold;text-align:center}
 </style></head>
 <body>
 <div id="bar">
-  <span class="b" id="m_invert"  onclick="setMode('invert')">INVERT</span><span
-        class="b" id="m_scroll"  onclick="setMode('scroll')">SCROLL</span><span
-        class="b" id="m_opacity" onclick="setMode('opacity')">OPACITY</span><span
-        class="b" id="m_overlay" onclick="setMode('overlay')">OVERLAY</span><span
-        class="b" id="m_reload"  onclick="setMode('reload')">RELOAD</span><span
-        class="b" id="m_none"    onclick="setMode('none')">NONE</span><span
-        class="b" id="m_full"    onclick="goFull()">FULLSCREEN</span><span
-        class="b" id="m_exit"    onclick="exitFull()">EXIT FS</span>
+  <span class="t" onclick="openSet()">SETTINGS</span><span
+        class="t" onclick="goFull()">FULLSCREEN</span><span
+        class="t" onclick="testSoon()">TEST IN 5s</span>
 </div>
 <div id="wrap"><img id="p" src="/collage.png?g=__TOKEN__" alt=""></div>
 <div id="tl"><div id="tlrow"></div><div id="axis"></div></div>
 <div id="foot"><span id="st">mode: __NUDGE__</span><span id="cd">__LEFT__</span></div>
 <div id="ov"></div>
+
+<div id="set">
+  <h2>Repaint strategy</h2>
+  <div id="strategies"></div>
+  <h2>Flash duration</h2>
+  <div id="durations"></div>
+  <h2>Other</h2>
+  <span class="s" onclick="goFull()">FULLSCREEN</span><span
+        class="s" onclick="exitFull()">EXIT FS</span><span
+        class="s" onclick="testSoon()">TEST 5s</span><span
+        class="s" onclick="location.href='/?nudge='+MODE+'&ms='+MS">RELOAD PAGE</span>
+  <div id="close" onclick="closeSet()">CLOSE</div>
+</div>
+
 <script>
 // XHR and string concat throughout: this runs on the Papyr's stock Chrome.
-var MODES = ["invert","scroll","opacity","overlay","reload","none"];
+var MODES = ["none","invert","invert2","bg","overlay","hide","resize","reflow",
+             "opacity","scroll","reload"];
+var DURATIONS = [150, 400, 800, 1500];
 var MODE = "__NUDGE__";
+var MS = __MS__;
 var shown = "__TOKEN__";
 var left = __LEFT__;
 
-function status(msg) { document.getElementById("st").innerHTML = msg; }
+function status(m) { document.getElementById("st").innerHTML = m; }
+function el(id) { return document.getElementById(id); }
+
+// ---- repaint strategies ---------------------------------------------------
+// An e-ink controller pushes a new waveform only on changes it notices. Which
+// change it notices is a property of this device's firmware, so the only way to
+// find out is to try them. Duration matters as much as the trick: an e-ink
+// refresh takes hundreds of ms, so a 150ms flash may finish before the panel
+// ever reacts - which is a likely reason the first round mostly failed.
+function nudge() {
+  var b = document.body, img = el("p"), o = el("ov");
+  if (MODE === "invert") {
+    b.style.webkitFilter = "invert(1)"; b.style.filter = "invert(1)";
+    setTimeout(function () { b.style.webkitFilter = ""; b.style.filter = ""; }, MS);
+  } else if (MODE === "invert2") {
+    var on = function () { b.style.webkitFilter = "invert(1)"; b.style.filter = "invert(1)"; };
+    var off = function () { b.style.webkitFilter = ""; b.style.filter = ""; };
+    on(); setTimeout(off, MS); setTimeout(on, MS * 2); setTimeout(off, MS * 3);
+  } else if (MODE === "bg") {
+    var prev = b.style.background;
+    b.style.background = "#000";
+    setTimeout(function () { b.style.background = prev || "#fff"; }, MS);
+  } else if (MODE === "overlay") {
+    o.style.display = "block";
+    setTimeout(function () { o.style.display = "none"; }, MS);
+  } else if (MODE === "hide") {
+    img.style.display = "none";
+    setTimeout(function () { img.style.display = "block"; }, MS);
+  } else if (MODE === "resize") {
+    img.style.width = "99%";
+    setTimeout(function () { img.style.width = "100%"; }, MS);
+  } else if (MODE === "reflow") {
+    b.style.display = "none";
+    void b.offsetHeight;          // force the layout to actually happen
+    b.style.display = "block";
+  } else if (MODE === "opacity") {
+    b.style.opacity = "0.99";
+    setTimeout(function () { b.style.opacity = "1"; }, MS);
+  } else if (MODE === "scroll") {
+    window.scrollTo(0, 2);
+    setTimeout(function () { window.scrollTo(0, 0); }, Math.min(MS, 200));
+  }
+  // "none" does nothing - the control. If NONE repaints, something else on the
+  // page is refreshing the panel and no comparison here means anything.
+}
+
+function pin() {
+  try { history.replaceState(null, "", "/?nudge=" + MODE + "&ms=" + MS); } catch (e) {}
+}
+
+function buildSettings() {
+  var h = "", i;
+  for (i = 0; i < MODES.length; i++) {
+    h += '<span class="s' + (MODES[i] === MODE ? " on" : "") + '" onclick="setMode(\'' +
+         MODES[i] + '\')">' + MODES[i].toUpperCase() + '</span>';
+  }
+  el("strategies").innerHTML = h;
+  h = "";
+  for (i = 0; i < DURATIONS.length; i++) {
+    h += '<span class="s' + (DURATIONS[i] === MS ? " on" : "") + '" onclick="setMs(' +
+         DURATIONS[i] + ')">' + DURATIONS[i] + 'ms</span>';
+  }
+  el("durations").innerHTML = h;
+}
+
+function setMode(m) { MODE = m; pin(); buildSettings(); footer(); }
+function setMs(v)   { MS = v;  pin(); buildSettings(); footer(); }
+function footer()   { status("mode: " + MODE + " @ " + MS + "ms &nbsp;-&nbsp; hands off &rarr;"); }
+
+function openSet()  { el("set").style.display = "block"; buildSettings(); }
+function closeSet() { el("set").style.display = "none"; }
+
+// A hands-off repaint on demand. Closes settings first and fires 5s later, so
+// your finger is nowhere near the glass when the image changes - a tap is
+// itself an e-ink refresh event and would fake a pass for any strategy.
+function testSoon() {
+  closeSet();
+  var n = 5;
+  status("TEST: hands off - changing in " + n + "s");
+  var iv = setInterval(function () {
+    n = n - 1;
+    if (n > 0) { status("TEST: hands off - changing in " + n + "s"); return; }
+    clearInterval(iv);
+    var next = (parseInt(shown, 10) + 1) % __GENS__;
+    shown = String(next);
+    if (MODE === "reload") { location.href = "/?nudge=reload&ms=" + MS + "&g=" + next; return; }
+    swap(String(next));
+    status("TEST fired: gen " + next + " (" + MODE + " @ " + MS + "ms)");
+  }, 1000);
+}
 
 // ---- fullscreen -----------------------------------------------------------
-// Must be called from a user gesture, which a tap is. Note that a page reload
-// drops out of fullscreen, so fullscreen and the "reload" repaint strategy may
-// not survive together - which is precisely worth finding out here.
 function goFull() {
+  closeSet();
   var e = document.documentElement;
   var f = e.requestFullscreen || e.webkitRequestFullscreen ||
           e.webkitRequestFullScreen || e.mozRequestFullScreen || e.msRequestFullscreen;
-  if (!f) { status("fullscreen: NOT SUPPORTED by this browser"); return; }
-  try { f.call(e); status("fullscreen: requested"); }
-  catch (err) { status("fullscreen: rejected - " + err); }
-  setTimeout(reportFull, 800);
+  if (!f) { status("fullscreen: NOT SUPPORTED"); return; }
+  try { f.call(e); } catch (err) { status("fullscreen: rejected"); return; }
+  setTimeout(reportFull, 900);
 }
 function exitFull() {
   var x = document.exitFullscreen || document.webkitExitFullscreen ||
           document.webkitCancelFullScreen || document.mozCancelFullScreen;
   if (x) { try { x.call(document); } catch (e) {} }
-  setTimeout(reportFull, 800);
+  setTimeout(reportFull, 900);
 }
 function isFull() {
   return !!(document.fullscreenElement || document.webkitFullscreenElement ||
             document.webkitCurrentFullScreenElement || document.mozFullScreenElement);
 }
 function reportFull() {
-  status("mode: " + MODE + " &nbsp;-&nbsp; fullscreen: " + (isFull() ? "YES" : "no"));
-}
-
-// ---- repaint strategy -----------------------------------------------------
-// Swapping img.src updates the framebuffer, but an e-ink controller only pushes
-// a new waveform on events it recognises - touch, scroll, page load.
-function nudge() {
-  var b = document.body;
-  if (MODE === "invert") {
-    b.style.webkitFilter = "invert(1)"; b.style.filter = "invert(1)";
-    setTimeout(function () { b.style.webkitFilter = ""; b.style.filter = ""; }, 150);
-  } else if (MODE === "opacity") {
-    b.style.opacity = "0.99";
-    setTimeout(function () { b.style.opacity = "1"; }, 150);
-  } else if (MODE === "scroll") {
-    window.scrollTo(0, 2);
-    setTimeout(function () { window.scrollTo(0, 0); }, 80);
-  } else if (MODE === "overlay") {
-    var o = document.getElementById("ov");
-    o.style.display = "block";
-    setTimeout(function () { o.style.display = "none"; }, 150);
-  }
-}
-
-function setMode(m) {
-  MODE = m;
-  for (var i = 0; i < MODES.length; i++) {
-    document.getElementById("m_" + MODES[i]).className =
-      (MODES[i] === m) ? "b on" : "b";
-  }
-  try { history.replaceState(null, "", "/?nudge=" + m); } catch (e) {}
-  // Deliberately does NOT swap the image: a tap is itself an e-ink refresh
-  // event, so every button would appear to work. Wait for the countdown.
-  status("mode: " + m + " &nbsp;-&nbsp; hands off until 0 &rarr;");
+  status("fullscreen: " + (isFull() ? "YES" : "no") + " &nbsp;-&nbsp; " + MODE + " @ " + MS + "ms");
 }
 
 function swap(token) {
-  var img = document.getElementById("p");
+  var img = el("p");
   img.onload = function () { nudge(); };
   img.src = "/collage.png?g=" + token;
 }
 
 // ---- timeline -------------------------------------------------------------
-// Bucketed rather than absolutely positioned: real detections cluster, and
-// overlapping thumbnails on a greyscale panel turn into an unreadable pile.
-// One cell per time slot, showing the last bird heard in it.
 function drawTimeline() {
   var x = new XMLHttpRequest();
   x.open("GET", "/history?t=" + Date.now(), true);
   x.onreadystatechange = function () {
     if (x.readyState !== 4 || x.status !== 200) return;
-    var d;
-    try { d = JSON.parse(x.responseText); } catch (e) { return; }
-    var span = d.hours * 3600, from = d.now - span;
-    var slots = [];
-    for (var i = 0; i < d.buckets; i++) { slots.push(null); }
-    for (var j = 0; j < d.events.length; j++) {
-      var ev = d.events[j];
+    var d; try { d = JSON.parse(x.responseText); } catch (e) { return; }
+    var span = d.hours * 3600, from = d.now - span, slots = [], i;
+    for (i = 0; i < d.buckets; i++) { slots.push(null); }
+    for (i = 0; i < d.events.length; i++) {
+      var ev = d.events[i];
       var b = Math.floor((ev.t - from) / span * d.buckets);
-      // An event at exactly "now" lands on d.buckets, one past the end. Clamp
-      // rather than drop it: that event is the bird showing right now, which is
-      // the single one you most want on the timeline.
+      // An event at exactly "now" lands one past the end. Clamp rather than
+      // drop it: that is the bird showing right now.
       if (b >= d.buckets) { b = d.buckets - 1; }
       if (b >= 0) { slots[b] = ev; }
     }
-    var html = "";
-    for (var k = 0; k < d.buckets; k++) {
-      html += '<span class="cell">';
-      if (slots[k]) { html += '<img src="/thumb.png?p=' + slots[k].p + '">'; }
-      html += '</span>';
+    var h = "";
+    for (i = 0; i < d.buckets; i++) {
+      h += '<span class="cell">';
+      if (slots[i]) { h += '<img src="/thumb.png?p=' + slots[i].p + '">'; }
+      h += '</span>';
     }
-    document.getElementById("tlrow").innerHTML = html;
-
+    el("tlrow").innerHTML = h;
     var ax = "";
-    for (var h = d.hours; h >= 0; h--) {
-      var pct = (1 - h / d.hours) * 100;
-      var lbl = (h === 0) ? "now" : ("-" + h + "h");
-      ax += '<span class="tick" style="left:' + pct.toFixed(1) + '%">' + lbl + '</span>';
+    for (i = d.hours; i >= 0; i--) {
+      ax += '<span class="tick" style="left:' + ((1 - i / d.hours) * 100).toFixed(1) + '%">' +
+            (i === 0 ? "now" : "-" + i + "h") + '</span>';
     }
-    document.getElementById("axis").innerHTML = ax;
+    el("axis").innerHTML = ax;
   };
   x.send();
 }
@@ -230,10 +294,10 @@ function poll() {
         left = d.left;
         if (d.token !== shown) {
           shown = d.token;
-          if (MODE === "reload") { location.href = "/?nudge=reload"; return; }
+          if (MODE === "reload") { location.href = "/?nudge=reload&ms=" + MS; return; }
           swap(d.token);
           drawTimeline();
-          status("mode: " + MODE + " - gen " + d.token);
+          status("gen " + d.token + " - " + MODE + " @ " + MS + "ms");
         }
       } catch (e) {}
     }
@@ -244,11 +308,11 @@ function poll() {
 
 function tick() {
   if (left > 0) { left = left - 1; }
-  document.getElementById("cd").innerHTML = String(left);
+  el("cd").innerHTML = String(left);
 }
 
-setMode("__NUDGE__");
-reportFull();
+buildSettings();
+footer();
 drawTimeline();
 setInterval(tick, 1000);
 poll();
@@ -397,14 +461,31 @@ def make_handler(state: State):
                 print("[%s] page loaded by %s  (%s)" % (
                     time.strftime("%H:%M:%S"), client,
                     self.headers.get("User-Agent", "?")[:70]), flush=True)
-                nudge = "invert"
+                nudge = "reload"   # the only strategy confirmed on the Papyr
                 if "nudge=" in self.path:
                     nudge = self.path.split("nudge=")[1].split("&")[0]
-                body = (PAGE.replace("__TOKEN__", str(state.token()))
+                ms = 400
+                if "ms=" in self.path:
+                    try:
+                        ms = max(50, min(4000, int(self.path.split("ms=")[1].split("&")[0])))
+                    except ValueError:
+                        pass
+                # A reload-mode change carries the generation it is going to, so
+                # the page lands on the new bird rather than whatever the clock
+                # says - they differ when TEST IN 5s drives the change.
+                tok = state.token()
+                if "g=" in self.path:
+                    try:
+                        tok = int(self.path.split("g=")[1].split("&")[0]) % state.generations
+                    except ValueError:
+                        pass
+                body = (PAGE.replace("__TOKEN__", str(tok))
                             .replace("__LEFT__", str(state.left()))
+                            .replace("__GENS__", str(state.generations))
+                            .replace("__MS__", str(ms))
                             .replace("__NUDGE__", nudge))
-                print("[%s] %s page load, nudge mode: %s" % (
-                    time.strftime("%H:%M:%S"), client, nudge), flush=True)
+                print("[%s] %s page load, strategy=%s duration=%dms gen=%d" % (
+                    time.strftime("%H:%M:%S"), client, nudge, ms, tok), flush=True)
                 self._send(200, body.encode(), "text/html; charset=utf-8",
                            {"Cache-Control": "no-store"})
             elif path == "/state":
