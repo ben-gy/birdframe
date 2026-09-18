@@ -1,15 +1,12 @@
 # birdframe - birdsong to 1800s plates, on a QuirkLogic Papyr.
 #
-# One standalone unit on the verandah: a Pi in a sealed enclosure with the mic
-# on a gland-sealed cable, running the whole stack. The Papyr is a browser
-# pointed at it over wi-fi. Nothing else on the network is involved.
+# Runs on the Ubuntu mini PC. Audio arrives over wi-fi from an ESP32 mic node
+# outside (see hardware/), so nothing here needs a sound card. The Papyr is a
+# browser pointed at papyr-view.
 #
-# Adapted from fugleramme's examples/docker-compose.yml. The one addition is
-# papyr-view, which reduces the collage to the Papyr's 16 greys - see
-# papyr-view/app.py for why that is not upstream's job.
-#
-# Both upstream images publish linux/arm64, so this runs on a Pi as-is. Use a
-# 64-bit Pi OS.
+# Adapted from fugleramme's examples/docker-compose.yml, minus its /dev/snd
+# plumbing, plus papyr-view - which reduces the collage to the Papyr's 16 greys.
+# See papyr-view/app.py for why that is not upstream's job.
 
 services:
   fugleramme:
@@ -67,19 +64,12 @@ services:
       TZ: ${TZ:-Australia/Sydney}
       BIRDNET_UID: ${BIRDNET_UID:-1000}
       BIRDNET_GID: ${BIRDNET_GID:-1000}
-      # Set if the Pi has several cards and the wrong one is picked - `arecord -l`.
-      ALSA_CARD: ${ALSA_CARD:-}
-    # The mic is plugged into this Pi, so audio is a local device rather than a
-    # network stream. Linux only, which the Pi is.
-    devices:
-      - /dev/snd:/dev/snd
-    group_add:
-      - audio  # or the number from `getent group audio`, if the name does not resolve
+    # No devices/group_add: the mic is an ESP32 on the network, not a local
+    # sound card. Its RTSP URL is set in birdnet-go/config.yaml.
     volumes:
       - birdnet-config:/config
       - birdnet-data:/data
     # Debug logs run to a 26GB ceiling at BirdNET-Go's defaults; HLS is churn.
-    # On a Pi this also spares the SD card a great deal of writing.
     tmpfs:
       - /data/logs:size=128M,uid=${BIRDNET_UID:-1000},gid=${BIRDNET_GID:-1000},mode=0755
       - /config/hls:exec,size=50M,uid=${BIRDNET_UID:-1000},gid=${BIRDNET_GID:-1000},mode=0755

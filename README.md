@@ -7,20 +7,21 @@ A port of [fugleramme](https://github.com/arnegiacomo/fugleramme)
 ([Show HN](https://news.ycombinator.com/item?id=49711544)) to hardware that
 isn't a Raspberry Pi with an Inky panel.
 
-One standalone unit outdoors does the listening and the drawing; the Papyr is
-just a browser pointed at it. Nothing else on the network is involved.
+A ~$29 WiFi microphone outside does the listening, the Ubuntu mini PC does the
+thinking, and the Papyr is a browser pointed at it.
 
 ```
-┌─ Verandah — one sealed aluminium box ───────────┐
-│  Clippy EM272 ─► UGREEN US205 (plug-in power)   │
-│      (capsule outside the box, pointing down)   │
-│                                                 │
-│  Raspberry Pi 5 + Active Cooler                 │
-│    birdnet-go   :8090   detections + API        │
-│    fugleramme   :8080   composes the page       │
-│    papyr-view   :8081   greyscale + dither      │
+┌─ Outside — matchbox-sized WiFi mic ─────────────┐
+│  XIAO ESP32S3 + SPH0645 I2S MEMS capsule        │
+│  esp32-birdnet-mic  :8554/audio1                │
 └──────────────────┬──────────────────────────────┘
-                   │ wi-fi
+                   │ 48 kHz PCM over RTSP
+┌──────────────────▼─ Ubuntu mini PC (compose) ───┐
+│  birdnet-go   :8090   detections + API          │
+│  fugleramme   :8080   composes the page         │
+│  papyr-view   :8081   greyscale + dither        │
+└──────────────────┬──────────────────────────────┘
+                   │ HTTP
         Papyr 13.3"▼ Fully Kiosk, fullscreen, under cover
 ```
 
@@ -30,8 +31,7 @@ just a browser pointed at it. Nothing else on the network is involved.
    locked-down, reskinned Android 5/6 tablet — no USB file transfer, and its
    InkWorks cloud died in March 2023. It does have Chrome and a no-root F-Droid
    route, so it becomes a *browser kiosk* against fugleramme's existing HTTP
-   view. The e-ink driver is never used — which is also what lets the Pi live
-   outdoors in a sealed box. See [hardware/](hardware/).
+   view. The e-ink driver is never used.
 2. **The Papyr is greyscale** — 2200×1650, 16 greys. Upstream composes in full
    colour for a Spectra 6 panel. Hence `papyr-view`.
 3. **The artwork library is European.** See [artwork/MAPPING.md](artwork/MAPPING.md).
@@ -57,7 +57,7 @@ docker compose up -d
 1. **[hardware/](hardware/)** — build and verify the microphone first, on the
    bench, before anything is sealed or mounted. It's the part most likely to
    disappoint, and everything downstream is worthless without it.
-2. **BirdNET-Go** — pick the capture device under Settings → Audio on `:8090`.
+2. **BirdNET-Go** — set the mic's RTSP URL in [birdnet-go/config.yaml](birdnet-go/config.yaml).
    **Set latitude/longitude** — the species range filter is the only thing
    keeping the list to plausible Australian species.
 3. **Tune the render** — see below.
@@ -107,5 +107,5 @@ actually changed — it never reloads itself. That's what we want on e-ink, and
 ## Record what you learn
 
 Two things are worth writing down here as you go, because you will not remember
-them in a year: any **substitution you made for the UGREEN US205**, and the **tuned
-gamma/cutoff values**.
+them in a year: the **mic node's IP and port settings**, and the **tuned gamma/cutoff
+values**.

@@ -1,120 +1,93 @@
-# The standalone unit
+# The mic node — ESP32 + I2S MEMS
 
-One box on the verandah: a Pi running the whole stack, with the mic on a
-gland-sealed cable. The Papyr is a browser pointed at it over wi-fi. Nothing
-else on the network is involved.
+Compute lives on the Ubuntu mini PC. The only thing outdoors is a matchbox-sized
+WiFi microphone running [`Sukecz/esp32-birdnet-mic`](https://github.com/Sukecz/esp32-birdnet-mic),
+purpose-built firmware that streams RTSP straight into BirdNET-Go.
 
-## Why the thermal problem went away
+## Why not Bluetooth
 
-Upstream's build is explicit: **"Don't close the back up."** The Pi and its
-active cooler sit in the frame cavity right behind the e-ink panel, BirdNET
-inference runs continuously, and it all gets hot — so the frame is left open at
-the back. That is flatly incompatible with putting it outdoors.
-
-Using the Papyr as the display removes the panel from the box, and with it the
-binding constraint. E Ink Spectra 6 is rated **0–50 °C**, which a dark panel
-behind glass on an Australian verandah will exceed; the Pi's silicon throttles
-at 85 °C junction and simply does not care about 45 °C ambient. So a sealed
-aluminium enclosure with ~7 W in it is an ordinary outdoor-electronics problem,
-not a marginal one.
+Bluetooth's microphone profile (HFP/HSP) is 8–16 kHz mono. Birdsong runs well
+past that, so the codec alone would discard most of what BirdNET listens for —
+before considering the ~10 m range or the absence of any weatherproof unit.
+There is no good Bluetooth answer here. WiFi is the only real option.
 
 ## Bill of materials
 
-Prices checked September 2026, AUD inc GST unless noted. Links go to the
-specific part, not a category.
+Prices checked September 2026, AUD inc GST.
 
-### Compute — [Core Electronics](https://core-electronics.com.au)
-
-| Part | Price | Stock |
+| Part | Price | Where |
 | --- | --- | --- |
-| [Raspberry Pi 5 Model B 2GB](https://core-electronics.com.au/catalogsearch/result/?q=Raspberry+Pi+5+Model+B+2GB) | $132.39 | **Lead time** |
-| [Pi 5 Active Cooler](https://core-electronics.com.au/catalogsearch/result/?q=Raspberry+Pi+5+Active+Cooler) | $8.80 | In stock |
-| [Official 27 W USB-C supply](https://core-electronics.com.au/catalogsearch/result/?q=Raspberry+Pi+27W+USB-C+Power+Supply) | $21.07 | In stock |
-| microSD, 32 GB+ A2 | ~$20 | Official 32 GB card is out of stock; any A2 card works, or the [64 GB preloaded](https://core-electronics.com.au/catalogsearch/result/?q=Raspberry+Pi+OS+64GB) at $51.85 |
+| [Seeed Studio XIAO ESP32S3](https://core-electronics.com.au/catalogsearch/result/?q=XIAO+ESP32S3) | $16.10 | Core Electronics, in stock |
+| [Adafruit I2S MEMS mic breakout — SPH0645LM4H](https://core-electronics.com.au/catalogsearch/result/?q=I2S+MEMS+microphone+SPH0645) | $12.85 | Core Electronics, in stock |
+| Small IP65 ABS box | ~$12 | Jaycar. ABS is fine — the ESP32 dissipates almost nothing, so no heatsink is needed |
+| 5 V 1 A USB supply + outdoor-rated cable | ~$18 | |
+| Short shielded 5-core cable | ~$5 | |
+| 2.4 GHz external antenna, U.FL/IPEX | ~$10 | Recommended, not required |
+| Acoustic mesh / PTFE membrane for the mic port | ~$8 | See below |
 | Shipping | $7+ | |
 
-**The Pi is the long pole.** Core Electronics lists both the 2GB and 4GB
-($179.55) as lead-time items — the 4GB quoted dispatch Oct 13–23. Check
-[Little Bird](https://littlebirdelectronics.com.au/search?q=Raspberry+Pi+5),
-who list Pi 5 boards from ~$89, before committing to the wait. A **Pi 4** also
-works and runs cooler, at the cost of speed.
+**Roughly AU$90 all in.**
 
-### Audio — [micbooster](https://micbooster.com) (UK, ships worldwide)
+For comparison: a Pi Zero 2 W with a Clippy EM272 lands around $180–200, and the
+fully standalone Pi 5 build was $410–460.
 
-| Part | Price |
-| --- | --- |
-| [Clippy EM272Z1 Mono](https://micbooster.com/product/clippy-em272-microphone/), single, SKU FC169 | £39.20 |
-| [Radius Puffer Urchin for Clippy](https://micbooster.com/?s=windshield&post_type=product) — fur windshield | £15.00 |
-| Shipping to Australia | Not quoted on site; added at checkout |
-| [UGREEN US205, article 30724](https://www.ebay.com.au/itm/135786312775) — from eBay AU, not micbooster | ~$15–25 AUD |
+The firmware also supports the XIAO ESP32-C3/C5/C6, and the
+[ICS-43434 breakout](https://core-electronics.com.au/catalogsearch/result/?q=I2S+MEMS+microphone+SPH0645)
+($15.22, also in stock) as an alternative capsule.
 
-Listed prices include UK VAT, which normally comes off for export — so expect
-roughly **AU$105–135 landed**, and possibly local GST on the way in.
+## What you give up
 
-Foam windshields are £2–3 but fur is the right call outdoors; wind straight on
-the capsule drowns out everything else.
+The SPH0645 is a MEMS capsule at roughly 65 dB SNR. A Clippy EM272 is
+substantially quieter, and that difference shows up as **faint and distant birds
+you simply won't detect**. Loud close ones are unaffected.
 
-### Enclosure — [Jaycar](https://www.jaycar.com.au) + element14
+That trade lands well here: Australian backyard birds — magpie, kookaburra,
+wattlebird, lorikeet, currawong, noisy miner — are loud and mostly sit in
+1–8 kHz. This would be a worse bet for European warblers.
 
-| Part | Price |
-| --- | --- |
-| [HB5050 sealed diecast aluminium, 222×146×55 mm, IP65](https://www.jaycar.com.au/sealed-diecast-aluminium-enclosure-222-x-146-x-55mm/p/HB5050) | $39.95 |
-| [HB5046, 171×121×55 mm](https://www.jaycar.com.au/sealed-diecast-aluminium-enclosure-171-x-121-x-55/p/HB5046) — tighter alternative | $36.95 |
-| Cable glands ×2 | ~$8 |
-| [M12 protective vent](https://au.element14.com/c/enclosures-racks-cabinets/enclosure-rack-cabinet-accessories/vent-drains) (Gore, or Amphenol LTW from [Mouser AU](https://au.mouser.com/en/new/amphenol/amphenol-screw-vent-m12/)) | ~$15–25 |
-| Desiccant packs | ~$10 |
+If detection volume disappoints later, BirdNET-Go runs **multiple sources in
+parallel**, so a better mic can be added alongside rather than replacing this.
 
-Take the **HB5050**. The extra surface area is free cooling, and 55 mm depth
-clears the Pi with the Active Cooler fitted.
+## Setup
 
-### Total
+1. Flash via the project's web flasher at `esp32mic.msmeteo.cz` over USB-C.
+2. On first boot it raises an AP, `ESP32-RTSP-Mic-AP`. Join it and set WiFi
+   credentials at `192.168.4.1`.
+3. Give it a **DHCP reservation** so the stream URL never moves.
+4. Streams appear at:
 
-**Roughly AU$410–460**, with the mic and the Pi accounting for over half.
+   ```
+   rtsp://<device-ip>:8554/audio1
+   rtsp://<device-ip>:8554/audio2
+   ```
 
-Using the Papyr as the display is what keeps that number down: an Inky
-Impression 13.3" would add **$434.95** (Waveshare, the only 13.3" in stock in
-Australia — and it needs a driver shim) or **£191.25** (Pimoroni, currently out
-of stock and not carried by Australian retailers at all).
+   Mono 16-bit PCM at 48 kHz. Use the IP rather than `.local` — mDNS does not
+   cross Docker's bridge network, and BirdNET-Go runs in a container.
+5. Set the firmware's **high-pass filter** (300–800 Hz) to cut low-frequency
+   rumble. This matters more outdoors than anything else you can configure.
 
-### The sound card is a named part, not a guess
+## Mounting
 
-The Clippy is analogue and needs **plug-in power** — a bias voltage on the ring
-of the 3.5 mm jack. Plenty of USB dongles supply none, and the failure mode is
-not an error but perfect silence.
+The I2S wiring has to stay **short and shielded**, so unlike a lavalier setup the
+capsule cannot dangle away from the board — mic and ESP32 share the one small box.
 
-Upstream names the exact adapter it verified: **UGREEN US205, article 30724**.
-Buy that one rather than something that merely looks similar. If you end up with
-a substitute, put a multimeter across the jack's ring and sleeve and confirm
-~2–5 V **before** it goes into a sealed box on a wall.
+- Mount the breakout against a **downward-facing port** in the enclosure floor so
+  water can't sit on it.
+- **Cover the port with acoustic mesh or a PTFE membrane.** A MEMS mic has a tiny
+  sound hole; a bare drilling will admit dust, water and insects, and a solid
+  cover will deafen it. This is the fiddliest part of the build.
+- A fur windshield over the port if it catches wind. Wind straight on a capsule
+  drowns out everything else.
+- Target WiFi better than **−75 dBm**; fit the external antenna if marginal.
+- Away from aircon compressors, pool pumps and the road, or BirdNET will spend
+  all day describing a heat pump.
 
-## Enclosure
+## Still free: the G6 Turret
 
-- **Aluminium, thermally coupled.** A thermal pad between the Pi's cooler or a
-  heatsink case and the enclosure wall turns the box into the radiator. Mount it
-  in shade; a metal box in direct sun is an oven regardless of what's inside.
-- **An M12 protective vent, not holes.** A sealed box warms through the day, the
-  air inside contracts overnight and draws in moist air, and you get
-  condensation on the board. A Gore vent equalises pressure while blocking
-  liquid water and insects. Holes with mesh let both in.
-- **Desiccant pack** as well, replaced when you service it.
-- **Two glands:** one for power, one for the mic cable.
-- **Capsule outside the box**, on its cable, **pointing straight down** so water
-  cannot sit on the membrane, fur windshield fitted.
-- Away from aircon compressors, pool pumps and the road. BirdNET will otherwise
-  spend all day describing a heat pump.
+The UniFi camera costs nothing and is already outdoors. Its speech-tuned, AGC'd
+mic is worse than the ESP32, but since BirdNET-Go merges sources you could point
+it at the camera today and see real detections while the parts ship.
 
-## Network
-
-- Pi on wi-fi with a **DHCP reservation** so the Papyr's bookmark never breaks.
-- The Papyr must be on the same network to reach `:8081`.
-
-## Where the Papyr goes
-
-Keep it **out of the weather and out of the sun**. It is a sealed consumer
-tablet with a lithium battery and no ingress rating at all — Australian summer
-heat on a verandah will degrade that battery quickly and can swell it. Under
-cover in deep shade at the very worst; indoors is better, and it will be running
-on mains permanently either way.
-
-This is also the one part of the system that is genuinely fragile outdoors, so
-it is worth deciding deliberately rather than by default.
+One gotcha if you do: Protect streams carry **two** audio tracks — AAC 16 kHz
+mono and Opus 48 kHz stereo — and BirdNET needs the 48 kHz one or everything
+above 8 kHz is lost.
