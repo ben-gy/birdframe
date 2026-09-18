@@ -61,60 +61,69 @@ PAPER = (240, 236, 229)
 PAGE = """<!doctype html>
 <html><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>birdframe self-test</title>
+<title>birdframe</title>
 <style>
-  html,body{margin:0;padding:0;height:100%;background:#fff;font-family:sans-serif}
-  #bar{position:fixed;top:0;left:0;right:0;height:8%;padding:0.6%;box-sizing:border-box}
-  .t{display:inline-block;width:32%;height:88%;margin:0.5%;box-sizing:border-box;
-     border:3px solid #000;background:#fff;color:#000;font-size:2.6vh;font-weight:bold;
-     text-align:center;line-height:2.1;-webkit-tap-highlight-color:transparent}
-  #wrap{position:fixed;top:8%;bottom:27%;left:0;right:0}
+  html,body{margin:0;padding:0;height:100%;background:#fff;overflow:hidden;
+            font-family:Georgia,'Times New Roman',serif;color:#000}
+  #wrap{position:fixed;top:0;bottom:29%;left:0;right:0}
   img#p{width:100%;height:100%;object-fit:contain;display:block}
-  #tl{position:fixed;bottom:7%;left:0;right:0;height:20%;border-top:2px solid #000;
-      box-sizing:border-box;padding-top:0.4%}
-  #tlrow{position:absolute;top:4%;left:0;right:0;height:72%;white-space:nowrap}
-  .cell{display:inline-block;width:5%;height:100%;text-align:center;vertical-align:top}
-  .cell img{max-width:96%;max-height:100%}
-  #axis{position:absolute;bottom:1%;left:0;right:0;height:22%;font-size:2vh}
-  .tick{position:absolute;bottom:0;border-left:2px solid #000;padding-left:0.4%;height:60%}
-  #foot{position:fixed;bottom:0;left:0;right:0;height:7%;font-size:2.8vh;
-        border-top:2px solid #000;padding:0.6% 2%;box-sizing:border-box}
-  #cd{float:right;font-weight:bold;font-size:5vh;min-width:2.2em;text-align:right}
+  #cap{position:fixed;bottom:20.5%;left:0;right:0;height:8.5%;text-align:center;padding:0 8%}
+  #common{font-size:3.6vh;letter-spacing:0.02em}
+  #sci{font-size:2.3vh;font-style:italic;color:#444;margin-top:0.3vh}
+  #fact{font-size:2vh;font-style:italic;color:#666;margin-top:0.7vh;line-height:1.3}
+  /* Icons float over the plate, small and out of the way. A hairline box keeps
+     them findable against a light passage in the artwork. */
+  #icons{position:fixed;top:1.4%;right:1.4%;z-index:12}
+  .ic{display:inline-block;width:5.4vh;height:5.4vh;margin-left:0.9vh;
+      border:1px solid #999;background:#fff;text-align:center;line-height:0;
+      -webkit-tap-highlight-color:transparent}
+  .ic svg{width:3.4vh;height:3.4vh;margin-top:0.95vh}
+  #tl{position:fixed;bottom:0;left:0;right:0;height:20%;
+      border-top:1px solid #000;box-sizing:border-box}
+  #tlrow{position:absolute;top:5%;left:0;right:0;height:70%;white-space:nowrap}
+  .cell{display:inline-block;width:5%;height:100%;text-align:center;
+        vertical-align:bottom;-webkit-tap-highlight-color:transparent}
+  .cell img{max-width:94%;max-height:100%}
+  .cell.now img{outline:2px solid #000}
+  #axis{position:absolute;bottom:2%;left:0;right:0;height:20%;font-size:1.9vh;color:#444}
+  .tick{position:absolute;bottom:0;border-left:1px solid #999;padding-left:0.5%;height:55%}
   #ov{position:fixed;top:0;left:0;right:0;bottom:0;background:#000;display:none;z-index:9}
-  /* Settings sits over everything; hidden until asked for, so the bird keeps
-     the screen during an actual test. */
+  /* Settings stays available behind the cog, but never on screen otherwise. */
   #set{position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:20;
-       display:none;padding:2%;box-sizing:border-box;overflow:auto}
-  #set h2{font-size:3.4vh;margin:1.5% 0 0.8% 0}
-  .s{display:inline-block;width:23.5%;margin:0.6%;padding:1.6% 0;box-sizing:border-box;
-     border:3px solid #000;background:#fff;color:#000;font-size:2.5vh;font-weight:bold;
-     text-align:center;-webkit-tap-highlight-color:transparent}
+       display:none;padding:3%;box-sizing:border-box;overflow:auto;font-family:sans-serif}
+  #set h2{font-size:3vh;margin:2% 0 1% 0;font-weight:normal;color:#444}
+  .s{display:inline-block;width:23.4%;margin:0.6%;padding:1.6% 0;box-sizing:border-box;
+     border:2px solid #000;background:#fff;font-size:2.3vh;text-align:center;
+     -webkit-tap-highlight-color:transparent}
   .s.on{background:#000;color:#fff}
-  #close{display:block;width:100%;margin-top:3%;padding:2.4% 0;border:4px solid #000;
-         background:#000;color:#fff;font-size:3.4vh;font-weight:bold;text-align:center}
+  #close{display:block;margin-top:4%;padding:2.4% 0;border:2px solid #000;
+         background:#000;color:#fff;font-size:3vh;text-align:center}
+  #diag{font-size:2vh;color:#666;margin-top:3%}
 </style></head>
 <body>
-<div id="bar">
-  <span class="t" onclick="openSet()">SETTINGS</span><span
-        class="t" onclick="goFull()">FULLSCREEN</span><span
-        class="t" onclick="testSoon()">TEST IN 5s</span>
-</div>
 <div id="wrap"><img id="p" src="/collage.png?g=__TOKEN__" alt=""></div>
+<div id="cap"><div id="common">__COMMON__</div><div id="sci">__SCI__</div><div id="fact">__FACT__</div></div>
+
+<div id="icons">
+  <span class="ic" id="ic_set"><svg viewBox="0 0 24 24" fill="none" stroke="#000"
+    stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.6v2.6M12 18.8v2.6
+    M21.4 12h-2.6M5.2 12H2.6M18.6 5.4l-1.8 1.8M7.2 16.8l-1.8 1.8M18.6 18.6l-1.8-1.8
+    M7.2 7.2L5.4 5.4"/></svg></span>
+  <span class="ic" id="ic_full"><svg viewBox="0 0 24 24" fill="none" stroke="#000"
+    stroke-width="2"><path d="M3 9V3h6M21 9V3h-6M3 15v6h6M21 15v6h-6"/></svg></span>
+</div>
+
 <div id="tl"><div id="tlrow"></div><div id="axis"></div></div>
-<div id="foot"><span id="st">mode: __NUDGE__</span><span id="cd">__LEFT__</span></div>
 <div id="ov"></div>
 
 <div id="set">
-  <h2>Repaint strategy</h2>
-  <div id="strategies"></div>
-  <h2>Flash duration</h2>
-  <div id="durations"></div>
-  <h2>Other</h2>
-  <span class="s" onclick="goFull()">FULLSCREEN</span><span
-        class="s" onclick="exitFull()">EXIT FS</span><span
-        class="s" onclick="testSoon()">TEST 5s</span><span
-        class="s" onclick="location.href='/?nudge='+MODE+'&ms='+MS">RELOAD</span>
-  <div id="close" onclick="closeSet()">CLOSE</div>
+  <h2>Repaint strategy</h2><div id="strategies"></div>
+  <h2>Flash duration</h2><div id="durations"></div>
+  <h2>Display</h2>
+  <span class="s" id="s_full">FULLSCREEN</span><span class="s" id="s_exit">EXIT FS</span>
+  <span class="s" id="s_test">TEST 5s</span><span class="s" id="s_reload">RELOAD</span>
+  <div id="diag">&nbsp;</div>
+  <div id="close">CLOSE</div>
 </div>
 
 <script>
@@ -125,17 +134,10 @@ var DURATIONS = [150, 400, 800, 1500];
 var MODE = "__NUDGE__";
 var MS = __MS__;
 var shown = "__TOKEN__";
-var left = __LEFT__;
 
-function status(m) { document.getElementById("st").innerHTML = m; }
 function el(id) { return document.getElementById(id); }
+function diag(m) { el("diag").innerHTML = m; }
 
-// ---- repaint strategies ---------------------------------------------------
-// An e-ink controller pushes a new waveform only on changes it notices. Which
-// change it notices is a property of this device's firmware, so the only way to
-// find out is to try them. Duration matters as much as the trick: an e-ink
-// refresh takes hundreds of ms, so a 150ms flash may finish before the panel
-// ever reacts - which is a likely reason the first round mostly failed.
 function nudge() {
   var b = document.body, img = el("p"), o = el("ov");
   if (MODE === "invert") {
@@ -146,9 +148,8 @@ function nudge() {
     var off = function () { b.style.webkitFilter = ""; b.style.filter = ""; };
     on(); setTimeout(off, MS); setTimeout(on, MS * 2); setTimeout(off, MS * 3);
   } else if (MODE === "bg") {
-    var prev = b.style.background;
     b.style.background = "#000";
-    setTimeout(function () { b.style.background = prev || "#fff"; }, MS);
+    setTimeout(function () { b.style.background = "#fff"; }, MS);
   } else if (MODE === "overlay") {
     o.style.display = "block";
     setTimeout(function () { o.style.display = "none"; }, MS);
@@ -159,9 +160,7 @@ function nudge() {
     img.style.width = "99%";
     setTimeout(function () { img.style.width = "100%"; }, MS);
   } else if (MODE === "reflow") {
-    b.style.display = "none";
-    void b.offsetHeight;          // force the layout to actually happen
-    b.style.display = "block";
+    b.style.display = "none"; void b.offsetHeight; b.style.display = "block";
   } else if (MODE === "opacity") {
     b.style.opacity = "0.99";
     setTimeout(function () { b.style.opacity = "1"; }, MS);
@@ -169,19 +168,38 @@ function nudge() {
     window.scrollTo(0, 2);
     setTimeout(function () { window.scrollTo(0, 0); }, Math.min(MS, 200));
   }
-  // "none" does nothing - the control. If NONE repaints, something else on the
-  // page is refreshing the panel and no comparison here means anything.
+}
+
+function go(gen) {
+  // Navigation, not a swap. Only a page load repaints this panel - see
+  // docs/eink-refresh.md - and it also lets the server render the caption.
+  location.href = "/?nudge=" + MODE + "&ms=" + MS + "&g=" + gen;
+}
+
+function show(gen) {
+  if (MODE === "reload") { go(gen); return; }
+  var img = el("p");
+  img.onload = function () { nudge(); };
+  img.src = "/collage.png?g=" + gen;
+  var x = new XMLHttpRequest();
+  x.open("GET", "/name?g=" + gen, true);
+  x.onreadystatechange = function () {
+    if (x.readyState !== 4 || x.status !== 200) return;
+    try {
+      var n = JSON.parse(x.responseText);
+      el("common").innerHTML = n.common || n.sci;
+      el("sci").innerHTML = n.common ? n.sci : "";
+      el("fact").innerHTML = n.fact || "";
+    } catch (e) {}
+  };
+  x.send();
 }
 
 function pin() {
-  try { history.replaceState(null, "", "/?nudge=" + MODE + "&ms=" + MS); } catch (e) {}
+  try { history.replaceState(null, "", "/?nudge=" + MODE + "&ms=" + MS + "&g=" + shown); }
+  catch (e) {}
 }
-
 function buildSettings() {
-  // Data attributes plus wired handlers, never inline onclick built by string
-  // concatenation: the quote escaping for that has to survive both Python's
-  // triple-quoted string and the browser, and it did not - it collapsed to bare
-  // quotes, produced invalid JS, and killed the whole script.
   var h = "", i;
   for (i = 0; i < MODES.length; i++) {
     h += '<span class="s' + (MODES[i] === MODE ? " on" : "") +
@@ -197,76 +215,39 @@ function buildSettings() {
   wire("strategies", "data-mode");
   wire("durations", "data-ms");
 }
-
-function wire(containerId, attr) {
-  var kids = el(containerId).getElementsByTagName("span");
+function wire(id, attr) {
+  var kids = el(id).getElementsByTagName("span");
   for (var i = 0; i < kids.length; i++) {
     (function (node) {
       node.onclick = function () {
         var v = node.getAttribute(attr);
-        if (attr === "data-mode") { setMode(v); } else { setMs(parseInt(v, 10)); }
+        if (attr === "data-mode") { MODE = v; } else { MS = parseInt(v, 10); }
+        pin(); buildSettings();
+        diag("strategy " + MODE + " at " + MS + "ms");
       };
     })(kids[i]);
   }
 }
 
-function setMode(m) { MODE = m; pin(); buildSettings(); footer(); }
-function setMs(v)   { MS = v;  pin(); buildSettings(); footer(); }
-function footer()   { status("mode: " + MODE + " @ " + MS + "ms &nbsp;-&nbsp; hands off &rarr;"); }
-
-function openSet()  { el("set").style.display = "block"; buildSettings(); }
-function closeSet() { el("set").style.display = "none"; }
-
-// A hands-off repaint on demand. Closes settings first and fires 5s later, so
-// your finger is nowhere near the glass when the image changes - a tap is
-// itself an e-ink refresh event and would fake a pass for any strategy.
-function testSoon() {
-  closeSet();
-  var n = 5;
-  status("TEST: hands off - changing in " + n + "s");
-  var iv = setInterval(function () {
-    n = n - 1;
-    if (n > 0) { status("TEST: hands off - changing in " + n + "s"); return; }
-    clearInterval(iv);
-    var next = (parseInt(shown, 10) + 1) % __GENS__;
-    shown = String(next);
-    if (MODE === "reload") { location.href = "/?nudge=reload&ms=" + MS + "&g=" + next; return; }
-    swap(String(next));
-    status("TEST fired: gen " + next + " (" + MODE + " @ " + MS + "ms)");
-  }, 1000);
-}
-
-// ---- fullscreen -----------------------------------------------------------
 function goFull() {
-  closeSet();
   var e = document.documentElement;
   var f = e.requestFullscreen || e.webkitRequestFullscreen ||
           e.webkitRequestFullScreen || e.mozRequestFullScreen || e.msRequestFullscreen;
-  if (!f) { status("fullscreen: NOT SUPPORTED"); return; }
-  try { f.call(e); } catch (err) { status("fullscreen: rejected"); return; }
-  setTimeout(reportFull, 900);
+  if (!f) { diag("fullscreen: not supported"); return; }
+  try { f.call(e); } catch (err) { diag("fullscreen: rejected"); return; }
+  setTimeout(function () { diag("fullscreen: " + (isFull() ? "on" : "no")); }, 900);
 }
 function exitFull() {
   var x = document.exitFullscreen || document.webkitExitFullscreen ||
           document.webkitCancelFullScreen || document.mozCancelFullScreen;
   if (x) { try { x.call(document); } catch (e) {} }
-  setTimeout(reportFull, 900);
+  setTimeout(function () { diag("fullscreen: " + (isFull() ? "on" : "no")); }, 900);
 }
 function isFull() {
   return !!(document.fullscreenElement || document.webkitFullscreenElement ||
             document.webkitCurrentFullScreenElement || document.mozFullScreenElement);
 }
-function reportFull() {
-  status("fullscreen: " + (isFull() ? "YES" : "no") + " &nbsp;-&nbsp; " + MODE + " @ " + MS + "ms");
-}
 
-function swap(token) {
-  var img = el("p");
-  img.onload = function () { nudge(); };
-  img.src = "/collage.png?g=" + token;
-}
-
-// ---- timeline -------------------------------------------------------------
 function drawTimeline() {
   var x = new XMLHttpRequest();
   x.open("GET", "/history?t=" + Date.now(), true);
@@ -278,18 +259,29 @@ function drawTimeline() {
     for (i = 0; i < d.events.length; i++) {
       var ev = d.events[i];
       var b = Math.floor((ev.t - from) / span * d.buckets);
-      // An event at exactly "now" lands one past the end. Clamp rather than
-      // drop it: that is the bird showing right now.
+      // An event at exactly "now" lands one past the end. Clamp, do not drop:
+      // that is the bird showing right now.
       if (b >= d.buckets) { b = d.buckets - 1; }
       if (b >= 0) { slots[b] = ev; }
     }
     var h = "";
     for (i = 0; i < d.buckets; i++) {
-      h += '<span class="cell">';
-      if (slots[i]) { h += '<img src="/thumb.png?p=' + slots[i].p + '">'; }
-      h += '</span>';
+      if (slots[i]) {
+        h += '<span class="cell' + (String(slots[i].p) === String(shown) ? " now" : "") +
+             '" data-g="' + slots[i].p + '"><img src="/thumb.png?p=' + slots[i].p +
+             '" title="' + slots[i].name + '"></span>';
+      } else {
+        h += '<span class="cell"></span>';
+      }
     }
     el("tlrow").innerHTML = h;
+    var cells = el("tlrow").getElementsByTagName("span");
+    for (i = 0; i < cells.length; i++) {
+      (function (node) {
+        var g = node.getAttribute("data-g");
+        if (g !== null) { node.onclick = function () { show(g); }; }
+      })(cells[i]);
+    }
     var ax = "";
     for (i = d.hours; i >= 0; i--) {
       ax += '<span class="tick" style="left:' + ((1 - i / d.hours) * 100).toFixed(1) + '%">' +
@@ -300,7 +292,6 @@ function drawTimeline() {
   x.send();
 }
 
-// ---- poll -----------------------------------------------------------------
 function poll() {
   var x = new XMLHttpRequest();
   x.open("GET", "/state?t=" + Date.now(), true);
@@ -309,30 +300,30 @@ function poll() {
     if (x.status === 200) {
       try {
         var d = JSON.parse(x.responseText);
-        left = d.left;
-        if (d.token !== shown) {
-          shown = d.token;
-          if (MODE === "reload") { location.href = "/?nudge=reload&ms=" + MS; return; }
-          swap(d.token);
-          drawTimeline();
-          status("gen " + d.token + " - " + MODE + " @ " + MS + "ms");
-        }
+        if (d.token !== shown) { shown = d.token; show(d.token); drawTimeline(); }
       } catch (e) {}
     }
-    setTimeout(poll, 2000);
+    setTimeout(poll, 3000);
   };
   x.send();
 }
 
-function tick() {
-  if (left > 0) { left = left - 1; }
-  el("cd").innerHTML = String(left);
-}
+el("ic_set").onclick   = function () { el("set").style.display = "block"; buildSettings(); };
+el("ic_full").onclick  = function () { goFull(); };
+el("close").onclick    = function () { el("set").style.display = "none"; };
+el("s_full").onclick   = function () { goFull(); };
+el("s_exit").onclick   = function () { exitFull(); };
+el("s_reload").onclick = function () { go(shown); };
+el("s_test").onclick   = function () {
+  el("set").style.display = "none";
+  diag("");
+  // Hands off: a tap is itself an e-ink refresh event, so a swap triggered at
+  // the moment of touch would fake a pass for any strategy.
+  setTimeout(function () { show(String((parseInt(shown, 10) + 1) % __GENS__)); }, 5000);
+};
 
 buildSettings();
-footer();
 drawTimeline();
-setInterval(tick, 1000);
 poll();
 </script>
 </body></html>
@@ -394,6 +385,23 @@ def thumbnail(path: Path) -> bytes:
     return out.getvalue()
 
 
+def load_names(plates_dir: Path) -> dict:
+    """names.json beside the plates: filename -> {sci, common, fact}.
+
+    Built by querying Wikimedia Commons for each plate's "<binomial>
+    (illustrations)" category, which is how the real artwork pack will get its
+    species too. Anything without a confirmed name is left out rather than
+    guessed at - a wrong species under a plate is worse than no caption.
+    """
+    path = plates_dir / "names.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text())
+    except ValueError:
+        return {}
+
+
 class State:
     def __init__(self, plates, seconds, generations):
         self.plates = plates
@@ -402,6 +410,7 @@ class State:
         self.started = time.time()
         self.cache: dict[int, bytes] = {}
         self.thumbs: dict[int, bytes] = {}
+        self.names = load_names(plates[0].parent) if plates else {}
         self.lock = threading.Lock()
         self.pollers: dict[str, int] = {}
         # Fixed seed, so the timeline does not reshuffle on every reload. In
@@ -416,6 +425,10 @@ class State:
 
     def token(self) -> int:
         return int((time.time() - self.started) // self.seconds) % self.generations
+
+    def name(self, index: int) -> dict:
+        key = self.plates[index % len(self.plates)].name
+        return self.names.get(key, {"sci": key, "common": "", "fact": ""})
 
     def thumb(self, index: int) -> bytes:
         with self.lock:
@@ -434,7 +447,11 @@ class State:
         for cycle in range(int((now - self.started) // self.seconds) + 1):
             events.append((self.started + cycle * self.seconds, cycle % len(self.plates)))
         cutoff = now - HISTORY_HOURS * 3600
-        return [{"t": round(t), "p": p} for t, p in sorted(events) if t >= cutoff]
+        return [
+            {"t": round(t), "p": p,
+             "name": self.name(p).get("common") or self.name(p).get("sci", "")}
+            for t, p in sorted(events) if t >= cutoff
+        ]
 
     def left(self) -> int:
         """Whole seconds until the next change, for the on-screen countdown."""
@@ -497,7 +514,11 @@ def make_handler(state: State):
                         tok = int(self.path.split("g=")[1].split("&")[0]) % state.generations
                     except ValueError:
                         pass
-                body = (PAGE.replace("__TOKEN__", str(tok))
+                nm = state.name(tok)
+                body = (PAGE.replace("__COMMON__", nm.get("common") or nm.get("sci", ""))
+                            .replace("__SCI__", nm.get("sci", "") if nm.get("common") else "")
+                            .replace("__FACT__", nm.get("fact", ""))
+                            .replace("__TOKEN__", str(tok))
                             .replace("__LEFT__", str(state.left()))
                             .replace("__GENS__", str(state.generations))
                             .replace("__MS__", str(ms))
@@ -522,6 +543,13 @@ def make_handler(state: State):
                     "events": state.history(),
                 }
                 self._send(200, json.dumps(payload).encode(), "application/json",
+                           {"Cache-Control": "no-store"})
+            elif path == "/name":
+                try:
+                    g = int(self.path.split("g=")[1].split("&")[0])
+                except (IndexError, ValueError):
+                    g = state.token()
+                self._send(200, json.dumps(state.name(g)).encode(), "application/json",
                            {"Cache-Control": "no-store"})
             elif path == "/thumb.png":
                 try:

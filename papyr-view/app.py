@@ -5,13 +5,17 @@ The Papyr is a 13.3" Carta panel - 2200x1650, 16 greys - driven through a
 browser, because a locked-down Android 5 device accepts an image no other way.
 Sent the colour page as-is, the plates land as muddy mid-greys.
 
-So this sits in front and rewrites exactly one response: /collage.png.
-Everything else - the kiosk page, /state, /admin, the static files - is proxied
-untouched. That matters more than it looks: upstream's kiosk page already polls
-/state and swaps the image only when the collage actually changed, never
-reloading itself. On e-ink that is precisely the behaviour we want, since a
-periodic full-page reload means a white flash every cycle. It is upstream's
-behaviour, so we inherit it rather than rebuild it.
+So this sits in front and rewrites two responses: /collage.png, and the kiosk
+page itself. Everything else - /state, /admin, the static files - is proxied
+untouched.
+
+Replacing the kiosk page is not a preference. Upstream's polls /state and swaps
+img.src without reloading, which is the right thing to do on e-ink and works
+everywhere else. It does not work here: swapping the source updates the
+framebuffer, but this panel's controller only pushes a new waveform on a page
+load, so the old plate stays on the glass. Measured on the device, and consistent
+with the platform - see docs/eink-refresh.md. There is no web API for EPD
+refresh, so navigation is the only lever available.
 
 Reduction lives here rather than in a fork of upstream's render/dither.py:
 that module is hardcoded to the Inky driver's 6-colour palette and only runs on
@@ -21,6 +25,7 @@ the panel push path, never on the kiosk PNG this consumes.
 from __future__ import annotations
 
 import io
+import json
 import logging
 import os
 import urllib.error
@@ -38,8 +43,10 @@ PORT = int(os.environ.get("PAPYR_PORT", "8081"))
 # The Papyr's panel. 4:3, which is also the shape of upstream's
 # FALLBACK_PANEL_RESOLUTION (1600x1200), so the collage arrives at the right
 # aspect ratio and only ever needs scaling - never cropping or letterboxing.
-WIDTH = int(os.environ.get("PAPYR_WIDTH", "2200"))
-HEIGHT = int(os.environ.get("PAPYR_HEIGHT", "1650"))
+# Portrait: the panel is 2200x1650 native, stood on its short edge for the frame.
+# Gould's plates are folio portrait, so one bird fills a portrait page far better.
+WIDTH = int(os.environ.get("PAPYR_WIDTH", "1650"))
+HEIGHT = int(os.environ.get("PAPYR_HEIGHT", "2200"))
 
 # Starting points for the Phase 3 tuning pass. Override per-request with
 # ?levels=&gamma=&cutoff= to compare in a browser, then commit what wins here.
@@ -48,6 +55,47 @@ GAMMA = float(os.environ.get("PAPYR_GAMMA", "0.85"))
 CUTOFF = float(os.environ.get("PAPYR_CUTOFF", "1"))
 
 COLLAGE = "/collage.png"
+STATE = "/state"
+KIOSK_PATHS = ("/", "/index.html")
+POLL_SECONDS = int(os.environ.get("PAPYR_POLL_SECONDS", "30"))
+
+# Deliberately minimal and framework-free: this has to run on the Papyr's stock
+# Android 5/6 Chrome. XHR, no fetch, no arrow functions, no template literals.
+KIOSK = """<!doctype html>
+<html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>birdframe</title>
+<style>
+ html,body{margin:0;padding:0;height:100%;background:#fff;overflow:hidden}
+ img{width:100%;height:100%;object-fit:contain;display:block}
+</style></head>
+<body>
+<img src="/collage.png?v=__TOKEN__" alt="">
+<script>
+var shown = "__TOKEN__";
+function poll() {
+  var x = new XMLHttpRequest();
+  x.open("GET", "/state?t=" + Date.now(), true);
+  x.onreadystatechange = function () {
+    if (x.readyState !== 4) return;
+    if (x.status === 200) {
+      try {
+        var t = String(JSON.parse(x.responseText).token);
+        if (t !== shown) {
+          // Navigate, do not swap. Only a page load repaints this panel.
+          location.href = "/?v=" + encodeURIComponent(t);
+          return;
+        }
+      } catch (e) {}
+    }
+    setTimeout(poll, __POLL__);
+  };
+  x.send();
+}
+poll();
+</script>
+</body></html>
+"""
 TIMEOUT = 30
 HOP_BY_HOP = {"connection", "keep-alive", "transfer-encoding", "upgrade", "content-length"}
 
@@ -162,6 +210,24 @@ class Handler(BaseHTTPRequestHandler):
             return
         self._send(200, png, "image/png", {"Cache-Control": "no-cache", "ETag": etag})
 
+    def _kiosk(self):
+        """Serve our own kiosk page with the current token baked in.
+
+        Baking it in matters: the reload lands on "/" and has to know what it is
+        already showing, or it would immediately decide the token changed and
+        reload again, forever.
+        """
+        token = "0"
+        try:
+            status, _, body = fetch(STATE)
+            if status == 200:
+                token = str(json.loads(body).get("token", "0"))
+        except Exception as exc:  # detector down; still show the last collage
+            log.warning("state: %s", exc)
+        page = KIOSK.replace("__TOKEN__", token).replace("__POLL__", str(POLL_SECONDS * 1000))
+        self._send(200, page.encode(), "text/html; charset=utf-8",
+                   {"Cache-Control": "no-store"})
+
     def _proxy(self, path: str):
         status, headers, body = fetch(path)
         passthrough = {k: v for k, v in headers.items() if k.lower() not in HOP_BY_HOP}
@@ -173,6 +239,8 @@ class Handler(BaseHTTPRequestHandler):
         try:
             if parsed.path == "/healthz":
                 self._send(200, b"ok", "text/plain")
+            elif parsed.path in KIOSK_PATHS:
+                self._kiosk()
             elif parsed.path == COLLAGE:
                 self._collage(parse_qs(parsed.query))
             else:
@@ -187,7 +255,8 @@ class Handler(BaseHTTPRequestHandler):
 
 def main():
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
-    log.info("papyr-view on :%s -> %s, %sx%s at %s greys", PORT, UPSTREAM, WIDTH, HEIGHT, LEVELS)
+    log.info("papyr-view on :%s -> %s, %sx%s at %s greys, reload every %ss poll",
+             PORT, UPSTREAM, WIDTH, HEIGHT, LEVELS, POLL_SECONDS)
     ThreadingHTTPServer(("", PORT), Handler).serve_forever()
 
 

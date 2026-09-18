@@ -26,6 +26,8 @@ services:
       # 40 birds on a 16-grey panel is soup. Fewer, larger plates read.
       FUGLERAMME_SPECIES_LIMIT: "16"
       FUGLERAMME_MODE: collage
+      # The Papyr stands on its short edge, so the collage is composed portrait.
+      FUGLERAMME_ROTATION: "90"
       FUGLERAMME_PRIMARY_LANGUAGE: en
     expose:
       - "8080"
@@ -42,12 +44,15 @@ services:
     restart: unless-stopped
     environment:
       PAPYR_UPSTREAM: http://fugleramme:8080
-      PAPYR_WIDTH: "2200"
-      PAPYR_HEIGHT: "1650"
+      PAPYR_WIDTH: "1650"
+      PAPYR_HEIGHT: "2200"
       PAPYR_LEVELS: "16"
       # Tune against a browser first: /collage.png?gamma=0.7&cutoff=2
       PAPYR_GAMMA: "0.85"
       PAPYR_CUTOFF: "1"
+      # How often the kiosk asks whether the birds changed. It reloads on change
+      # - the only thing that repaints this panel - so keep it unhurried.
+      PAPYR_POLL_SECONDS: "30"
       TZ: ${TZ:-Australia/Sydney}
     ports:
       - "8081:8081"
