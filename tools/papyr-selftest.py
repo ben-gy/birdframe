@@ -59,13 +59,45 @@ PAGE = """<!doctype html>
 <style>
   html,body{margin:0;padding:0;height:100%;background:#fff;overflow:hidden}
   img{width:100%;height:100%;object-fit:contain;display:block}
+  #ov{position:fixed;top:0;left:0;right:0;bottom:0;background:#000;display:none;z-index:9}
 </style></head>
 <body>
-<img id="p" src="/collage.png?g=0" alt="">
+<img id="p" src="/collage.png?g=__TOKEN__" alt="">
+<div id="ov"></div>
 <script>
-// Deliberately XHR and string concat: this has to run on the Papyr's Android
-// 5/6 Chrome. No fetch, no arrow functions, no template literals.
-var shown = "0";
+// XHR and string concat throughout: this runs on the Papyr's Android 5/6 Chrome.
+var shown = "__TOKEN__";
+var MODE = "__NUDGE__";
+
+// Swapping img.src updates the framebuffer, but an e-ink controller only pushes
+// a new waveform to the panel on events it recognises - touch, scroll, page
+// load. Without a nudge the old plate can stay on the glass while the new one
+// sits behind it, which looks exactly like "it never rotated".
+function nudge() {
+  var b = document.body;
+  if (MODE === "invert") {
+    b.style.webkitFilter = "invert(1)"; b.style.filter = "invert(1)";
+    setTimeout(function () { b.style.webkitFilter = ""; b.style.filter = ""; }, 150);
+  } else if (MODE === "opacity") {
+    b.style.opacity = "0.99";
+    setTimeout(function () { b.style.opacity = "1"; }, 150);
+  } else if (MODE === "scroll") {
+    window.scrollTo(0, 2);
+    setTimeout(function () { window.scrollTo(0, 0); }, 80);
+  } else if (MODE === "overlay") {
+    var o = document.getElementById("ov");
+    o.style.display = "block";
+    setTimeout(function () { o.style.display = "none"; }, 150);
+  }
+  // MODE === "none" deliberately does nothing - the baseline.
+}
+
+function swap(token) {
+  var img = document.getElementById("p");
+  img.onload = function () { nudge(); };
+  img.src = "/collage.png?g=" + token;
+}
+
 function poll() {
   var x = new XMLHttpRequest();
   x.open("GET", "/state?t=" + Date.now(), true);
@@ -76,9 +108,12 @@ function poll() {
         var token = JSON.parse(x.responseText).token;
         if (token !== shown) {
           shown = token;
-          // Swap the source only. Never location.reload() - that is the
-          // full-page white flash we are here to avoid.
-          document.getElementById("p").src = "/collage.png?g=" + token;
+          if (MODE === "reload") {
+            // Guaranteed repaint, at the cost of a full white flash.
+            location.reload();
+            return;
+          }
+          swap(token);
         }
       } catch (e) {}
     }
@@ -182,7 +217,13 @@ def make_handler(state: State):
                 print("[%s] page loaded by %s  (%s)" % (
                     time.strftime("%H:%M:%S"), client,
                     self.headers.get("User-Agent", "?")[:70]), flush=True)
-                self._send(200, PAGE.encode(), "text/html; charset=utf-8",
+                nudge = "invert"
+                if "nudge=" in self.path:
+                    nudge = self.path.split("nudge=")[1].split("&")[0]
+                body = (PAGE.replace("__TOKEN__", str(state.token()))
+                            .replace("__NUDGE__", nudge))
+                print("    nudge mode: %s" % nudge, flush=True)
+                self._send(200, body.encode(), "text/html; charset=utf-8",
                            {"Cache-Control": "no-store"})
             elif path == "/state":
                 state.pollers[client] = state.pollers.get(client, 0) + 1
@@ -197,8 +238,9 @@ def make_handler(state: State):
                     g = int(self.path.split("g=")[1])
                 except (IndexError, ValueError):
                     g = state.token()
-                print("[%s] %s fetched generation %d  <-- panel is repainting" % (
-                    time.strftime("%H:%M:%S"), client, g), flush=True)
+                print("[%s] %s downloaded generation %d  (arrival only - does NOT"
+                      " prove the panel repainted)" % (
+                          time.strftime("%H:%M:%S"), client, g), flush=True)
                 self._send(200, state.png(g), "image/png", {"Cache-Control": "no-store"})
             else:
                 self._send(404, b"not found", "text/plain")
@@ -213,7 +255,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--plates", required=True, help="directory of plate images")
     ap.add_argument("--port", type=int, default=8081)
-    ap.add_argument("--seconds", type=int, default=40, help="seconds per generation")
+    ap.add_argument("--seconds", type=int, default=20, help="seconds per generation")
     ap.add_argument("--generations", type=int, default=0, help="0 = one per plate")
     ap.add_argument("--landscape", action="store_true", help="tablet on its long edge")
     args = ap.parse_args()
