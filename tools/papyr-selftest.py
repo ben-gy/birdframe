@@ -78,19 +78,20 @@ PAGE = """<!doctype html>
   #fact{font-size:1.85vh;font-style:italic;color:#666;margin-top:0.8vh;line-height:1.3}
   /* Two small icons in opposite corners, deliberately unobtrusive: this is a
      picture frame, and controls should be findable rather than present. */
-  .ic{position:fixed;top:1.1vh;width:3.5vh;height:3.5vh;z-index:12;
-      border:1px solid #c8c8c8;background:#fff;text-align:center;line-height:0;
-      -webkit-tap-highlight-color:transparent}
-  #ic_set{left:1.1vh}
-  #ic_full{right:1.1vh}
-  .ic svg{width:2.2vh;height:2.2vh;margin-top:0.6vh}
+  /* No border, no fill, half opacity: on a picture frame the controls should
+     recede into the plate rather than sit on top of it. The box stays larger
+     than the glyph so there is still something to hit with a finger. */
+  .ic{position:fixed;top:1vh;width:2.8vh;height:2.8vh;z-index:12;opacity:0.5;
+      text-align:center;line-height:0;-webkit-tap-highlight-color:transparent}
+  #ic_set{left:1.2vh}
+  #ic_full{right:1.2vh}
+  .ic svg{width:2vh;height:2vh;margin-top:0.4vh}
   #tl{position:fixed;bottom:0;left:0;right:0;height:22vh;
       border-top:1px solid #000;box-sizing:border-box}
   #tlrow{position:absolute;top:7%;left:0;right:0;height:60%;white-space:nowrap}
   .cell{display:inline-block;width:7.1%;height:100%;text-align:center;
         vertical-align:bottom;-webkit-tap-highlight-color:transparent}
   .cell img{max-width:94%;max-height:100%}
-  .cell.now img{outline:2px solid #000}
   #axis{position:absolute;bottom:3%;left:0;right:0;height:22%;font-size:1.9vh;color:#444}
   .tick{position:absolute;bottom:0;border-left:1px solid #999;padding-left:0.5%;height:55%}
   #ov{position:fixed;top:0;left:0;right:0;bottom:0;background:#000;display:none;z-index:9}
@@ -315,8 +316,8 @@ function drawTimeline() {
     var h = "";
     for (i = 0; i < d.buckets; i++) {
       if (slots[i]) {
-        h += '<span class="cell' + (String(slots[i].p) === String(shown) ? " now" : "") +
-             '" data-g="' + slots[i].p + '"><img src="/thumb.png?p=' + slots[i].p +
+        h += '<span class="cell" data-g="' + slots[i].p +
+             '"><img src="/thumb.png?p=' + slots[i].p +
              '" title="' + slots[i].name + '"></span>';
       } else {
         h += '<span class="cell"></span>';
