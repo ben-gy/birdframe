@@ -153,6 +153,15 @@ var PIN_MS = 60000;
 var pinnedUntil = (location.search.indexOf("pin=1") > -1) ? (Date.now() + PIN_MS) : 0;
 
 function el(id) { return document.getElementById(id); }
+
+// Corners pointing out = enter; pointing in = exit. Without the second glyph
+// there is no way back out of fullscreen on a device with no browser chrome
+// and no reliable back gesture.
+var SVG_ENTER = '<svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.2" ' +
+  'stroke-linecap="round"><path d="M3 9V3h6M21 9V3h-6M3 15v6h6M21 15v6h-6"/></svg>';
+var SVG_EXIT = '<svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.2" ' +
+  'stroke-linecap="round"><path d="M9 3v6H3M15 3v6h6M9 21v-6H3M15 21v-6h6"/></svg>';
+var fsRendered = null;
 function diag(m) { el("diag").innerHTML = m; }
 
 function nudge() {
@@ -254,18 +263,38 @@ function goFull() {
           e.webkitRequestFullScreen || e.mozRequestFullScreen || e.msRequestFullscreen;
   if (!f) { diag("fullscreen: not supported"); return; }
   try { f.call(e); } catch (err) { diag("fullscreen: rejected"); return; }
-  setTimeout(function () { diag("fullscreen: " + (isFull() ? "on" : "no")); }, 900);
+  setTimeout(function () { paintFsIcon(); diag("fullscreen: " + (isFull() ? "on" : "no")); }, 900);
 }
 function exitFull() {
+  if (!isFull()) {
+    // Worth saying rather than silently doing nothing: a reload drops out of
+    // fullscreen, so by the time you reach for this there is often nothing left
+    // to exit and the button looks broken.
+    diag("not in fullscreen - a reload already dropped it");
+    paintFsIcon();
+    return;
+  }
   var x = document.exitFullscreen || document.webkitExitFullscreen ||
           document.webkitCancelFullScreen || document.mozCancelFullScreen;
-  if (x) { try { x.call(document); } catch (e) {} }
-  setTimeout(function () { diag("fullscreen: " + (isFull() ? "on" : "no")); }, 900);
+  if (!x) { diag("exit fullscreen: not supported"); return; }
+  try { x.call(document); } catch (e) { diag("exit fullscreen: rejected"); return; }
+  setTimeout(function () { paintFsIcon(); diag("fullscreen: " + (isFull() ? "on" : "no")); }, 900);
 }
 function isFull() {
   return !!(document.fullscreenElement || document.webkitFullscreenElement ||
             document.webkitCurrentFullScreenElement || document.mozFullScreenElement);
 }
+
+// Only touches the DOM when the state actually changed. On e-ink an unnecessary
+// repaint is not free, and this runs on a timer.
+function paintFsIcon() {
+  var f = isFull();
+  if (f === fsRendered) { return; }
+  fsRendered = f;
+  el("ic_full").innerHTML = f ? SVG_EXIT : SVG_ENTER;
+}
+
+function toggleFull() { if (isFull()) { exitFull(); } else { goFull(); } }
 
 function drawTimeline() {
   var x = new XMLHttpRequest();
@@ -333,7 +362,7 @@ function poll() {
 }
 
 el("ic_set").onclick   = function () { el("set").style.display = "block"; buildSettings(); };
-el("ic_full").onclick  = function () { goFull(); };
+el("ic_full").onclick  = function () { toggleFull(); };
 el("close").onclick    = function () { el("set").style.display = "none"; };
 el("s_full").onclick   = function () { goFull(); };
 el("s_exit").onclick   = function () { exitFull(); };
@@ -346,7 +375,15 @@ el("s_test").onclick   = function () {
   setTimeout(function () { show(String((parseInt(shown, 10) + 1) % __GENS__)); }, 5000);
 };
 
+// Prefixed spellings included: this browser may only fire the webkit event, and
+// a polled fallback covers the case where it fires neither.
+document.addEventListener("fullscreenchange", paintFsIcon, false);
+document.addEventListener("webkitfullscreenchange", paintFsIcon, false);
+document.addEventListener("mozfullscreenchange", paintFsIcon, false);
+setInterval(paintFsIcon, 2000);
+
 buildSettings();
+paintFsIcon();
 drawTimeline();
 poll();
 </script>
