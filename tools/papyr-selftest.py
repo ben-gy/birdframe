@@ -57,22 +57,44 @@ PAGE = """<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>birdframe self-test</title>
 <style>
-  html,body{margin:0;padding:0;height:100%;background:#fff;overflow:hidden}
+  /* Absolute positioning throughout, not flexbox: this has to lay out on
+     whatever Chrome the Papyr shipped with, and floats never surprise you. */
+  html,body{margin:0;padding:0;height:100%;background:#fff;font-family:sans-serif}
+  #bar{position:fixed;top:0;left:0;right:0;height:15%;padding:1%;box-sizing:border-box}
+  .b{display:inline-block;width:31%;height:44%;margin:0.8%;box-sizing:border-box;
+     border:3px solid #000;background:#fff;color:#000;font-size:3.2vh;font-weight:bold;
+     text-align:center;line-height:1.5;text-decoration:none;-webkit-tap-highlight-color:transparent}
+  .b.on{background:#000;color:#fff}
+  #wrap{position:fixed;top:15%;bottom:7%;left:0;right:0}
   img{width:100%;height:100%;object-fit:contain;display:block}
+  #foot{position:fixed;bottom:0;left:0;right:0;height:7%;font-size:3.4vh;
+        border-top:2px solid #000;padding:0.5% 2%;box-sizing:border-box}
+  #cd{float:right;font-weight:bold;font-size:4.6vh}
   #ov{position:fixed;top:0;left:0;right:0;bottom:0;background:#000;display:none;z-index:9}
 </style></head>
 <body>
-<img id="p" src="/collage.png?g=__TOKEN__" alt="">
+<div id="bar">
+  <span class="b" id="m_invert"  onclick="setMode('invert')">INVERT</span><span
+        class="b" id="m_scroll"  onclick="setMode('scroll')">SCROLL</span><span
+        class="b" id="m_opacity" onclick="setMode('opacity')">OPACITY</span><span
+        class="b" id="m_overlay" onclick="setMode('overlay')">OVERLAY</span><span
+        class="b" id="m_reload"  onclick="setMode('reload')">RELOAD</span><span
+        class="b" id="m_none"    onclick="setMode('none')">NONE</span>
+</div>
+<div id="wrap"><img id="p" src="/collage.png?g=__TOKEN__" alt=""></div>
+<div id="foot"><span id="st">mode: __NUDGE__</span><span id="cd">&nbsp;</span></div>
 <div id="ov"></div>
 <script>
-// XHR and string concat throughout: this runs on the Papyr's Android 5/6 Chrome.
-var shown = "__TOKEN__";
+// XHR and string concat throughout: this runs on the Papyr's stock Chrome.
+var MODES = ["invert","scroll","opacity","overlay","reload","none"];
 var MODE = "__NUDGE__";
+var shown = "__TOKEN__";
+var left = 99;
 
 // Swapping img.src updates the framebuffer, but an e-ink controller only pushes
-// a new waveform to the panel on events it recognises - touch, scroll, page
-// load. Without a nudge the old plate can stay on the glass while the new one
-// sits behind it, which looks exactly like "it never rotated".
+// a new waveform on events it recognises - touch, scroll, page load. Without a
+// nudge the old plate stays on the glass, which looks exactly like "it never
+// rotated". Which nudge works is a property of this device's firmware.
 function nudge() {
   var b = document.body;
   if (MODE === "invert") {
@@ -89,7 +111,20 @@ function nudge() {
     o.style.display = "block";
     setTimeout(function () { o.style.display = "none"; }, 150);
   }
-  // MODE === "none" deliberately does nothing - the baseline.
+  // "none" deliberately does nothing - the baseline that already failed.
+}
+
+function setMode(m) {
+  MODE = m;
+  for (var i = 0; i < MODES.length; i++) {
+    document.getElementById("m_" + MODES[i]).className =
+      (MODES[i] === m) ? "b on" : "b";
+  }
+  // Deliberately does NOT swap the image. Your tap is itself an e-ink refresh
+  // event, so swapping here would repaint regardless of the mode and every
+  // button would look like it works. Wait for the countdown instead.
+  document.getElementById("st").innerHTML =
+    "mode: " + m + " &nbsp;-&nbsp; wait for 0, hands off";
 }
 
 function swap(token) {
@@ -105,22 +140,32 @@ function poll() {
     if (x.readyState !== 4) return;
     if (x.status === 200) {
       try {
-        var token = JSON.parse(x.responseText).token;
-        if (token !== shown) {
-          shown = token;
-          if (MODE === "reload") {
-            // Guaranteed repaint, at the cost of a full white flash.
-            location.reload();
-            return;
-          }
-          swap(token);
+        var d = JSON.parse(x.responseText);
+        left = d.left;
+        if (d.token !== shown) {
+          shown = d.token;
+          if (MODE === "reload") { location.reload(); return; }
+          swap(d.token);
+          document.getElementById("st").innerHTML = "mode: " + MODE + " - gen " + d.token;
         }
       } catch (e) {}
     }
-    setTimeout(poll, 3000);
+    setTimeout(poll, 2000);
   };
   x.send();
 }
+
+// Only render the last 5 seconds. A clock ticking every second would repaint
+// the panel constantly and mask the very thing we are testing.
+function tick() {
+  left = left - 1;
+  var el = document.getElementById("cd");
+  if (left <= 5 && left >= 0) { el.innerHTML = String(left); }
+  else { el.innerHTML = "&nbsp;"; }
+}
+
+setMode("__NUDGE__");
+setInterval(tick, 1000);
 poll();
 </script>
 </body></html>
@@ -178,6 +223,10 @@ class State:
     def token(self) -> int:
         return int((time.time() - self.started) // self.seconds) % self.generations
 
+    def left(self) -> int:
+        """Whole seconds until the next change, for the on-screen countdown."""
+        return int(self.seconds - ((time.time() - self.started) % self.seconds))
+
     def png(self, generation: int) -> bytes:
         with self.lock:
             if generation not in self.cache:
@@ -231,8 +280,8 @@ def make_handler(state: State):
                 if n % 10 == 1:
                     print("[%s] %s polled %d times, token=%d" % (
                         time.strftime("%H:%M:%S"), client, n, state.token()), flush=True)
-                self._send(200, b'{"token":"%d"}' % state.token(), "application/json",
-                           {"Cache-Control": "no-store"})
+                self._send(200, b'{"token":"%d","left":%d}' % (state.token(), state.left()),
+                           "application/json", {"Cache-Control": "no-store"})
             elif path == "/collage.png":
                 try:
                     g = int(self.path.split("g=")[1])
