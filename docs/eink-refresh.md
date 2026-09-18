@@ -81,3 +81,23 @@ brightness). Nobody has a JavaScript refresh primitive, because there isn't one.
    Stock Chrome gives you fullscreen or changing birds, never both.
 4. **Wakelock turned out not to matter.** Stock Chrome held a 3-second poll for
    18 minutes unattended with the tab in the foreground.
+
+## It is not only the repaint
+
+`document.exitFullscreen()` behaves the same way: it returns successfully, the
+page reports itself as no longer fullscreen, and the panel stays in immersive
+mode. The exit control appeared broken when it was firing correctly and being
+ignored.
+
+The workaround is the same one: navigate. A reload drops fullscreen reliably, so
+`exitFull()` tries the API, waits 600ms, and reloads if the page is still
+fullscreen.
+
+Two independent web APIs on this device report success and do nothing. The
+pattern worth carrying forward is that **this firmware acts on whole-page
+transitions and treats in-page state changes as advisory** - so when something
+must actually happen on the glass, navigate.
+
+This argues for Fully Kiosk rather than against it. Its fullscreen is Android
+immersive mode owned by the app, so there is no web API in the path to be
+ignored, and nothing to exit: you want it fullscreen permanently.

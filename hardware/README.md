@@ -1,93 +1,103 @@
-# The mic node — ESP32 + I2S MEMS
+# The microphone
 
-Compute lives on the Ubuntu mini PC. The only thing outdoors is a matchbox-sized
-WiFi microphone running [`Sukecz/esp32-birdnet-mic`](https://github.com/Sukecz/esp32-birdnet-mic),
-purpose-built firmware that streams RTSP straight into BirdNET-Go.
+Compute lives on the Ubuntu mini PC. The only thing outdoors is the mic, and it
+reaches the stack over WiFi as an RTSP stream.
 
-## Why not Bluetooth
+## What to buy
 
-Bluetooth's microphone profile (HFP/HSP) is 8–16 kHz mono. Birdsong runs well
-past that, so the codec alone would discard most of what BirdNET listens for —
-before considering the ~10 m range or the absence of any weatherproof unit.
-There is no good Bluetooth answer here. WiFi is the only real option.
+**[M5Stack ATOM Echo](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit)
+— US$13.50, SKU `C008-C`.**
 
-## Bill of materials
+A sealed 24 × 24 × 17 mm cube with a microphone in it. Flash once over USB-C,
+join WiFi through a captive portal, and it appears to BirdNET-Go as:
 
-Prices checked September 2026, AUD inc GST.
+```
+rtsp://atomecho.local:8554/audio
+```
 
-| Part | Price | Where |
-| --- | --- | --- |
-| [Seeed Studio XIAO ESP32S3](https://core-electronics.com.au/catalogsearch/result/?q=XIAO+ESP32S3) | $16.10 | Core Electronics, in stock |
-| [Adafruit I2S MEMS mic breakout — SPH0645LM4H](https://core-electronics.com.au/catalogsearch/result/?q=I2S+MEMS+microphone+SPH0645) | $12.85 | Core Electronics, in stock |
-| Small IP65 ABS box | ~$12 | Jaycar. ABS is fine — the ESP32 dissipates almost nothing, so no heatsink is needed |
-| 5 V 1 A USB supply + outdoor-rated cable | ~$18 | |
-| Short shielded 5-core cable | ~$5 | |
-| 2.4 GHz external antenna, U.FL/IPEX | ~$10 | Recommended, not required |
-| Acoustic mesh / PTFE membrane for the mic port | ~$8 | See below |
-| Shipping | $7+ | |
+Firmware: [`stedrow/birdnetgo-m5stack-atom-echo-rtsp-mic`](https://github.com/stedrow/birdnetgo-m5stack-atom-echo-rtsp-mic)
+— no soldering, no wiring. It includes AGC for varying bird distance and a
+300 Hz high-pass for wind and traffic.
 
-**Roughly AU$90 all in.**
+> The store now calls it **"ATOM Voice Smart Speaker Development Kit"**. Same
+> product, renamed; the old URL still resolves and SKU `C008-C` is the part to
+> match. The newer **Atom VoiceS3R** (ESP32-S3, ES8311 codec) is *not* what this
+> firmware targets — different SoC, different audio path.
 
-For comparison: a Pi Zero 2 W with a Clippy EM272 lands around $180–200, and the
-fully standalone Pi 5 build was $410–460.
+It's also Home Assistant's reference voice-assistant device, so if it disappoints
+as a bird mic it reflashes into an
+[ESPHome voice satellite](https://github.com/esphome/wake-word-voice-assistants/blob/main/m5stack-atom-echo/m5stack-atom-echo.yaml)
+instead. One firmware at a time — ESPHome has no RTSP audio output.
 
-The firmware also supports the XIAO ESP32-C3/C5/C6, and the
-[ICS-43434 breakout](https://core-electronics.com.au/catalogsearch/result/?q=I2S+MEMS+microphone+SPH0645)
-($15.22, also in stock) as an alternative capsule.
+You will also need a **USB-C power supply** and a small **IP65 box** with an
+acoustic mesh or PTFE membrane over the mic port.
 
 ## What you give up
 
-The SPH0645 is a MEMS capsule at roughly 65 dB SNR. A Clippy EM272 is
-substantially quieter, and that difference shows up as **faint and distant birds
-you simply won't detect**. Loud close ones are unaffected.
+**16 kHz.** Everything above 8 kHz is discarded. That is the same limitation
+that ruled out a UniFi camera's AAC track earlier in this project, and it is the
+honest cost of no soldering.
 
-That trade lands well here: Australian backyard birds — magpie, kookaburra,
-wattlebird, lorikeet, currawong, noisy miner — are loud and mostly sit in
-1–8 kHz. This would be a worse bet for European warblers.
+It lands better here than it might elsewhere: Australian backyard birds — magpie,
+kookaburra, wattlebird, lorikeet, currawong, noisy miner — are loud and mostly
+sit in 1–8 kHz. This would be a poor bet for European warblers.
 
-If detection volume disappoints later, BirdNET-Go runs **multiple sources in
-parallel**, so a better mic can be added alongside rather than replacing this.
+At US$13.50 it is cheap enough to answer the only question that matters — does a
+cheap MEMS mic hear enough of *your* garden — before committing to anything
+larger.
 
-## Setup
+## Why not something better
 
-1. Flash via the project's web flasher at `esp32mic.msmeteo.cz` over USB-C.
-2. On first boot it raises an AP, `ESP32-RTSP-Mic-AP`. Join it and set WiFi
-   credentials at `192.168.4.1`.
-3. Give it a **DHCP reservation** so the stream URL never moves.
-4. Streams appear at:
+There is no such product. A consumer WiFi or Bluetooth outdoor microphone that
+streams to a server does not exist as a category:
 
-   ```
-   rtsp://<device-ip>:8554/audio1
-   rtsp://<device-ip>:8554/audio2
-   ```
+- **Bluetooth** is a dead end regardless. Its mic profile is 8–16 kHz mono with
+  roughly 10 m range, so even a weatherproof one would throw away most birdsong.
+- **Network microphones** exist only as Dante/AES67 conference units. Over
+  $1000, indoor-rated, PoE, and they need Dante software on the host.
+- **BirdWeather PUC** and **Haikubox** are complete detectors, not microphones,
+  and both classify in their own cloud rather than feeding BirdNET-Go.
 
-   Mono 16-bit PCM at 48 kHz. Use the IP rather than `.local` — mDNS does not
-   cross Docker's bridge network, and BirdNET-Go runs in a container.
-5. Set the firmware's **high-pass filter** (300–800 Hz) to cut low-frequency
-   rumble. This matters more outdoors than anything else you can configure.
+Paying more does not buy a better WiFi microphone, because there is nothing
+better to buy. Better audio means adding your own capsule, which costs either
+soldering or cabling:
+
+| | No solder | No cables | 48 kHz |
+| --- | :---: | :---: | :---: |
+| **M5Stack ATOM Echo** ~US$14 | ✓ | ✓ | ✗ |
+| XIAO ESP32S3 + [SPH0645LM4H](https://core-electronics.com.au/catalogsearch/result/?q=I2S+MEMS+microphone+SPH0645) — AU$29 in parts | ✗ | ✓ | ✓ |
+| Pi Zero 2 W + [Clippy EM272Z1](https://micbooster.com/product/clippy-em272-microphone/) + UGREEN US205 — AU$160+ | ✓ | ✗ | ✓ |
+
+Pick two.
+
+## The upgrade path
+
+If detections disappoint, **BirdNET-Go runs multiple sources in parallel**, so a
+better mic is added alongside rather than replacing this one.
+
+The quality ceiling is the **Clippy EM272Z1** (Primo EM272Z1 capsule — the
+reference for birdsong recording) on a Pi Zero 2 W running
+[`birdnet-go-remote-mic`](https://github.com/tphakala/birdnet-go-remote-mic),
+BirdNET-Go's own remote-microphone appliance. That path needs no soldering
+either, just four parts that plug together.
+
+If you go that way, the sound card is a **named part, not a category**: the
+Clippy is an electret needing plug-in power on the jack ring, plenty of USB
+dongles supply none, and the failure mode is silence rather than an error.
+Upstream verified the **UGREEN US205, article 30724**. With any substitute, put
+a multimeter across ring and sleeve and confirm ~2–5 V before it goes up a
+ladder.
 
 ## Mounting
 
-The I2S wiring has to stay **short and shielded**, so unlike a lavalier setup the
-capsule cannot dangle away from the board — mic and ESP32 share the one small box.
-
-- Mount the breakout against a **downward-facing port** in the enclosure floor so
-  water can't sit on it.
-- **Cover the port with acoustic mesh or a PTFE membrane.** A MEMS mic has a tiny
-  sound hole; a bare drilling will admit dust, water and insects, and a solid
-  cover will deafen it. This is the fiddliest part of the build.
-- A fur windshield over the port if it catches wind. Wind straight on a capsule
-  drowns out everything else.
-- Target WiFi better than **−75 dBm**; fit the external antenna if marginal.
+- Mic port facing **down** so water cannot sit on it, behind acoustic mesh or a
+  PTFE membrane. A bare drilling admits dust, water and insects; a solid cover
+  deafens it.
+- A fur windshield if it catches wind — wind straight on a capsule drowns out
+  everything else.
 - Away from aircon compressors, pool pumps and the road, or BirdNET will spend
   all day describing a heat pump.
-
-## Still free: the G6 Turret
-
-The UniFi camera costs nothing and is already outdoors. Its speech-tuned, AGC'd
-mic is worse than the ESP32, but since BirdNET-Go merges sources you could point
-it at the camera today and see real detections while the parts ship.
-
-One gotcha if you do: Protect streams carry **two** audio tracks — AAC 16 kHz
-mono and Opus 48 kHz stereo — and BirdNET needs the 48 kHz one or everything
-above 8 kHz is lost.
+- WiFi better than **−75 dBm**, and a DHCP reservation so the stream URL never
+  moves. Use the IP rather than `.local` in
+  [birdnet-go/config.yaml](../birdnet-go/config.yaml): mDNS does not cross
+  Docker's bridge network, and BirdNET-Go runs in a container.

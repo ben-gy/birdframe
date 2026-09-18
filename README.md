@@ -69,10 +69,10 @@ a plain posterise mottles the paper into blotches:
 
 ```
 ┌─ Outside — WiFi microphone ─────────────────────┐
-│  ESP32 + I2S MEMS, or Pi Zero 2 W + EM272       │
+│  M5Stack ATOM Echo — sealed, nothing to wire    │
 │  streams RTSP                                   │
 └──────────────────┬──────────────────────────────┘
-                   │ 48 kHz PCM over RTSP
+                   │ 16 kHz PCM over RTSP
 ┌──────────────────▼─ Ubuntu mini PC (compose) ───┐
 │  birdnet-go   :8090   detections + API          │
 │  fugleramme   :8080   composes the page         │
@@ -107,9 +107,11 @@ docker compose up -d
 
 ### Setup order
 
-1. **[hardware/](hardware/)** — build and verify the microphone **first**, on the
+1. **[hardware/](hardware/)** — the microphone, and verify it **first**, on the
    bench, before anything is sealed or mounted. It's the part most likely to
-   disappoint, and everything downstream is worthless without it.
+   disappoint, and everything downstream is worthless without it. There is no
+   consumer WiFi microphone for this; `hardware/` explains what to buy instead
+   and what it costs you.
 2. **BirdNET-Go** — set the mic's RTSP URL in
    [birdnet-go/config.yaml](birdnet-go/config.yaml), and **set latitude/longitude**.
    The species range filter is the only thing keeping the list to plausible local
