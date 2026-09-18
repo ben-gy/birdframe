@@ -10,7 +10,34 @@ domain, and exactly the target aesthetic.
 
 Also usable: **Gracius Broinowski, _The Birds of Australia_ (1890)**.
 
-## What exists
+## What is already here
+
+`plates/` holds **36 cut-out Australian garden birds** with transparent
+backgrounds, listed in `plates.json` and credited in
+[ATTRIBUTION.md](ATTRIBUTION.md).
+
+> **`plates/` is CC BY-SA 4.0, not MIT.** Most of these scans are Rawpixel
+> restorations; the lithographs are public domain but the restorations are not.
+> See ATTRIBUTION.md before reusing them.
+
+Seven needed historical synonyms resolved: *Dacelo gigantea* → *D. novaeguineae*,
+*Myzantha garrula* → *Manorina melanocephala*, *Halcyon sanctus* →
+*Todiramphus sanctus*, *Aprosmictus scapulatus* → *Alisterus scapularis*,
+*Trichoglossus swainsonii* → *T. moluccanus*, *Rhipidura motacilloides* →
+*R. leucophrys*, *Platycercus pennantii* → *P. elegans*.
+
+**Still missing:** Magpie-lark and New Holland Honeyeater are not in the index
+under any name tried. Both are common, so Gould certainly plated them - they are
+probably among the 78 unidentified files. Left out rather than guessed.
+
+`tools/cutout.py` does the background removal. It marks pixels that look like
+paper (bright and near-neutral) then keeps only the paper region *connected to
+the sheet edge*, so white breasts and pale wing bars survive. A plain brightness
+threshold punches holes through the bird, and a flood fill on raw RGB stalls on
+the paper's grain - the first attempt did exactly that and left a cream rectangle
+behind every bird.
+
+## The whole catalogue
 
 `gould-plate-index.json` in this directory maps **737 identified plates across 685
 names** — effectively the whole of Gould's 681-plate work — to their Wikimedia

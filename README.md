@@ -220,8 +220,16 @@ Watch for archaic binomials: Gould's *Dacelo gigantea* is today's *Dacelo
 novaeguineae*. Match on common name plus an [Avibase](https://avibase.bsc-eoc.org/)
 synonym check, never a blind binomial join.
 
-See **[artwork/MAPPING.md](artwork/MAPPING.md)**. Plates are not committed here;
-`artwork/plate-names.example.json` shows the metadata format.
+**[artwork/plates/](artwork/plates/) already holds 36 cut-out Australian garden
+birds** — magpie, kookaburra, galah, lorikeet, currawong, wattlebird, fairywren
+and the rest — with transparent backgrounds, resolved names and facts. See
+[artwork/MAPPING.md](artwork/MAPPING.md) for how they were built and
+[artwork/gould-plate-index.json](artwork/gould-plate-index.json) for the other
+685 names.
+
+> **The plates are CC BY-SA 4.0, not MIT.** Most are Rawpixel restorations: the
+> lithographs are public domain, the restorations are not. See
+> [artwork/ATTRIBUTION.md](artwork/ATTRIBUTION.md).
 
 ---
 
@@ -245,4 +253,7 @@ This stands on other people's work.
 
 ## Licence
 
-MIT — see [LICENSE](LICENSE).
+**Code** — MIT, see [LICENSE](LICENSE).
+
+**Artwork in `artwork/plates/`** — CC BY-SA 4.0, and cannot be relicensed. See
+[artwork/ATTRIBUTION.md](artwork/ATTRIBUTION.md) for per-plate credit.
