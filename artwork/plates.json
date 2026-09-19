@@ -6,7 +6,11 @@
   "source": "gould-australia",
   "plate_name": "Gymnorhina tibicen",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book82.jpg",
-  "opaque": 0.427,
+  "size": [
+   1279,
+   1600
+  ],
+  "trimmed_to": 0.869,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -19,7 +23,11 @@
   "source": "gould-australia",
   "plate_name": "Trichoglossus swainsonii",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book389.jpg",
-  "opaque": 0.249,
+  "size": [
+   1267,
+   1600
+  ],
+  "trimmed_to": 0.822,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -32,7 +40,11 @@
   "source": "gould-australia",
   "plate_name": "Cacatua galerita",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book342.jpg",
-  "opaque": 0.351,
+  "size": [
+   1232,
+   1600
+  ],
+  "trimmed_to": 0.841,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -45,7 +57,11 @@
   "source": "gould-australia",
   "plate_name": "Myzantha garrula",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book313.jpg",
-  "opaque": 0.269,
+  "size": [
+   1278,
+   1600
+  ],
+  "trimmed_to": 0.859,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -58,7 +74,11 @@
   "source": "gould-australia",
   "plate_name": "Dacelo gigantic",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book54.jpg",
-  "opaque": 0.472,
+  "size": [
+   1295,
+   1600
+  ],
+  "trimmed_to": 0.817,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -71,7 +91,11 @@
   "source": "gould-australia",
   "plate_name": "Anthochaera carunculata",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book292.jpg",
-  "opaque": 0.237,
+  "size": [
+   1232,
+   1600
+  ],
+  "trimmed_to": 0.816,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -84,7 +108,11 @@
   "source": "gould-australia",
   "plate_name": "Rhipidura albiscapa",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book119.jpg",
-  "opaque": 0.211,
+  "size": [
+   1150,
+   1600
+  ],
+  "trimmed_to": 0.753,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -97,7 +125,11 @@
   "source": "gould-australia",
   "plate_name": "Malurus cyaneus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book158.jpg",
-  "opaque": 0.179,
+  "size": [
+   1245,
+   1600
+  ],
+  "trimmed_to": 0.844,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -110,7 +142,11 @@
   "source": "gould-australia",
   "plate_name": "Cracticus torquatus",
   "source_file": "Cracticus destructor by John Gould.jpg",
-  "opaque": 0.317,
+  "size": [
+   1156,
+   1600
+  ],
+  "trimmed_to": 0.87,
   "artist": "John Gould",
   "licence": "Public domain",
   "licence_url": "",
@@ -123,7 +159,11 @@
   "source": "gould-australia",
   "plate_name": "Eolophus roseicapilla",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book345.jpg",
-  "opaque": 0.345,
+  "size": [
+   1240,
+   1600
+  ],
+  "trimmed_to": 0.827,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -136,7 +176,11 @@
   "source": "gould-australia",
   "plate_name": "Platycercus eximius",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book368.jpg",
-  "opaque": 0.33,
+  "size": [
+   1251,
+   1600
+  ],
+  "trimmed_to": 0.84,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -149,7 +193,11 @@
   "source": "gould-australia",
   "plate_name": "Acanthiza pusilla",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book193.jpg",
-  "opaque": 0.046,
+  "size": [
+   1201,
+   1600
+  ],
+  "trimmed_to": 0.829,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -162,7 +210,11 @@
   "source": "gould-australia",
   "plate_name": "Strepera graculina",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book78.jpg",
-  "opaque": 0.478,
+  "size": [
+   1277,
+   1600
+  ],
+  "trimmed_to": 0.856,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -175,7 +227,11 @@
   "source": "gould-australia",
   "plate_name": "Pardalotus punctatus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book71.jpg",
-  "opaque": 0.11,
+  "size": [
+   1247,
+   1600
+  ],
+  "trimmed_to": 0.848,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -188,11 +244,32 @@
   "source": "gould-australia",
   "plate_name": "Bernicla jubata",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book518.jpg",
-  "opaque": 0.591,
+  "size": [
+   1600,
+   976
+  ],
+  "trimmed_to": 0.836,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book518.jpg"
+ },
+ {
+  "slug": "anas-superciliosa",
+  "species": "Anas superciliosa",
+  "records": 4038,
+  "source": "broinowski-1890",
+  "plate_name": "Anas superciliosa",
+  "source_file": "The birds of Australia (16769491056).jpg",
+  "size": [
+   1600,
+   996
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816769491056%29.jpg"
  },
  {
   "slug": "platycercus-elegans",
@@ -201,7 +278,11 @@
   "source": "gould-australia",
   "plate_name": "Platycercus pennantii",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book364.jpg",
-  "opaque": 0.348,
+  "size": [
+   1246,
+   1600
+  ],
+  "trimmed_to": 0.837,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -214,7 +295,11 @@
   "source": "gould-australia",
   "plate_name": "Ptilotis chrysops",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book282.jpg",
-  "opaque": 0.113,
+  "size": [
+   1261,
+   1600
+  ],
+  "trimmed_to": 0.864,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -227,7 +312,11 @@
   "source": "gould-australia",
   "plate_name": "Colluricincla harmonica",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book110.jpg",
-  "opaque": 0.369,
+  "size": [
+   1237,
+   1600
+  ],
+  "trimmed_to": 0.837,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -240,7 +329,11 @@
   "source": "gould-australia",
   "plate_name": "Peristera chalcoptera",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book405.jpg",
-  "opaque": 0.592,
+  "size": [
+   1600,
+   996
+  ],
+  "trimmed_to": 0.812,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -253,7 +346,11 @@
   "source": "gould-australia",
   "plate_name": "Hirundo neoxena",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book49.jpg",
-  "opaque": 0.225,
+  "size": [
+   1295,
+   1600
+  ],
+  "trimmed_to": 0.824,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -266,7 +363,11 @@
   "source": "gould-australia",
   "plate_name": "Eopsaltria australis",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book151.jpg",
-  "opaque": 0.177,
+  "size": [
+   1223,
+   1600
+  ],
+  "trimmed_to": 0.834,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -279,7 +380,11 @@
   "source": "gould-australia",
   "plate_name": "Gallinula tenebrosa",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book506.jpg",
-  "opaque": 0.4,
+  "size": [
+   1600,
+   948
+  ],
+  "trimmed_to": 0.805,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -292,7 +397,11 @@
   "source": "gould-australia",
   "plate_name": "Sericornis frontalis",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book189.jpg",
-  "opaque": 0.142,
+  "size": [
+   1253,
+   1600
+  ],
+  "trimmed_to": 0.866,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -305,7 +414,11 @@
   "source": "gould-australia",
   "plate_name": "Acanthorhynchus tenuirostris",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book298.jpg",
-  "opaque": 0.056,
+  "size": [
+   1259,
+   1600
+  ],
+  "trimmed_to": 0.848,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -318,7 +431,11 @@
   "source": "gould-australia",
   "plate_name": "Graucalus melanops",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book91.jpg",
-  "opaque": 0.389,
+  "size": [
+   1130,
+   1600
+  ],
+  "trimmed_to": 0.657,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -331,7 +448,11 @@
   "source": "gould-australia",
   "plate_name": "Ptilotis leucotis",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book273.jpg",
-  "opaque": 0.176,
+  "size": [
+   1261,
+   1600
+  ],
+  "trimmed_to": 0.862,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -344,11 +465,32 @@
   "source": "gould-australia",
   "plate_name": "Zosterops dorsalis",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book318.jpg",
-  "opaque": 0.174,
+  "size": [
+   1230,
+   1600
+  ],
+  "trimmed_to": 0.823,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book318.jpg"
+ },
+ {
+  "slug": "cacomantis-flabelliformis",
+  "species": "Cacomantis flabelliformis",
+  "records": 2161,
+  "source": "broinowski-1890",
+  "plate_name": "Cacomantis flabelliformis",
+  "source_file": "The birds of Australia (16864204471).jpg",
+  "size": [
+   1274,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816864204471%29.jpg"
  },
  {
   "slug": "acanthiza-lineata",
@@ -357,7 +499,11 @@
   "source": "gould-australia",
   "plate_name": "Acanthiza lineata",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book201.jpg",
-  "opaque": 0.066,
+  "size": [
+   1223,
+   1600
+  ],
+  "trimmed_to": 0.805,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -370,11 +516,32 @@
   "source": "gould-australia",
   "plate_name": "Pardalotus striatus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book74.jpg",
-  "opaque": 0.206,
+  "size": [
+   1246,
+   1600
+  ],
+  "trimmed_to": 0.85,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book74.jpg"
+ },
+ {
+  "slug": "cacatua-tenuirostris",
+  "species": "Cacatua tenuirostris",
+  "records": 1851,
+  "source": "broinowski-1890",
+  "plate_name": "Cacatua tenuirostris",
+  "source_file": "The birds of Australia (16657838517).jpg",
+  "size": [
+   1600,
+   977
+  ],
+  "trimmed_to": 0.866,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816657838517%29.jpg"
  },
  {
   "slug": "manorina-melanophrys",
@@ -383,7 +550,11 @@
   "source": "gould-australia",
   "plate_name": "Myzantha melanophrys",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book317.jpg",
-  "opaque": 0.268,
+  "size": [
+   1278,
+   1600
+  ],
+  "trimmed_to": 0.842,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -396,11 +567,32 @@
   "source": "gould-australia",
   "plate_name": "Aprosmictus scapulatus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book358.jpg",
-  "opaque": 0.344,
+  "size": [
+   1252,
+   1600
+  ],
+  "trimmed_to": 0.787,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book358.jpg"
+ },
+ {
+  "slug": "neochmia-temporalis",
+  "species": "Neochmia temporalis",
+  "records": 1624,
+  "source": "broinowski-1891",
+  "plate_name": "Neochmia temporalis",
+  "source_file": "The birds of Australia (16802992408).jpg",
+  "size": [
+   1312,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816802992408%29.jpg"
  },
  {
   "slug": "rhipidura-leucophrys",
@@ -409,7 +601,11 @@
   "source": "gould-australia",
   "plate_name": "Rhipidura motacilloides",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book122.jpg",
-  "opaque": 0.188,
+  "size": [
+   1249,
+   1600
+  ],
+  "trimmed_to": 0.855,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -422,7 +618,11 @@
   "source": "gould-australia",
   "plate_name": "Pachycephala pectoralis",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book103.jpg",
-  "opaque": 0.242,
+  "size": [
+   1168,
+   1600
+  ],
+  "trimmed_to": 0.553,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -435,11 +635,32 @@
   "source": "gould-australia",
   "plate_name": "Corvus coronoides",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book255.jpg",
-  "opaque": 0.521,
+  "size": [
+   1201,
+   1600
+  ],
+  "trimmed_to": 0.794,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book255.jpg"
+ },
+ {
+  "slug": "cacatua-sanguinea",
+  "species": "Cacatua sanguinea",
+  "records": 1161,
+  "source": "broinowski-1890",
+  "plate_name": "Cacatua sanguinea",
+  "source_file": "The birds of Australia (16242760244).jpg",
+  "size": [
+   1301,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816242760244%29.jpg"
  },
  {
   "slug": "vanellus-miles",
@@ -448,11 +669,32 @@
   "source": "gould-australia",
   "plate_name": "Lobivanellus personatus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book443.jpg",
-  "opaque": 0.47,
+  "size": [
+   1600,
+   956
+  ],
+  "trimmed_to": 0.852,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book443.jpg"
+ },
+ {
+  "slug": "oriolus-sagittatus",
+  "species": "Oriolus sagittatus",
+  "records": 1093,
+  "source": "broinowski-1890",
+  "plate_name": "Oriolus sagittatus",
+  "source_file": "The birds of Australia (16296093404).jpg",
+  "size": [
+   1233,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816296093404%29.jpg"
  },
  {
   "slug": "smicrornis-brevirostris",
@@ -461,7 +703,11 @@
   "source": "gould-australia",
   "plate_name": "Smicrornis brevirostris",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book139.jpg",
-  "opaque": 0.103,
+  "size": [
+   1406,
+   1600
+  ],
+  "trimmed_to": 0.852,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -474,7 +720,11 @@
   "source": "gould-australia",
   "plate_name": "Ocyphaps lophotes",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book411.jpg",
-  "opaque": 0.298,
+  "size": [
+   1280,
+   1600
+  ],
+  "trimmed_to": 0.836,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -487,7 +737,11 @@
   "source": "gould-australia",
   "plate_name": "Podargus cuvieri",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book40.jpg",
-  "opaque": 0.385,
+  "size": [
+   1300,
+   1600
+  ],
+  "trimmed_to": 0.835,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -500,7 +754,11 @@
   "source": "gould-australia",
   "plate_name": "Aquila audax",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book1.jpg",
-  "opaque": 0.531,
+  "size": [
+   1276,
+   1600
+  ],
+  "trimmed_to": 0.79,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -513,7 +771,11 @@
   "source": "gould-australia",
   "plate_name": "Strepera anaphonensis",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book81.jpg",
-  "opaque": 0.396,
+  "size": [
+   1277,
+   1600
+  ],
+  "trimmed_to": 0.853,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -526,7 +788,11 @@
   "source": "gould-australia",
   "plate_name": "Porphyrio melanotus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book502.jpg",
-  "opaque": 0.521,
+  "size": [
+   1600,
+   889
+  ],
+  "trimmed_to": 0.811,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -539,7 +805,11 @@
   "source": "gould-australia",
   "plate_name": "Zanda funerea",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book352.jpg",
-  "opaque": 0.49,
+  "size": [
+   1264,
+   1600
+  ],
+  "trimmed_to": 0.862,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -552,7 +822,11 @@
   "source": "gould-australia",
   "plate_name": "Halcyon sanctus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book57.jpg",
-  "opaque": 0.165,
+  "size": [
+   1356,
+   1600
+  ],
+  "trimmed_to": 0.798,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -565,11 +839,32 @@
   "source": "gould-australia",
   "plate_name": "Callocephalon fimbriatum",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book355.jpg",
-  "opaque": 0.493,
+  "size": [
+   1283,
+   1600
+  ],
+  "trimmed_to": 0.834,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book355.jpg"
+ },
+ {
+  "slug": "chalcites-lucidus",
+  "species": "Chalcites lucidus",
+  "records": 660,
+  "source": "broinowski-1890",
+  "plate_name": "Chalcites lucidus",
+  "source_file": "The birds of Australia (16677606528).jpg",
+  "size": [
+   1274,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816677606528%29.jpg"
  },
  {
   "slug": "fulica-atra",
@@ -578,7 +873,11 @@
   "source": "gould-australia",
   "plate_name": "Fulica australis",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book507.jpg",
-  "opaque": 0.542,
+  "size": [
+   1600,
+   956
+  ],
+  "trimmed_to": 0.818,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -591,11 +890,32 @@
   "source": "gould-australia",
   "plate_name": "Dicaeum hirundinaceum",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book70.jpg",
-  "opaque": 0.425,
+  "size": [
+   1292,
+   1600
+  ],
+  "trimmed_to": 0.858,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book70.jpg"
+ },
+ {
+  "slug": "petroica-boodang",
+  "species": "Petroica boodang",
+  "records": 522,
+  "source": "broinowski-1891",
+  "plate_name": "Petroica boodang",
+  "source_file": "The birds of Australia (16804579349).jpg",
+  "size": [
+   1270,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816804579349%29.jpg"
  },
  {
   "slug": "psephotus-haematonotus",
@@ -604,11 +924,49 @@
   "source": "gould-australia",
   "plate_name": "Psephotus haematonotus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book377.jpg",
-  "opaque": 0.359,
+  "size": [
+   1270,
+   1600
+  ],
+  "trimmed_to": 0.758,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book377.jpg"
+ },
+ {
+  "slug": "anhinga-novaehollandiae",
+  "species": "Anhinga novaehollandiae",
+  "records": 412,
+  "source": "broinowski-1890",
+  "plate_name": "Anhinga novaehollandiae",
+  "source_file": "The birds of Australia (16085108944).jpg",
+  "size": [
+   1600,
+   939
+  ],
+  "trimmed_to": 0.85,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816085108944%29.jpg"
+ },
+ {
+  "slug": "ninox-strenua",
+  "species": "Ninox strenua",
+  "records": 395,
+  "source": "broinowski-1891",
+  "plate_name": "Ninox strenua",
+  "source_file": "The birds of Australia (17065712772).jpg",
+  "size": [
+   1286,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2817065712772%29.jpg"
  },
  {
   "slug": "phalacrocorax-sulcirostris",
@@ -617,7 +975,11 @@
   "source": "gould-australia",
   "plate_name": "Phalacrocorax sulcirostris",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book582.jpg",
-  "opaque": 0.473,
+  "size": [
+   1600,
+   986
+  ],
+  "trimmed_to": 0.822,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -630,7 +992,11 @@
   "source": "gould-australia",
   "plate_name": "Threskiornis spinicollis",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book478.jpg",
-  "opaque": 0.598,
+  "size": [
+   1600,
+   977
+  ],
+  "trimmed_to": 0.803,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -643,7 +1009,11 @@
   "source": "gould-europe",
   "plate_name": "Carduelis carduelis",
   "source_file": "The birds of Europe (1837) (14565320188).jpg",
-  "opaque": 0.288,
+  "size": [
+   1003,
+   1600
+  ],
+  "trimmed_to": 0.87,
   "artist": "Internet Archive Book Images",
   "licence": "No restrictions",
   "licence_url": "https://www.flickr.com/commons/usage/",
@@ -656,7 +1026,11 @@
   "source": "gould-australia",
   "plate_name": "Acanthiza nana",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book200.jpg",
-  "opaque": 0.085,
+  "size": [
+   1264,
+   1600
+  ],
+  "trimmed_to": 0.857,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -669,7 +1043,11 @@
   "source": "gould-australia",
   "plate_name": "Falcunculus frontatus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book115.jpg",
-  "opaque": 0.349,
+  "size": [
+   1109,
+   1600
+  ],
+  "trimmed_to": 0.722,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -682,7 +1060,11 @@
   "source": "gould-australia",
   "plate_name": "Nyroca australis",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book531.jpg",
-  "opaque": 0.364,
+  "size": [
+   1600,
+   1007
+  ],
+  "trimmed_to": 0.804,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -695,7 +1077,11 @@
   "source": "gould-australia",
   "plate_name": "Aegotheles cristatus",
   "source_file": "603 aegotheles.jpg",
-  "opaque": 0.284,
+  "size": [
+   609,
+   678
+  ],
+  "trimmed_to": 0.836,
   "artist": "Henry Constantine Richter",
   "licence": "Public domain",
   "licence_url": "",
@@ -708,7 +1094,11 @@
   "source": "gould-australia",
   "plate_name": "Seisura inquieta",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book123.jpg",
-  "opaque": 0.116,
+  "size": [
+   1245,
+   1600
+  ],
+  "trimmed_to": 0.828,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -721,11 +1111,32 @@
   "source": "gould-australia",
   "plate_name": "Hirundapus caudacutus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book46.jpg",
-  "opaque": 0.385,
+  "size": [
+   1184,
+   1600
+  ],
+  "trimmed_to": 0.819,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book46.jpg"
+ },
+ {
+  "slug": "ninox-boobook",
+  "species": "Ninox boobook",
+  "records": 202,
+  "source": "broinowski-1891",
+  "plate_name": "Ninox boobook",
+  "source_file": "The birds of Australia (16444746064).jpg",
+  "size": [
+   1286,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816444746064%29.jpg"
  },
  {
   "slug": "ardea-pacifica",
@@ -734,11 +1145,32 @@
   "source": "gould-australia",
   "plate_name": "Ardea pacifica",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book485.jpg",
-  "opaque": 0.461,
+  "size": [
+   1600,
+   951
+  ],
+  "trimmed_to": 0.845,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book485.jpg"
+ },
+ {
+  "slug": "elanus-axillaris",
+  "species": "Elanus axillaris",
+  "records": 176,
+  "source": "broinowski-1891",
+  "plate_name": "Elanus axillaris",
+  "source_file": "The birds of Australia (16879661330).jpg",
+  "size": [
+   1286,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816879661330%29.jpg"
  },
  {
   "slug": "poliocephalus-poliocephalus",
@@ -747,11 +1179,32 @@
   "source": "gould-australia",
   "plate_name": "Podiceps poliocephalus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book597.jpg",
-  "opaque": 0.266,
+  "size": [
+   1600,
+   965
+  ],
+  "trimmed_to": 0.756,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book597.jpg"
+ },
+ {
+  "slug": "accipiter-cirrocephalus",
+  "species": "Accipiter cirrocephalus",
+  "records": 153,
+  "source": "broinowski-1891",
+  "plate_name": "Accipiter cirrocephalus",
+  "source_file": "The birds of Australia (16859811357).jpg",
+  "size": [
+   1286,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816859811357%29.jpg"
  },
  {
   "slug": "acanthiza-reguloides",
@@ -760,7 +1213,11 @@
   "source": "gould-australia",
   "plate_name": "Acanthiza reguloides",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book202.jpg",
-  "opaque": 0.126,
+  "size": [
+   1192,
+   1600
+  ],
+  "trimmed_to": 0.807,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -773,7 +1230,11 @@
   "source": "gould-australia",
   "plate_name": "Petroica phoenicea",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book146.jpg",
-  "opaque": 0.246,
+  "size": [
+   1240,
+   1600
+  ],
+  "trimmed_to": 0.854,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -786,11 +1247,49 @@
   "source": "gould-australia",
   "plate_name": "Xema jamesonii",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book535.jpg",
-  "opaque": 0.425,
+  "size": [
+   1600,
+   946
+  ],
+  "trimmed_to": 0.783,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book535.jpg"
+ },
+ {
+  "slug": "glossopsitta-concinna",
+  "species": "Glossopsitta concinna",
+  "records": 126,
+  "source": "broinowski-1890",
+  "plate_name": "Glossopsitta concinna",
+  "source_file": "The birds of Australia (16864172961).jpg",
+  "size": [
+   1274,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816864172961%29.jpg"
+ },
+ {
+  "slug": "ceyx-azureus",
+  "species": "Ceyx azureus",
+  "records": 123,
+  "source": "broinowski-1891",
+  "plate_name": "Ceyx azureus",
+  "source_file": "The birds of Australia (16880941829).jpg",
+  "size": [
+   1286,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816880941829%29.jpg"
  },
  {
   "slug": "rhipidura-rufifrons",
@@ -799,7 +1298,11 @@
   "source": "gould-australia",
   "plate_name": "Rhipidura rufifrons",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book120.jpg",
-  "opaque": 0.237,
+  "size": [
+   1263,
+   1600
+  ],
+  "trimmed_to": 0.858,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -812,7 +1315,11 @@
   "source": "gould-australia",
   "plate_name": "Acrocephalus australis",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book177.jpg",
-  "opaque": 0.204,
+  "size": [
+   1197,
+   1600
+  ],
+  "trimmed_to": 0.774,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -825,11 +1332,49 @@
   "source": "gould-australia",
   "plate_name": "Nycticorax caledonicus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book496.jpg",
-  "opaque": 0.666,
+  "size": [
+   1600,
+   957
+  ],
+  "trimmed_to": 0.869,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book496.jpg"
+ },
+ {
+  "slug": "falco-cenchroides",
+  "species": "Falco cenchroides",
+  "records": 88,
+  "source": "broinowski-1891",
+  "plate_name": "Falco cenchroides",
+  "source_file": "The birds of Australia (16444760824).jpg",
+  "size": [
+   1286,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816444760824%29.jpg"
+ },
+ {
+  "slug": "haliastur-sphenurus",
+  "species": "Haliastur sphenurus",
+  "records": 81,
+  "source": "broinowski-1891",
+  "plate_name": "Haliastur sphenurus",
+  "source_file": "The birds of Australia (17067227265).jpg",
+  "size": [
+   1286,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2817067227265%29.jpg"
  },
  {
   "slug": "falco-berigora",
@@ -838,7 +1383,11 @@
   "source": "gould-australia",
   "plate_name": "Falco berigora",
   "source_file": "Falco berigora.jpg",
-  "opaque": 0.445,
+  "size": [
+   290,
+   298
+  ],
+  "trimmed_to": 0.859,
   "artist": "John Gould",
   "licence": "Public domain",
   "licence_url": "",
@@ -851,7 +1400,11 @@
   "source": "gould-australia",
   "plate_name": "Pachycephala olivacea",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book109.jpg",
-  "opaque": 0.334,
+  "size": [
+   1197,
+   1600
+  ],
+  "trimmed_to": 0.777,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -864,7 +1417,11 @@
   "source": "gould-australia",
   "plate_name": "Sphenoeacus gramineus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book176.jpg",
-  "opaque": 0.077,
+  "size": [
+   1200,
+   1600
+  ],
+  "trimmed_to": 0.814,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -877,11 +1434,32 @@
   "source": "gould-australia",
   "plate_name": "Pelecanus conspicillatus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book589.jpg",
-  "opaque": 0.527,
+  "size": [
+   1600,
+   923
+  ],
+  "trimmed_to": 0.832,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book589.jpg"
+ },
+ {
+  "slug": "turnix-varius",
+  "species": "Turnix varius",
+  "records": 62,
+  "source": "broinowski-1890",
+  "plate_name": "Turnix varius",
+  "source_file": "The birds of Australia (16608106660).jpg",
+  "size": [
+   1600,
+   964
+  ],
+  "trimmed_to": 0.865,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816608106660%29.jpg"
  },
  {
   "slug": "lathamus-discolor",
@@ -890,11 +1468,66 @@
   "source": "gould-australia",
   "plate_name": "Lathamus discolor",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book388.jpg",
-  "opaque": 0.371,
+  "size": [
+   1227,
+   1600
+  ],
+  "trimmed_to": 0.81,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book388.jpg"
+ },
+ {
+  "slug": "hieraaetus-morphnoides",
+  "species": "Hieraaetus morphnoides",
+  "records": 57,
+  "source": "broinowski-1891",
+  "plate_name": "Hieraaetus morphnoides",
+  "source_file": "The birds of Australia (16859828487).jpg",
+  "size": [
+   1286,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816859828487%29.jpg"
+ },
+ {
+  "slug": "anthus-novaeseelandiae",
+  "species": "Anthus novaeseelandiae",
+  "records": 54,
+  "source": "broinowski-1891",
+  "plate_name": "Anthus novaeseelandiae",
+  "source_file": "The birds of Australia (16783340757).jpg",
+  "size": [
+   1600,
+   965
+  ],
+  "trimmed_to": 0.863,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816783340757%29.jpg"
+ },
+ {
+  "slug": "cisticola-exilis",
+  "species": "Cisticola exilis",
+  "records": 54,
+  "source": "broinowski-1891",
+  "plate_name": "Cisticola exilis",
+  "source_file": "The birds of Australia (16370641213).jpg",
+  "size": [
+   1270,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816370641213%29.jpg"
  },
  {
   "slug": "platalea-flavipes",
@@ -903,7 +1536,11 @@
   "source": "gould-australia",
   "plate_name": "Platalea flavipes",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book482.jpg",
-  "opaque": 0.44,
+  "size": [
+   1270,
+   1600
+  ],
+  "trimmed_to": 0.859,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -916,7 +1553,11 @@
   "source": "gould-australia",
   "plate_name": "Cygnus atratus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book521.jpg",
-  "opaque": 0.546,
+  "size": [
+   1600,
+   921
+  ],
+  "trimmed_to": 0.81,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -929,7 +1570,11 @@
   "source": "gould-australia",
   "plate_name": "Eudynamys flindersii",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book328.jpg",
-  "opaque": 0.342,
+  "size": [
+   1278,
+   1600
+  ],
+  "trimmed_to": 0.855,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -942,7 +1587,11 @@
   "source": "gould-australia",
   "plate_name": "Casarca tadornoides",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book522.jpg",
-  "opaque": 0.428,
+  "size": [
+   1600,
+   936
+  ],
+  "trimmed_to": 0.752,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -955,11 +1604,32 @@
   "source": "gould-australia",
   "plate_name": "Petroica goodenovii",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book145.jpg",
-  "opaque": 0.087,
+  "size": [
+   1253,
+   1600
+  ],
+  "trimmed_to": 0.845,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book145.jpg"
+ },
+ {
+  "slug": "phalacrocorax-varius",
+  "species": "Phalacrocorax varius",
+  "records": 26,
+  "source": "broinowski-1890",
+  "plate_name": "Phalacrocorax varius",
+  "source_file": "The birds of Australia (16085118764).jpg",
+  "size": [
+   1600,
+   871
+  ],
+  "trimmed_to": 0.811,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816085118764%29.jpg"
  },
  {
   "slug": "cinclosoma-punctatum",
@@ -968,7 +1638,11 @@
   "source": "gould-australia",
   "plate_name": "Cinclosoma punctatum",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book241.jpg",
-  "opaque": 0.315,
+  "size": [
+   1218,
+   1600
+  ],
+  "trimmed_to": 0.772,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -981,7 +1655,11 @@
   "source": "gould-australia",
   "plate_name": "Coturnix pectoralis",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book429.jpg",
-  "opaque": 0.274,
+  "size": [
+   1600,
+   955
+  ],
+  "trimmed_to": 0.853,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -994,7 +1672,11 @@
   "source": "gould-australia",
   "plate_name": "Porzana fluminea",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book512.jpg",
-  "opaque": 0.378,
+  "size": [
+   1600,
+   962
+  ],
+  "trimmed_to": 0.836,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1007,11 +1689,49 @@
   "source": "gould-australia",
   "plate_name": "Merops ornatus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book52.jpg",
-  "opaque": 0.1,
+  "size": [
+   1258,
+   1600
+  ],
+  "trimmed_to": 0.851,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book52.jpg"
+ },
+ {
+  "slug": "accipiter-novaehollandiae",
+  "species": "Accipiter novaehollandiae",
+  "records": 17,
+  "source": "broinowski-1891",
+  "plate_name": "Accipiter novaehollandiae",
+  "source_file": "The birds of Australia (16444770284).jpg",
+  "size": [
+   1286,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816444770284%29.jpg"
+ },
+ {
+  "slug": "ptilonorhynchus-violaceus",
+  "species": "Ptilonorhynchus violaceus",
+  "records": 16,
+  "source": "broinowski-1890",
+  "plate_name": "Ptilonorhynchus violaceus",
+  "source_file": "The birds of Australia (16917477791).jpg",
+  "size": [
+   1600,
+   930
+  ],
+  "trimmed_to": 0.863,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816917477791%29.jpg"
  },
  {
   "slug": "eurystomus-orientalis",
@@ -1020,11 +1740,32 @@
   "source": "gould-australia",
   "plate_name": "Eurystomus orientalis",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book53.jpg",
-  "opaque": 0.342,
+  "size": [
+   1278,
+   1600
+  ],
+  "trimmed_to": 0.72,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book53.jpg"
+ },
+ {
+  "slug": "haliaeetus-leucogaster",
+  "species": "Haliaeetus leucogaster",
+  "records": 14,
+  "source": "broinowski-1891",
+  "plate_name": "Haliaeetus leucogaster",
+  "source_file": "The birds of Australia (16447081923).jpg",
+  "size": [
+   1286,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816447081923%29.jpg"
  },
  {
   "slug": "trichoglossus-chlorolepidotus",
@@ -1033,11 +1774,32 @@
   "source": "gould-australia",
   "plate_name": "Trichoglossus chlorolepidotus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book391.jpg",
-  "opaque": 0.224,
+  "size": [
+   1282,
+   1600
+  ],
+  "trimmed_to": 0.823,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book391.jpg"
+ },
+ {
+  "slug": "anthochaera-phrygia",
+  "species": "Anthochaera phrygia",
+  "records": 11,
+  "source": "broinowski-1890",
+  "plate_name": "Anthochaera phrygia",
+  "source_file": "The birds of Australia (16730974910).jpg",
+  "size": [
+   1233,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816730974910%29.jpg"
  },
  {
   "slug": "malacorhynchus-membranaceus",
@@ -1046,7 +1808,11 @@
   "source": "gould-australia",
   "plate_name": "Malacorhynchus membranaceus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book528.jpg",
-  "opaque": 0.392,
+  "size": [
+   1600,
+   926
+  ],
+  "trimmed_to": 0.793,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1059,11 +1825,66 @@
   "source": "gould-australia",
   "plate_name": "Climacteris picumnus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book335.jpg",
-  "opaque": 0.321,
+  "size": [
+   1272,
+   1600
+  ],
+  "trimmed_to": 0.836,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book335.jpg"
+ },
+ {
+  "slug": "psophodes-olivaceus",
+  "species": "Psophodes olivaceus",
+  "records": 10,
+  "source": "broinowski-1891",
+  "plate_name": "Psophodes olivaceus",
+  "source_file": "The birds of Australia (16370658793).jpg",
+  "size": [
+   1270,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816370658793%29.jpg"
+ },
+ {
+  "slug": "circus-approximans",
+  "species": "Circus approximans",
+  "records": 8,
+  "source": "broinowski-1891",
+  "plate_name": "Circus approximans",
+  "source_file": "The birds of Australia (16859808697).jpg",
+  "size": [
+   1286,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816859808697%29.jpg"
+ },
+ {
+  "slug": "menura-novaehollandiae",
+  "species": "Menura novaehollandiae",
+  "records": 8,
+  "source": "gould-australia",
+  "plate_name": "Menura novaehollandiae",
+  "source_file": "Lyre bird.jpg",
+  "size": [
+   1216,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "J. Gould and E. Gould; Lithographer: E. Gould",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3ALyre_bird.jpg"
  },
  {
   "slug": "platalea-regia",
@@ -1072,7 +1893,11 @@
   "source": "gould-australia",
   "plate_name": "Platalea regia",
   "source_file": "Gouldauroyallg.jpg",
-  "opaque": 0.724,
+  "size": [
+   535,
+   684
+  ],
+  "trimmed_to": 0.869,
   "artist": "John Gould",
   "licence": "Public domain",
   "licence_url": "",
@@ -1085,7 +1910,11 @@
   "source": "gould-australia",
   "plate_name": "Acanthogenys rufogularis",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book290.jpg",
-  "opaque": 0.296,
+  "size": [
+   1287,
+   1600
+  ],
+  "trimmed_to": 0.858,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1098,11 +1927,32 @@
   "source": "broinowski-1890",
   "plate_name": "Columba leucomela",
   "source_file": "The birds of Australia (16865084665).jpg",
-  "opaque": 0.775,
+  "size": [
+   1308,
+   1600
+  ],
+  "trimmed_to": 0.857,
   "artist": "Broinowski, Gracius J.",
   "licence": "Public domain",
   "licence_url": "",
   "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816865084665%29.jpg"
+ },
+ {
+  "slug": "milvus-migrans",
+  "species": "Milvus migrans",
+  "records": 6,
+  "source": "broinowski-1891",
+  "plate_name": "Milvus migrans",
+  "source_file": "The birds of Australia (17067204575).jpg",
+  "size": [
+   1286,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2817067204575%29.jpg"
  },
  {
   "slug": "tribonyx-ventralis",
@@ -1111,11 +1961,32 @@
   "source": "gould-australia",
   "plate_name": "Tribonyx ventralis",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book505.jpg",
-  "opaque": 0.583,
+  "size": [
+   1600,
+   951
+  ],
+  "trimmed_to": 0.821,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book505.jpg"
+ },
+ {
+  "slug": "epthianura-albifrons",
+  "species": "Epthianura albifrons",
+  "records": 5,
+  "source": "broinowski-1891",
+  "plate_name": "Epthianura albifrons",
+  "source_file": "The birds of Australia (16370628543).jpg",
+  "size": [
+   1270,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816370628543%29.jpg"
  },
  {
   "slug": "cracticus-nigrogularis",
@@ -1124,11 +1995,32 @@
   "source": "gould-australia",
   "plate_name": "Cracticus nigrogularis",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book85.jpg",
-  "opaque": 0.252,
+  "size": [
+   1288,
+   1600
+  ],
+  "trimmed_to": 0.844,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book85.jpg"
+ },
+ {
+  "slug": "todiramphus-macleayii",
+  "species": "Todiramphus macleayii",
+  "records": 4,
+  "source": "broinowski-1891",
+  "plate_name": "Todiramphus macleayii",
+  "source_file": "The birds of Australia (16879375868).jpg",
+  "size": [
+   1286,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816879375868%29.jpg"
  },
  {
   "slug": "anthochaera-lunulata",
@@ -1137,7 +2029,11 @@
   "source": "gould-australia",
   "plate_name": "Anthochaera lunulata",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book294.jpg",
-  "opaque": 0.22,
+  "size": [
+   1298,
+   1600
+  ],
+  "trimmed_to": 0.843,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1150,7 +2046,11 @@
   "source": "gould-australia",
   "plate_name": "Biziura lobata",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book533.jpg",
-  "opaque": 0.57,
+  "size": [
+   1600,
+   936
+  ],
+  "trimmed_to": 0.807,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1163,7 +2063,11 @@
   "source": "gould-australia",
   "plate_name": "Cincloramphus cruralis",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book214.jpg",
-  "opaque": 0.312,
+  "size": [
+   1277,
+   1600
+  ],
+  "trimmed_to": 0.718,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1176,7 +2080,11 @@
   "source": "gould-australia",
   "plate_name": "Lichenostomus melanops",
   "source_file": "Lichenostomus melanops cassidix.jpg",
-  "opaque": 0.276,
+  "size": [
+   539,
+   573
+  ],
+  "trimmed_to": 0.75,
   "artist": "John Gould",
   "licence": "Public domain",
   "licence_url": "",
@@ -1189,7 +2097,11 @@
   "source": "gould-australia",
   "plate_name": "Tropidorhynchus citreogularis",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book297.jpg",
-  "opaque": 0.281,
+  "size": [
+   1296,
+   1600
+  ],
+  "trimmed_to": 0.818,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1202,7 +2114,11 @@
   "source": "gould-australia",
   "plate_name": "Botaurus poiciloptilus",
   "source_file": "Bitterngould.jpg",
-  "opaque": 0.683,
+  "size": [
+   448,
+   272
+  ],
+  "trimmed_to": 0.869,
   "artist": "John Gould",
   "licence": "Public domain",
   "licence_url": "",
@@ -1215,7 +2131,11 @@
   "source": "gould-australia",
   "plate_name": "Artamus minor",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book64.jpg",
-  "opaque": 0.094,
+  "size": [
+   1258,
+   1600
+  ],
+  "trimmed_to": 0.84,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1228,7 +2148,11 @@
   "source": "gould-australia",
   "plate_name": "Dicrurus bracteatus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book118.jpg",
-  "opaque": 0.233,
+  "size": [
+   1283,
+   1600
+  ],
+  "trimmed_to": 0.85,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1241,11 +2165,49 @@
   "source": "gould-australia",
   "plate_name": "Entomyza cyanotis",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book305.jpg",
-  "opaque": 0.373,
+  "size": [
+   1305,
+   1600
+  ],
+  "trimmed_to": 0.859,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ABird_illustration_by_Elizabeth_Gould_for_Birds_of_Australia%2C_digitally_enhanced_from_rawpixel%27s_own_facsimile_book305.jpg"
+ },
+ {
+  "slug": "eudyptula-minor",
+  "species": "Eudyptula minor",
+  "records": 1,
+  "source": "broinowski-1890",
+  "plate_name": "Eudyptula minor",
+  "source_file": "The birds of Australia (16085087534).jpg",
+  "size": [
+   1600,
+   906
+  ],
+  "trimmed_to": 0.832,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816085087534%29.jpg"
+ },
+ {
+  "slug": "lophochroa-leadbeateri",
+  "species": "Lophochroa leadbeateri",
+  "records": 1,
+  "source": "broinowski-1890",
+  "plate_name": "Lophochroa leadbeateri",
+  "source_file": "The birds of Australia (16864102331).jpg",
+  "size": [
+   1301,
+   1600
+  ],
+  "trimmed_to": 0.87,
+  "artist": "Broinowski, Gracius J.",
+  "licence": "Public domain",
+  "licence_url": "",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_birds_of_Australia_%2816864102331%29.jpg"
  },
  {
   "slug": "philemon-corniculatus",
@@ -1254,7 +2216,11 @@
   "source": "gould-australia",
   "plate_name": "Tropidorhynchus corniculatus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book295.jpg",
-  "opaque": 0.346,
+  "size": [
+   1234,
+   1600
+  ],
+  "trimmed_to": 0.784,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1267,7 +2233,11 @@
   "source": "gould-australia",
   "plate_name": "Plectorhyncha lanceolata",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book284.jpg",
-  "opaque": 0.234,
+  "size": [
+   1309,
+   1600
+  ],
+  "trimmed_to": 0.845,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1280,7 +2250,11 @@
   "source": "gould-australia",
   "plate_name": "Pomatorhinus superciliosus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book259.jpg",
-  "opaque": 0.228,
+  "size": [
+   1267,
+   1600
+  ],
+  "trimmed_to": 0.839,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1293,7 +2267,11 @@
   "source": "gould-australia",
   "plate_name": "Pycnoptilus floccosus",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book627.jpg",
-  "opaque": 0.219,
+  "size": [
+   1274,
+   1600
+  ],
+  "trimmed_to": 0.859,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -1306,7 +2284,11 @@
   "source": "gould-australia",
   "plate_name": "Spatula rhynchotis",
   "source_file": "Bird illustration by Elizabeth Gould for Birds of Australia, digitally enhanced from rawpixel's own facsimile book527.jpg",
-  "opaque": 0.466,
+  "size": [
+   1600,
+   923
+  ],
+  "trimmed_to": 0.815,
   "artist": "Rawpixel",
   "licence": "CC BY-SA 4.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",

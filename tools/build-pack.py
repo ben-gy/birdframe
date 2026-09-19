@@ -7,6 +7,18 @@ writes the pack plus its attribution.
     python3 tools/build-pack.py --lat -37.74 --lon 145.22 --radius 6 --top 150
     python3 tools/build-pack.py --checklist artwork/checklist-au.json --top 300
 
+Plates are shown as printed - trimmed of their scanner margin and caption, never
+cut out. Two things decided that. Broinowski's chromolithographs are whole
+scenes, so there is no paper around the bird to remove and a cutout would
+destroy the artwork rather than isolate it. And on a frame showing one bird at a
+time, the intact plate simply looks better than a bird floating on a blank page:
+the tonal range of the original survives the 16-grey dither, and the result
+reads as a page from the book instead of a sticker.
+
+The consequence is that these plates do not composite. Upstream fugleramme's
+collage mode wants cutouts with alpha and would lay these out as rectangles -
+that mode is not what this frame uses.
+
 Resolution order per species, and it stops at the first hit:
 
     1. artwork/synonyms.json   curated historical -> modern, reviewed by hand
@@ -39,7 +51,7 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from cutout import cutout  # noqa: E402
+from cutout import full_bleed  # noqa: E402
 from PIL import Image  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -48,8 +60,6 @@ UA = {"User-Agent": "birdframe/0.1 (artwork builder; https://github.com/ben-gy/b
 ALA = "https://biocache-ws.ala.org.au/ws/occurrences/search"
 COMMONS = "https://commons.wikimedia.org/w/api.php"
 MAX_EDGE = 1600
-# Above this the cutout plainly did nothing - see the fall-through below.
-OPAQUE_LIMIT = 0.80
 
 
 def commons(params: dict) -> dict:
@@ -90,8 +100,8 @@ def candidates(species: str, synonyms: dict, sources: dict):
     Yields rather than returns one: a plate can resolve fine and still fail to
     cut out, and the caller needs somewhere to fall through to. Order is taken
     from sources.json's explicit list, never from dict or sort order - sorting
-    these keys alphabetically puts Broinowski ahead of Gould, and Broinowski's
-    scans are whole book pages that the cutout cannot handle.
+    these keys alphabetically silently put Broinowski ahead of Gould once, and
+    quietly changed which artwork the whole pack was built from.
     """
     hist = synonyms.get(species)
     for label in sources["order"]:
@@ -167,33 +177,28 @@ def main() -> None:
             raw, meta = got
             try:
                 im = Image.open(__import__("io").BytesIO(raw))
-                # Only the Rawpixel series carries a watermark strip; cropping
-                # the others would take the caption or part of the bird.
-                if filename.startswith("Bird illustration by Elizabeth Gould"):
-                    im = im.crop((0, 0, im.width, int(im.height * 0.87)))
-                cut = cutout(im)
+                cut = full_bleed(im)
             except Exception as exc:
-                why = "cutout error: %s" % exc
+                why = "trim failed: %s" % exc
                 continue
 
-            alpha = cut.getchannel("A")
-            opaque = sum(alpha.histogram()[250:]) / (cut.width * cut.height)
-            # A cutout that removed nothing is a failed cutout, not a plate.
-            # It means the scan is a whole book page - margins, text, scan edge -
-            # so there is no paper at the border to flood from. Shipping it puts
-            # a grey rectangle on the frame, so fall through to the next source.
-            if opaque > OPAQUE_LIMIT:
-                why = "background not removed (%.2f opaque, %s)" % (opaque, label)
+            # A trim that removed almost nothing means the scan had no margin to
+            # find, which in practice means it is not a plate page at all.
+            shrink = (cut.width * cut.height) / float(im.width * im.height)
+            if shrink > 0.995:
+                why = "nothing trimmed, probably not a plate (%s)" % label
                 continue
 
             if max(cut.size) > MAX_EDGE:
                 f = MAX_EDGE / max(cut.size)
                 cut = cut.resize((round(cut.width * f), round(cut.height * f)), Image.LANCZOS)
-            cut.save(out / (slug(species) + ".webp"), "WEBP", quality=88, method=6)
+            cut.convert("RGB").save(out / (slug(species) + ".webp"), "WEBP",
+                                    quality=88, method=6)
             rows.append({"slug": slug(species), "species": species, "records": count,
                          "source": label, "plate_name": used, "source_file": filename,
-                         "opaque": round(opaque, 3), **meta})
-            print("  %-34s %-18s %s" % (species, label, used if used != species else ""), flush=True)
+                         "size": list(cut.size), "trimmed_to": round(shrink, 3), **meta})
+            print("  %-34s %-18s %s" % (species, label, used if used != species else ""),
+                  flush=True)
             placed = True
             time.sleep(0.4)
             break

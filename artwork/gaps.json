@@ -10,11 +10,6 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Anas superciliosa",
-  "records": 4038,
-  "note": "background not removed (1.00 opaque, broinowski-1890)"
- },
- {
   "species": "Acridotheres tristis",
   "records": 3941,
   "note": "no plate in any source"
@@ -40,24 +35,9 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Cacomantis flabelliformis",
-  "records": 2161,
-  "note": "background not removed (1.00 opaque, broinowski-1890)"
- },
- {
   "species": "Corcorax melanorhamphos",
   "records": 1932,
   "note": "no plate in any source"
- },
- {
-  "species": "Cacatua tenuirostris",
-  "records": 1851,
-  "note": "background not removed (0.94 opaque, broinowski-1890)"
- },
- {
-  "species": "Neochmia temporalis",
-  "records": 1624,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
  },
  {
   "species": "Egretta novaehollandiae",
@@ -73,16 +53,6 @@
   "species": "Sturnus vulgaris",
   "records": 1410,
   "note": "no plate in any source"
- },
- {
-  "species": "Cacatua sanguinea",
-  "records": 1161,
-  "note": "background not removed (0.93 opaque, broinowski-1890)"
- },
- {
-  "species": "Oriolus sagittatus",
-  "records": 1093,
-  "note": "background not removed (1.00 opaque, broinowski-1890)"
  },
  {
   "species": "Pachycephala rufiventris",
@@ -120,11 +90,6 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Chalcites lucidus",
-  "records": 660,
-  "note": "background not removed (0.95 opaque, broinowski-1890)"
- },
- {
   "species": "Tachybaptus novaehollandiae",
   "records": 655,
   "note": "no plate in any source"
@@ -143,21 +108,6 @@
   "species": "Passer domesticus",
   "records": 550,
   "note": "no plate in any source"
- },
- {
-  "species": "Petroica boodang",
-  "records": 522,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
- },
- {
-  "species": "Anhinga novaehollandiae",
-  "records": 412,
-  "note": "background not removed (1.00 opaque, broinowski-1890)"
- },
- {
-  "species": "Ninox strenua",
-  "records": 395,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
  },
  {
   "species": "Acanthiza chrysorrhoa",
@@ -195,11 +145,6 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Ninox boobook",
-  "records": 202,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
- },
- {
   "species": "Zoothera lunulata",
   "records": 200,
   "note": "no plate in any source"
@@ -220,19 +165,9 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Elanus axillaris",
-  "records": 176,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
- },
- {
   "species": "Hypotaenidia philippensis",
   "records": 154,
   "note": "no plate in any source"
- },
- {
-  "species": "Accipiter cirrocephalus",
-  "records": 153,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
  },
  {
   "species": "Anas platyrhynchos",
@@ -253,16 +188,6 @@
   "species": "Passer montanus",
   "records": 128,
   "note": "no plate in any source"
- },
- {
-  "species": "Glossopsitta concinna",
-  "records": 126,
-  "note": "background not removed (1.00 opaque, broinowski-1890)"
- },
- {
-  "species": "Ceyx azureus",
-  "records": 123,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
  },
  {
   "species": "Falco longipennis",
@@ -288,16 +213,6 @@
   "species": "Myiagra cyanoleuca",
   "records": 93,
   "note": "no plate in any source"
- },
- {
-  "species": "Falco cenchroides",
-  "records": 88,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
- },
- {
-  "species": "Haliastur sphenurus",
-  "records": 81,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
  },
  {
   "species": "Chloris chloris",
@@ -340,29 +255,9 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Turnix varius",
-  "records": 62,
-  "note": "background not removed (1.00 opaque, broinowski-1890)"
- },
- {
   "species": "Gallinago hardwickii",
   "records": 61,
   "note": "no plate in any source"
- },
- {
-  "species": "Hieraaetus morphnoides",
-  "records": 57,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
- },
- {
-  "species": "Anthus novaeseelandiae",
-  "records": 54,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
- },
- {
-  "species": "Cisticola exilis",
-  "records": 54,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
  },
  {
   "species": "Alauda arvensis",
@@ -395,11 +290,6 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Phalacrocorax varius",
-  "records": 26,
-  "note": "background not removed (1.00 opaque, broinowski-1890)"
- },
- {
   "species": "Synoicus ypsilophora",
   "records": 25,
   "note": "no plate in any source"
@@ -420,29 +310,14 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Accipiter novaehollandiae",
-  "records": 17,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
- },
- {
   "species": "Parvipsitta porphyrocephala",
   "records": 16,
   "note": "no plate in any source"
  },
  {
-  "species": "Ptilonorhynchus violaceus",
-  "records": 16,
-  "note": "background not removed (1.00 opaque, broinowski-1890)"
- },
- {
   "species": "Zapornia tabuensis",
   "records": 15,
   "note": "no plate in any source"
- },
- {
-  "species": "Haliaeetus leucogaster",
-  "records": 14,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
  },
  {
   "species": "Nymphicus hollandicus",
@@ -480,11 +355,6 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Anthochaera phrygia",
-  "records": 11,
-  "note": "background not removed (1.00 opaque, broinowski-1890)"
- },
- {
   "species": "Barnardius zonarius",
   "records": 10,
   "note": "no plate in any source"
@@ -493,16 +363,6 @@
   "species": "Gerygone fusca",
   "records": 10,
   "note": "no plate in any source"
- },
- {
-  "species": "Psophodes olivaceus",
-  "records": 10,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
- },
- {
-  "species": "Circus approximans",
-  "records": 8,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
  },
  {
   "species": "Climacteris erythrops",
@@ -518,11 +378,6 @@
   "species": "Meliphaga lewinii",
   "records": 8,
   "note": "no plate in any source"
- },
- {
-  "species": "Menura novaehollandiae",
-  "records": 8,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
  },
  {
   "species": "Tyto javanica",
@@ -545,19 +400,9 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Milvus migrans",
-  "records": 6,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
- },
- {
   "species": "Egretta garzetta",
   "records": 5,
   "note": "no plate in any source"
- },
- {
-  "species": "Epthianura albifrons",
-  "records": 5,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
  },
  {
   "species": "Geopelia placida",
@@ -593,11 +438,6 @@
   "species": "Scythrops novaehollandiae",
   "records": 4,
   "note": "no plate in any source"
- },
- {
-  "species": "Todiramphus macleayii",
-  "records": 4,
-  "note": "background not removed (1.00 opaque, broinowski-1891)"
  },
  {
   "species": "Dendrocygna eytoni",
@@ -675,11 +515,6 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Eudyptula minor",
-  "records": 1,
-  "note": "background not removed (1.00 opaque, broinowski-1890)"
- },
- {
   "species": "Gallus gallus",
   "records": 1,
   "note": "no plate in any source"
@@ -698,11 +533,6 @@
   "species": "Lonchura castaneothorax",
   "records": 1,
   "note": "no plate in any source"
- },
- {
-  "species": "Lophochroa leadbeateri",
-  "records": 1,
-  "note": "background not removed (0.95 opaque, broinowski-1890)"
  },
  {
   "species": "Neophema splendida",

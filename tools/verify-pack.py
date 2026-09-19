@@ -2,12 +2,11 @@
 
 Three failures have actually happened here, and each one is a check below:
 
-  * the cutout left a cream rectangle behind every bird - invisible in the
-    numbers, obvious the moment you look at them on grey;
-  * two plates were captioned with the wrong species;
-  * the pack contained birds that do not occur where the frame hangs.
+  * a trim that silently did nothing, leaving the scanner's border in frame;
+  * two plates captioned with the wrong species;
+  * the pack containing birds that do not occur where the frame hangs.
 
-So: a contact sheet on mid-grey, an opaque-fraction report, and coverage against
+So: a contact sheet to look at, a trim-ratio report, and coverage scored against
 the location's real species list.
 """
 from __future__ import annotations
@@ -24,7 +23,8 @@ def contact_sheet(plates: Path, out: Path, cols=8, cell=200):
     files = sorted(plates.glob("*.webp"))
     rows = (len(files) + cols - 1) // cols
     pad, lbl = 8, 16
-    # Mid-grey: any background the cutout failed to remove shows as a white box.
+    # Mid-grey: the plates are cream, so an untrimmed scanner border still reads
+    # as a distinct edge against it.
     sheet = Image.new("RGB", (cols*(cell+pad)+pad, rows*(cell+pad+lbl)+pad), (150, 150, 150))
     d = ImageDraw.Draw(sheet)
     for i, f in enumerate(files):
@@ -50,14 +50,16 @@ def main():
     n, size = contact_sheet(Path(args.plates), Path(args.sheet))
     print("contact sheet: %s %s  (%d plates)" % (args.sheet, size, n))
 
-    bad_hi = [r for r in rows if r["opaque"] > 0.80]
-    bad_lo = [r for r in rows if r["opaque"] < 0.04]
-    print("\nopaque fraction — >0.80 means background left behind, <0.04 means over-cut")
-    for r in sorted(rows, key=lambda r: -r["opaque"])[:3]:
-        print("   high  %-34s %.2f" % (r["species"], r["opaque"]))
-    for r in sorted(rows, key=lambda r: r["opaque"])[:3]:
-        print("   low   %-34s %.2f" % (r["species"], r["opaque"]))
-    print("   %d suspicious high, %d suspicious low" % (len(bad_hi), len(bad_lo)))
+    # trimmed_to is the fraction of the scan that survived. Near 1.0 means the
+    # trim found no margin; very low means it ate most of the page.
+    barely = [r for r in rows if r.get("trimmed_to", 0) > 0.99]
+    savage = [r for r in rows if r.get("trimmed_to", 1) < 0.35]
+    print("\ntrim ratio — near 1.00 means no margin was found, very low means over-trimmed")
+    for r in sorted(rows, key=lambda r: -r.get("trimmed_to", 0))[:3]:
+        print("   kept most  %-32s %.2f" % (r["species"], r.get("trimmed_to", 0)))
+    for r in sorted(rows, key=lambda r: r.get("trimmed_to", 1))[:3]:
+        print("   kept least %-32s %.2f" % (r["species"], r.get("trimmed_to", 1)))
+    print("   %d barely trimmed, %d heavily trimmed" % (len(barely), len(savage)))
 
     have = {r["species"] for r in rows}
     if args.against:
