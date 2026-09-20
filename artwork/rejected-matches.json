@@ -1,12 +1,20 @@
 {
  "Anas gracilis": "Sterna gracilis is a tern",
  "Anthochaera chrysoptera": "Sittella chrysoptera is a sittella",
+ "Ardenna pacifica": "Ardea pacifica is a heron",
  "Aythya australis": "Anthus/Apteryx/Botaurus australis are a pipit, a kiwi and a bittern",
+ "Coracina papuensis": "Podargus papuensis is a frogmouth",
  "Cormobates leucophaea": "Ardea leucophaea is a heron",
+ "Egretta novaehollandiae": "Dromaius novaehollandiae is the emu; novaehollandiae was applied to almost everything",
  "Eudynamys orientalis": "Glareola orientalis is a pratincole",
+ "Gerygone olivacea": "Pachycephala olivacea is a whistler",
  "Manorina melanophrys": "Diomedea melanophrys is an albatross",
  "Meliphaga lewinii": "Rallus lewinii is a rail",
+ "Melithreptus brevirostris": "Smicrornis brevirostris is the Weebill",
+ "Melithreptus lunatus": "Melithreptus chloropsis is Gilbert's Honeyeater, a Western Australian split",
  "Nesoptilotis leucotis": "Monarcha/Poephila leucotis are a monarch and a finch",
  "Pomatostomus temporalis": "Estrelda temporalis is a finch",
- "Rhipidura leucophrys": "Porzana leucophrys is a crake"
+ "Rhipidura leucophrys": "Porzana leucophrys is a crake",
+ "Spilopelia chinensis": "Synoicus chinensis is a quail",
+ "Taeniopygia guttata": "Chlamydera guttata is a bowerbird"
 }

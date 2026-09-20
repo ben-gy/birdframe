@@ -5,11 +5,6 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Grallina cyanoleuca",
-  "records": 4929,
-  "note": "no plate in any source"
- },
- {
   "species": "Acridotheres tristis",
   "records": 3941,
   "note": "no plate in any source"
@@ -25,18 +20,8 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Turdus merula",
-  "records": 2473,
-  "note": "no plate in any source"
- },
- {
   "species": "Melithreptus lunatus",
   "records": 2179,
-  "note": "no plate in any source"
- },
- {
-  "species": "Corcorax melanorhamphos",
-  "records": 1932,
   "note": "no plate in any source"
  },
  {
@@ -47,26 +32,6 @@
  {
   "species": "Microcarbo melanoleucos",
   "records": 1490,
-  "note": "no plate in any source"
- },
- {
-  "species": "Sturnus vulgaris",
-  "records": 1410,
-  "note": "no plate in any source"
- },
- {
-  "species": "Pachycephala rufiventris",
-  "records": 1038,
-  "note": "no plate in any source"
- },
- {
-  "species": "Threskiornis moluccus",
-  "records": 1026,
-  "note": "no plate in any source"
- },
- {
-  "species": "Columba livia",
-  "records": 990,
   "note": "no plate in any source"
  },
  {
@@ -100,11 +65,6 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Daphoenositta chrysoptera",
-  "records": 575,
-  "note": "no plate in any source"
- },
- {
   "species": "Passer domesticus",
   "records": 550,
   "note": "no plate in any source"
@@ -117,16 +77,6 @@
  {
   "species": "Anas gracilis",
   "records": 362,
-  "note": "no plate in any source"
- },
- {
-  "species": "Heteroscenes pallidus",
-  "records": 335,
-  "note": "no plate in any source"
- },
- {
-  "species": "Turdus philomelos",
-  "records": 229,
   "note": "no plate in any source"
  },
  {
@@ -160,21 +110,6 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Chalcites basalis",
-  "records": 179,
-  "note": "no plate in any source"
- },
- {
-  "species": "Hypotaenidia philippensis",
-  "records": 154,
-  "note": "no plate in any source"
- },
- {
-  "species": "Anas platyrhynchos",
-  "records": 136,
-  "note": "no plate in any source"
- },
- {
   "species": "Cacomantis variolosus",
   "records": 135,
   "note": "no plate in any source"
@@ -195,18 +130,8 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Falco peregrinus",
-  "records": 105,
-  "note": "no plate in any source"
- },
- {
   "species": "Lalage tricolor",
   "records": 99,
-  "note": "no plate in any source"
- },
- {
-  "species": "Ardea alba",
-  "records": 94,
   "note": "no plate in any source"
  },
  {
@@ -220,11 +145,6 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Phaps elegans",
-  "records": 77,
-  "note": "no plate in any source"
- },
- {
   "species": "Myiagra rubecula",
   "records": 74,
   "note": "no plate in any source"
@@ -232,11 +152,6 @@
  {
   "species": "Phylidonyris pyrrhopterus",
   "records": 72,
-  "note": "no plate in any source"
- },
- {
-  "species": "Microeca fascinans",
-  "records": 71,
   "note": "no plate in any source"
  },
  {
@@ -257,11 +172,6 @@
  {
   "species": "Gallinago hardwickii",
   "records": 61,
-  "note": "no plate in any source"
- },
- {
-  "species": "Alauda arvensis",
-  "records": 52,
   "note": "no plate in any source"
  },
  {
@@ -295,11 +205,6 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Artamus superciliosus",
-  "records": 24,
-  "note": "no plate in any source"
- },
- {
   "species": "Pyrrholaemus sagittatus",
   "records": 24,
   "note": "no plate in any source"
@@ -330,11 +235,6 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Artamus personatus",
-  "records": 13,
-  "note": "no plate in any source"
- },
- {
   "species": "Gerygone olivacea",
   "records": 13,
   "note": "no plate in any source"
@@ -355,21 +255,6 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Barnardius zonarius",
-  "records": 10,
-  "note": "no plate in any source"
- },
- {
-  "species": "Gerygone fusca",
-  "records": 10,
-  "note": "no plate in any source"
- },
- {
-  "species": "Climacteris erythrops",
-  "records": 8,
-  "note": "no plate in any source"
- },
- {
   "species": "Lophoictinia isura",
   "records": 8,
   "note": "no plate in any source"
@@ -387,16 +272,6 @@
  {
   "species": "Cairina moschata",
   "records": 7,
-  "note": "no plate in any source"
- },
- {
-  "species": "Ptilotula fusca",
-  "records": 7,
-  "note": "no plate in any source"
- },
- {
-  "species": "Hylacola pyrrhopygia",
-  "records": 6,
   "note": "no plate in any source"
  },
  {
@@ -440,11 +315,6 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Dendrocygna eytoni",
-  "records": 3,
-  "note": "no plate in any source"
- },
- {
   "species": "Ardea intermedia",
   "records": 2,
   "note": "no plate in any source"
@@ -456,16 +326,6 @@
  },
  {
   "species": "Chlidonias hybrida",
-  "records": 2,
-  "note": "no plate in any source"
- },
- {
-  "species": "Falco subniger",
-  "records": 2,
-  "note": "no plate in any source"
- },
- {
-  "species": "Melanodryas cucullata",
   "records": 2,
   "note": "no plate in any source"
  },
@@ -485,18 +345,8 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Todiramphus pyrrhopygius",
-  "records": 2,
-  "note": "no plate in any source"
- },
- {
   "species": "Vanellus tricolor",
   "records": 2,
-  "note": "no plate in any source"
- },
- {
-  "species": "Burhinus grallarius",
-  "records": 1,
   "note": "no plate in any source"
  },
  {

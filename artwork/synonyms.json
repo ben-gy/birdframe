@@ -7,12 +7,36 @@
   "gould": "Aprosmictus scapulatus",
   "note": "Gould's Aprosmictus scapulatus; genus and epithet both changed"
  },
+ "Antigone rubicunda": {
+  "gould": "Grus rubicunda",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Ardea alba": {
+  "gould": "Herodias alba",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
  "Aythya australis": {
   "gould": "Nyroca australis",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
  },
+ "Barnardius zonarius": {
+  "gould": "Platycercus zonarius",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Burhinus grallarius": {
+  "gould": "Edicnemus grallarius",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Cacatua tenuirostris": {
+  "gould": "Cacatua tenuirostris",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
  "Caligavis chrysops": {
   "gould": "Ptilotis chrysops",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Chalcites basalis": {
+  "gould": "Chrysococcyx basalis",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
  },
  "Chenonetta jubata": {
@@ -27,9 +51,17 @@
   "gould": "Graucalus melanops",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
  },
+ "Corcorax melanorhamphos": {
+  "gould": "Corcorax leucopterus",
+  "note": "historical synonym; named for the white wing patches"
+ },
  "Dacelo novaeguineae": {
   "gould": "Dacelo gigantic",
   "note": "Gould's Dacelo gigantea; the index carries it as 'Dacelo gigantic', a typo in the Commons description"
+ },
+ "Daphoenositta chrysoptera": {
+  "gould": "Sittella chrysoptera",
+  "note": "the sittella plate belongs to the sittella - an epithet match had offered it to Anthochaera"
  },
  "Entomyzon cyanotis": {
   "gould": "Entomyza cyanotis",
@@ -41,6 +73,18 @@
  },
  "Fulica atra": {
   "gould": "Fulica australis",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Grallina cyanoleuca": {
+  "gould": "Grallina picata",
+  "note": "Gould/Broinowski's pied magpie-lark"
+ },
+ "Heteroscenes pallidus": {
+  "gould": "Cacomantis pallidus",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Hydroprogne caspia": {
+  "gould": "Sylochelidon caspia",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
  },
  "Lalage leucomela": {
@@ -65,6 +109,10 @@
  },
  "Nesoptilotis leucotis": {
   "gould": "Ptilotis leucotis",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Pachycephala rufiventris": {
+  "gould": "Pachycephala rufiventris",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
  },
  "Phaps chalcoptera": {
@@ -107,6 +155,10 @@
   "gould": "Porphyrio melanotus",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
  },
+ "Ptilotula fusca": {
+  "gould": "Ptilotis fusca",
+  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
  "Rhipidura leucophrys": {
   "gould": "Rhipidura motacilloides",
   "note": "Gould's R. motacilloides; epithet changed"
@@ -123,6 +175,10 @@
   "gould": "Casarca tadornoides",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
  },
+ "Threskiornis moluccus": {
+  "gould": "Threskiornis strictipennis",
+  "note": "historical name for the Australian White Ibis"
+ },
  "Todiramphus sanctus": {
   "gould": "Halcyon sanctus",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
@@ -133,7 +189,7 @@
  },
  "Vanellus miles": {
   "gould": "Lobivanellus personatus",
-  "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+  "note": "historical genus for the Masked Lapwing"
  },
  "Zosterops lateralis": {
   "gould": "Zosterops dorsalis",
