@@ -21,9 +21,9 @@ because abundance is enormously skewed.
 | | Species | Observations |
 | --- | ---: | ---: |
 | Exact modern-name match | 258 (29%) | 49% |
-| Plus curated synonyms | **289 (33%)** | **66%** |
+| Plus curated synonyms | **394 (45%)** | **83%** |
 
-At Warrandyte specifically the built pack covers **40 of the top 60** (76% of their observations), up from 26.
+At Warrandyte the built pack covers **55 of the top 60** (92% of their observations), up from 26. Of the five still missing, three are permanently impossible.
 
 ## The sources
 
@@ -32,9 +32,9 @@ At Warrandyte specifically the built pack covers **40 of the top 60** (76% of th
 | Source | Names indexed | Licence | Notes |
 | --- | ---: | --- | --- |
 | Gould, *Birds of Australia* (1840–48) | 685 | mostly CC BY-SA 4.0 | 815 files, 90% identifiable. The primary source. |
-| Broinowski (1890) | 93 | Public domain | 532 files but only 17% identifiable — see below |
+| Broinowski (1890) | 1033 | Public domain | Indexed by OCRing the caption printed on each plate |
 | Broinowski (1891) | 58 | Public domain | Small, but **91% of its names are still current** |
-| Gould, *Birds of Europe* | 26 | Public domain | The route to introduced species |
+| Gould, *Birds of Europe* | 827 | Public domain | Five volumes; the route to introduced species |
 
 **Gould is the biggest but the least current.** Only 27% of its names match a
 modern binomial; Broinowski's 1891 names match at 91%, because 1890 is that much

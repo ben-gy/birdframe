@@ -15,16 +15,6 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Cormobates leucophaea",
-  "records": 2491,
-  "note": "no plate in any source"
- },
- {
-  "species": "Melithreptus lunatus",
-  "records": 2179,
-  "note": "no plate in any source"
- },
- {
   "species": "Egretta novaehollandiae",
   "records": 1492,
   "note": "no plate in any source"
@@ -40,38 +30,13 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Accipiter fasciatus",
-  "records": 765,
-  "note": "no plate in any source"
- },
- {
-  "species": "Phylidonyris novaehollandiae",
-  "records": 764,
-  "note": "no plate in any source"
- },
- {
   "species": "Ptilotula penicillata",
   "records": 762,
   "note": "no plate in any source"
  },
  {
-  "species": "Tachybaptus novaehollandiae",
-  "records": 655,
-  "note": "no plate in any source"
- },
- {
   "species": "Artamus cyanopterus",
   "records": 623,
-  "note": "no plate in any source"
- },
- {
-  "species": "Passer domesticus",
-  "records": 550,
-  "note": "no plate in any source"
- },
- {
-  "species": "Acanthiza chrysorrhoa",
-  "records": 372,
   "note": "no plate in any source"
  },
  {
@@ -97,11 +62,6 @@
  {
   "species": "Zoothera lunulata",
   "records": 200,
-  "note": "no plate in any source"
- },
- {
-  "species": "Myzomela sanguinolenta",
-  "records": 193,
   "note": "no plate in any source"
  },
  {
@@ -145,16 +105,6 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Myiagra rubecula",
-  "records": 74,
-  "note": "no plate in any source"
- },
- {
-  "species": "Phylidonyris pyrrhopterus",
-  "records": 72,
-  "note": "no plate in any source"
- },
- {
   "species": "Petrochelidon nigricans",
   "records": 64,
   "note": "no plate in any source"
@@ -162,11 +112,6 @@
  {
   "species": "Petroica rodinogaster",
   "records": 64,
-  "note": "no plate in any source"
- },
- {
-  "species": "Petrochelidon ariel",
-  "records": 62,
   "note": "no plate in any source"
  },
  {
@@ -200,11 +145,6 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Synoicus ypsilophora",
-  "records": 25,
-  "note": "no plate in any source"
- },
- {
   "species": "Pyrrholaemus sagittatus",
   "records": 24,
   "note": "no plate in any source"
@@ -225,17 +165,7 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Nymphicus hollandicus",
-  "records": 14,
-  "note": "no plate in any source"
- },
- {
   "species": "Anser anser",
-  "records": 13,
-  "note": "no plate in any source"
- },
- {
-  "species": "Gerygone olivacea",
   "records": 13,
   "note": "no plate in any source"
  },
@@ -260,11 +190,6 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Meliphaga lewinii",
-  "records": 8,
-  "note": "no plate in any source"
- },
- {
   "species": "Tyto javanica",
   "records": 8,
   "note": "no plate in any source"
@@ -276,16 +201,6 @@
  },
  {
   "species": "Egretta garzetta",
-  "records": 5,
-  "note": "no plate in any source"
- },
- {
-  "species": "Geopelia placida",
-  "records": 5,
-  "note": "no plate in any source"
- },
- {
-  "species": "Himantopus himantopus",
   "records": 5,
   "note": "no plate in any source"
  },
@@ -310,11 +225,6 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Scythrops novaehollandiae",
-  "records": 4,
-  "note": "no plate in any source"
- },
- {
   "species": "Ardea intermedia",
   "records": 2,
   "note": "no plate in any source"
@@ -325,22 +235,12 @@
   "note": "no plate in any source"
  },
  {
-  "species": "Chlidonias hybrida",
-  "records": 2,
-  "note": "no plate in any source"
- },
- {
   "species": "Psittacula krameri",
   "records": 2,
   "note": "no plate in any source"
  },
  {
   "species": "Stagonopleura bella",
-  "records": 2,
-  "note": "no plate in any source"
- },
- {
-  "species": "Taeniopygia guttata",
   "records": 2,
   "note": "no plate in any source"
  },
@@ -356,11 +256,6 @@
  },
  {
   "species": "Callipepla californica",
-  "records": 1,
-  "note": "no plate in any source"
- },
- {
-  "species": "Coracina papuensis",
   "records": 1,
   "note": "no plate in any source"
  },
@@ -401,11 +296,6 @@
  },
  {
   "species": "Sericornis magnirostra",
-  "records": 1,
-  "note": "no plate in any source"
- },
- {
-  "species": "Stagonopleura guttata",
   "records": 1,
   "note": "no plate in any source"
  },

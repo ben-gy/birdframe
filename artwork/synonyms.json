@@ -3,9 +3,25 @@
   "gould": "Acanthogenys rufogularis",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
  },
+ "Acanthiza chrysorrhoa": {
+  "gould": "Geobasileus chrysorrhous",
+  "note": "historical genus for the Yellow-rumped Thornbill"
+ },
+ "Accipiter fasciatus": {
+  "gould": "Astur approximans",
+  "note": "historical genus and epithet for the Brown Goshawk"
+ },
+ "Alectura lathami": {
+  "gould": "Talegallus lathami",
+  "note": "historical genus for the Australian Brush-turkey"
+ },
  "Alisterus scapularis": {
   "gould": "Aprosmictus scapulatus",
   "note": "Gould's Aprosmictus scapulatus; genus and epithet both changed"
+ },
+ "Anseranas semipalmata": {
+  "gould": "Anseranas melanoleuca",
+  "note": "genus renamed or historical epithet; same bird, checked individually"
  },
  "Antigone rubicunda": {
   "gould": "Grus rubicunda",
@@ -14,6 +30,10 @@
  "Ardea alba": {
   "gould": "Herodias alba",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Ardenna pacifica": {
+  "gould": "Thiellus sphenurus",
+  "note": "sphenurus means wedge-tailed - the Wedge-tailed Shearwater"
  },
  "Aythya australis": {
   "gould": "Nyroca australis",
@@ -35,6 +55,10 @@
   "gould": "Ptilotis chrysops",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
  },
+ "Centropus phasianinus": {
+  "gould": "Centropus phasianus",
+  "note": "genus renamed or historical epithet; same bird, checked individually"
+ },
  "Chalcites basalis": {
   "gould": "Chrysococcyx basalis",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
@@ -42,6 +66,10 @@
  "Chenonetta jubata": {
   "gould": "Bernicla jubata",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Chlidonias hybrida": {
+  "gould": "Hydrochelidon leucopareia",
+  "note": "historical name for the Whiskered Tern"
  },
  "Chroicocephalus novaehollandiae": {
   "gould": "Xema jamesonii",
@@ -51,9 +79,17 @@
   "gould": "Graucalus melanops",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
  },
+ "Coracina papuensis": {
+  "gould": "Graucalus hypoleucus",
+  "note": "genus renamed or historical epithet; same bird, checked individually"
+ },
  "Corcorax melanorhamphos": {
   "gould": "Corcorax leucopterus",
   "note": "historical synonym; named for the white wing patches"
+ },
+ "Cormobates leucophaea": {
+  "gould": "Climacteris scandens",
+  "note": "historical name for the White-throated Treecreeper"
  },
  "Dacelo novaeguineae": {
   "gould": "Dacelo gigantic",
@@ -75,6 +111,14 @@
   "gould": "Fulica australis",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
  },
+ "Geopelia placida": {
+  "gould": "Geopelia tranquilla",
+  "note": "genus renamed or historical epithet; same bird, checked individually"
+ },
+ "Gerygone olivacea": {
+  "gould": "Gerygone albogularis",
+  "note": "genus renamed or historical epithet; same bird, checked individually"
+ },
  "Grallina cyanoleuca": {
   "gould": "Grallina picata",
   "note": "Gould/Broinowski's pied magpie-lark"
@@ -82,6 +126,10 @@
  "Heteroscenes pallidus": {
   "gould": "Cacomantis pallidus",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Himantopus himantopus": {
+  "gould": "Himantopus leucocephalus",
+  "note": "genus renamed or historical epithet; same bird, checked individually"
  },
  "Hydroprogne caspia": {
   "gould": "Sylochelidon caspia",
@@ -103,17 +151,53 @@
   "gould": "Myzantha melanophrys",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
  },
+ "Meliphaga lewinii": {
+  "gould": "Ptilotis lewinii",
+  "note": "genus renamed or historical epithet; same bird, checked individually"
+ },
+ "Melithreptus lunatus": {
+  "gould": "Melithreptus lunulatus",
+  "note": "historical spelling; not to be confused with M. chloropsis, which is a different bird"
+ },
+ "Morus serrator": {
+  "gould": "Sula australis",
+  "note": "genus renamed or historical epithet; same bird, checked individually"
+ },
  "Myiagra inquieta": {
   "gould": "Seisura inquieta",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Myiagra rubecula": {
+  "gould": "Myiagra plumbea",
+  "note": "plumbea means leaden - the Leaden Flycatcher"
  },
  "Nesoptilotis leucotis": {
   "gould": "Ptilotis leucotis",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
  },
+ "Numenius madagascariensis": {
+  "gould": "Numenius cyanopus",
+  "note": "genus renamed or historical epithet; same bird, checked individually"
+ },
+ "Numenius phaeopus": {
+  "gould": "Numenius uropygialis",
+  "note": "genus renamed or historical epithet; same bird, checked individually"
+ },
+ "Nymphicus hollandicus": {
+  "gould": "Calopsitta novaehollandiae",
+  "note": "historical genus for the Cockatiel"
+ },
  "Pachycephala rufiventris": {
   "gould": "Pachycephala rufiventris",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Passer domesticus": {
+  "gould": "Pyrgita domestica",
+  "note": "Gould's genus for the House Sparrow, from the European volumes"
+ },
+ "Petrochelidon ariel": {
+  "gould": "Lagenoplastes ariel",
+  "note": "genus renamed or historical epithet; same bird, checked individually"
  },
  "Phaps chalcoptera": {
   "gould": "Peristera chalcoptera",
@@ -126,6 +210,18 @@
  "Philemon corniculatus": {
   "gould": "Tropidorhynchus corniculatus",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Phylidonyris novaehollandiae": {
+  "gould": "Meliornis novaehollandiae",
+  "note": "genus renamed or historical epithet; same bird, checked individually"
+ },
+ "Phylidonyris pyrrhopterus": {
+  "gould": "Meliphaga australasiana",
+  "note": "genus renamed or historical epithet; same bird, checked individually"
+ },
+ "Platycercus adscitus": {
+  "gould": "Platycercus palliceps",
+  "note": "genus renamed or historical epithet; same bird, checked individually"
  },
  "Platycercus elegans": {
   "gould": "Platycercus pennantii",
@@ -163,6 +259,10 @@
   "gould": "Rhipidura motacilloides",
   "note": "Gould's R. motacilloides; epithet changed"
  },
+ "Sphecotheres vieilloti": {
+  "gould": "Sphecotheres maxillaris",
+  "note": "genus renamed or historical epithet; same bird, checked individually"
+ },
  "Stizoptera bichenovii": {
   "gould": "Estrelda bichenovii",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
@@ -171,9 +271,21 @@
   "gould": "Strepera anaphonensis",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
  },
+ "Synoicus ypsilophora": {
+  "gould": "Synoicus australis",
+  "note": "genus renamed or historical epithet; same bird, checked individually"
+ },
+ "Tachybaptus novaehollandiae": {
+  "gould": "Podiceps gularis",
+  "note": "historical name for the Australasian Grebe"
+ },
  "Tadorna tadornoides": {
   "gould": "Casarca tadornoides",
   "note": "genus renamed or spelling variant; epithet and bird both unchanged"
+ },
+ "Taeniopygia guttata": {
+  "gould": "Amadina castanotis",
+  "note": "historical name for the Zebra Finch"
  },
  "Threskiornis moluccus": {
   "gould": "Threskiornis strictipennis",

@@ -1,72 +1,12 @@
 [
  {
-  "file": "The birds of Australia (16085107294).jpg",
-  "ocr": "TACHYPTES | MFNOR (Bonap:) | Small Frigate-Bird | G.J.Broinowski Fecit",
-  "candidates": []
- },
- {
   "file": "The birds of Australia (16085108944).jpg",
   "ocr": "PLOTUSNOVA-HOLLANDI\u00c6 (Gould) | New Holland Darter | GJ Broinowski Fecit",
   "candidates": []
  },
  {
-  "file": "The birds of Australia (16085136984).jpg",
-  "ocr": "(1) NECTRIS | BREVICAUDUS. | (Bonap) | Shorl-Lailed Petrei | (2) PUFFINUS | Allied | NUGAX",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16085150664).jpg",
-  "ocr": "MAJAQUEUS CONSPICILLATUS (Gould.) | Spectacled Petrei | GJ Broinowski, Fecit",
-  "candidates": [
-   "Majaqueus conspicillatus"
-  ]
- },
- {
-  "file": "The birds of Australia (16085179044).jpg",
-  "ocr": "THALASSEUS | Indian | BENGALENSIS | Tern | STERCORARIUS | Great | CATARRHACTES (GR.Gray) |",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16087516393).jpg",
-  "ocr": "THALASSOICA GLACIALO\u00cfDES | Silvery-grey Petrel. | (Reich) | G J Broinowski Fecit",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16173151064).jpg",
-  "ocr": "TALEGALLUS LATHAMI | Brush Turkey.",
-  "candidates": [
-   "Talegallus lathami"
-  ]
- },
- {
   "file": "The birds of Australia (16175472423).jpg",
   "ocr": "GU BROINOWSXI, FECIT",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16242714604).jpg",
-  "ocr": "G.J. BROINOWSKI. FCT | a MEGALOPREPIA ASSIMILIS (Bonap.) | Allied Fruit Pigeon. | 6.MYRIST",
-  "candidates": [
-   "Megaloprepia assimilis",
-   "Myristicivora spilorrhoa"
-  ]
- },
- {
-  "file": "The birds of Australia (16296093404).jpg",
-  "ocr": "MIMETA VIRIDIS (Vig& Horsf) | New South Wales | Oriole, | G.J Broinowski Fecit. | MIMETA F",
-  "candidates": [
-   "Mimeta viridis",
-   "Mimeta flavocincta"
-  ]
- },
- {
-  "file": "The birds of Australia (16500147127).jpg",
-  "ocr": "SULA | CYANOPS (Sundervall) | Masked Gannet | G.J. Broinowski Fecit",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16500175697).jpg",
-  "ocr": "PRIDNaN EiTed TS (Cur. | PRION | TURTUR | Dove-like Prion | (Gould) | G.J. Bminowski Fectt",
   "candidates": []
  },
  {
@@ -95,68 +35,15 @@
   "candidates": []
  },
  {
-  "file": "The birds of Australia (16519890428).jpg",
-  "ocr": "ADAMASTOR | CINEREA (Cones) | Great Grey Petrel | G.J. Broinowski Fecit",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16520043970).jpg",
-  "ocr": "PHALACROCORAX | Spotted | PUNCTATUS (Sreph) | Cormorant | G J Broinowski Fecit",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16520084230).jpg",
-  "ocr": "PH\u0152BETRIA | FULICINOSA (Gmet) | Sooty Albatross | G.J. Broinowski Fecit",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16521332309).jpg",
-  "ocr": "PELAGODROMA | White-faced | FREGATA (Bonap.) | Storm Petrel | HALADROMA URINATRIX | Diving",
-  "candidates": [
-   "Haladroma urinatrix"
-  ]
- },
- {
-  "file": "The birds of Australia (16521349109).jpg",
-  "ocr": "OSSIFRAGA | GIGANTEA (Bonap:) | Giant Petrel | G.J. Broinowski Fecit",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16521385479).jpg",
-  "ocr": "THALASSEUS | Torres' | CRISTATUS | Straits Tern | THALASSEUS | POLIOCERCUS (Gould) | Bass'",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16588144177).jpg",
-  "ocr": "RGIALOBELUS RU DOCAPILLUS | AGIALITES NEGRIFRONS | Black-Fronted Dottpal | G.J BROINOWSKI.",
-  "candidates": [
-   "Agialites negrifrons",
-   "Ochthodromus bicinctus"
-  ]
- },
- {
-  "file": "The birds of Australia (16588159667).jpg",
-  "ocr": "CASUARIUS | Australian | AUSTRALIS (Wall) | Cassowary | G.J. Broinowski Fecit",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16588170017).jpg",
-  "ocr": "SYN\u00d6ICUS DIEMENENSIS, (Gould) | SYNoigusSOamDus(goula) | G J. BROINOWSKI FECIT",
-  "candidates": []
- },
- {
   "file": "The birds of Australia (16607825098).jpg",
   "ocr": "SEOL7 | COMN08812",
-  "candidates": []
+  "candidates": [
+   "Seol comn"
+  ]
  },
  {
   "file": "The birds of Australia (16607826878).jpg",
   "ocr": "G.V. BROINOWSK/, FECIT",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16608085920).jpg",
-  "ocr": "CHORIOTIS | AUSTRALIS (Bonap:) | Australian Bustard | G. J. Broinowski Fecit",
   "candidates": []
  },
  {
@@ -165,144 +52,16 @@
   "candidates": []
  },
  {
-  "file": "The birds of Australia (16681521586).jpg",
-  "ocr": "FREGRETTA | MELANOGASTER (Gould) | Black- bellied | Storm-Petrel | FREGRETTA | White-beili",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16681575286).jpg",
-  "ocr": "LARUS | PACIFICUS (Lath:) | Pacific Gull | BRUCHIGAVIA | Silver | JAMESONII | Gull | (Bona",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16706127271).jpg",
-  "ocr": "CHRYSOCOMA CATARRACTES (Bonap) | Crested Penguin | G.J. Broinowski Fecit",
-  "candidates": [
-   "Chrysocoma catarractes"
-  ]
- },
- {
-  "file": "The birds of Australia (16706164681).jpg",
-  "ocr": "OCEANITES | OCEANICA | Yellow-wehbed | Storm-Petrel | PROCELLARIA | Grey -backed | NEREIS ",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16706182591).jpg",
-  "ocr": "\u00c6STRELATA | LEUCOCEPHALA (Bonap:) | White-head ed | Petrel | G.J Broinowski Fecit",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16706220501).jpg",
-  "ocr": "BIZIURA | LOBATA (Eyton) | Musk-Duck | G.J. Broinowski Feort",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16706412692).jpg",
-  "ocr": "NECTRIS | CARNEIPES | Fleshy-footed Petrel | (Gould) | THIELLUS SPHENURUS | Wedge-tailed P",
-  "candidates": [
-   "Thiellus sphenurus"
-  ]
- },
- {
-  "file": "The birds of Australia (16706422212).jpg",
-  "ocr": "ASTRELATA | MOLLIS (Gould) | Soft-plumaged | Petrel | \u00c6STRELATA | CO.OKI | Cooks Petrel | ",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16706433662).jpg",
-  "ocr": "DIOMEDEA | CHLORORHYNCHOS (Lath) | Yellow-billed Albatross | G.J Broinowski, Fecit. \u2022",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16707473945).jpg",
-  "ocr": "DIOMEDEA | CULMINATA. (Gould) | Culminated Albatross. | GJ Broinowski Fecit.",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16731070440).jpg",
-  "ocr": "1. DONACOLA | SONACOLS CASTANEOTHO\" | G.J. Broinowski Fecit. | CASTANEOTHORAX. (Gould) 2. ",
-  "candidates": [
-   "Sonacols castaneotho"
-  ]
- },
- {
-  "file": "The birds of Australia (16732213109).jpg",
-  "ocr": "1. MYZOMELA. | SANGUINOLENTA | Sanguineous Honey-eater. | 3. MYZOMELA | PECTORALIS.( Gould",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16732262369).jpg",
-  "ocr": "I ANTHOCH\u00c6A | INAURIS. | Wattled Honey-eater | C.J. Broinowski Feeit | 2 ANTHOCH\u00c6A | Wattc",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16769520766).jpg",
-  "ocr": "BUTOROIDES JAVANICA (Horsf) | Uittle Manarovo Bitk",
-  "candidates": [
-   "Butoroides javanica"
-  ]
- },
- {
-  "file": "The birds of Australia (16769597686).jpg",
-  "ocr": "PEDIONOMUS | Collared | TORQUATUS (Gould) | Plain-wanderer | TURNIX | SCINTILLANS (Gould) ",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16794255762).jpg",
-  "ocr": "CHENOPIS ATRATA /Wagi) | Black Swan",
-  "candidates": [
-   "Chenopis atrata"
-  ]
- },
- {
   "file": "The birds of Australia (16794262792) (cropped).jpg",
   "ocr": "",
   "candidates": []
  },
  {
-  "file": "The birds of Australia (16794266751).jpg",
-  "ocr": "EMIEGRETTA JUGULARIS | Blue Reef HeroR | DEMIEGRETTA GREYI (Grey) | White Reef Heron | G.J",
-  "candidates": [
-   "Emiegretta jugularis",
-   "Demiegretta greyi"
-  ]
- },
- {
-  "file": "The birds of Australia (16794314711).jpg",
-  "ocr": "1 LOBIVANELLUS | PERSONATUS (Gould) | Masked. Plover | 2 LOBIVANELLUS | LOBATUS (Gould) | ",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16794319012).jpg",
-  "ocr": "OCHTHODROMUS | INORNATUS (Gould | AlliedDntne | AGIALITES | MONACHA | Hooded Dottrel | ERY",
-  "candidates": [
-   "Erythroconys cinc"
-  ]
- },
- {
-  "file": "The birds of Australia (16794334322).jpg",
-  "ocr": "APTEROWEN(CoUld) | APTERYX | KIAUSTIRALIS (Shaw) | C.J. BROINOWSKI, FEGIT.",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16794340652).jpg",
-  "ocr": "CASUARIUS | BENNETTI (Gould) | Mooruk | G.J. Broinowski Fecit",
-  "candidates": []
- },
- {
   "file": "The birds of Australia (16795392425).jpg",
   "ocr": "ARD | A | SIMATD | G. J BROINOWSKI, FECIT",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16795412525).jpg",
-  "ocr": "TRINGA | CRASSIROSTRIS (TEMM & SCHLEG.) | Great Sandpiper | GLOTTIS | GLOTTOIDES(COULD | G",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16795432665).jpg",
-  "ocr": "HAEMATOPUS | LONGIROSTRIS (Vieillot) | White-breasted Oyster-catcher | HAEMATOPUS | FULIGI",
-  "candidates": []
+  "candidates": [
+   "Ard simatd"
+  ]
  },
  {
   "file": "The birds of Australia (16839236676) (cropped).jpg",
@@ -315,44 +74,8 @@
   "candidates": []
  },
  {
-  "file": "The birds of Australia (16863976772).jpg",
-  "ocr": "NESTOR | NOTABILIS | Kea Parrot",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16892531856).jpg",
-  "ocr": "1 ANELLOBIA LUNULATA (Could) | Lunulated Wattle-bird | 2 ANELLOBIA MELLIVORA | Brush Wattl",
-  "candidates": [
-   "Anellobia lunulata",
-   "Anellobia mellivora"
-  ]
- },
- {
   "file": "The birds of Australia (16917107412) (cropped).jpg",
   "ocr": "",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16917477791).jpg",
-  "ocr": "Male | 1.& 2. PTILONORHYNCHUS | HOLOSERICEUS. (Kuhl.) | Satin Bower-bird | 2. | Female | G",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (1890) (19761513784).jpg",
-  "ocr": "I. MYZOMELA, SANGUINOLENTA | \u2022 Sanguineous Honey-eater. | 3. MYZOMELA | PECTORALIS. (Gould",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (1890) (19761583164).jpg",
-  "ocr": "DEMIEGRETTA JUGULARIS | Blue Reef Heron | DEMIEGRETTA GREYI (Grey) | White Reef Heron | G.",
-  "candidates": [
-   "Demiegretta jugularis",
-   "Demiegretta greyi"
-  ]
- },
- {
-  "file": "The birds of Australia (1890) (19761591684).jpg",
-  "ocr": "ARDEA | SLIMATDANA | G.J. BROINOWSKI, FECIT",
   "candidates": []
  },
  {
@@ -361,48 +84,8 @@
   "candidates": []
  },
  {
-  "file": "The birds of Australia (1890) (19761594924).jpg",
-  "ocr": "1. | PO\u00cbPHILA | MIRABILIS | (Hombet Joeg) | Besutiful Gress-Finch. | ACUTICADA | 2. | 4 | ",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (1890) (19761602504).jpg",
-  "ocr": "I CALAMOHERPE LONGIROSTRIS (Gould) | Lono-billed Reed-Warbler | G,J, Broinowski, Fecit | 2",
-  "candidates": [
-   "Calamoherpe longirostris",
-   "Calamoherpe australis"
-  ]
- },
- {
-  "file": "The birds of Australia (1890) (19761628764).jpg",
-  "ocr": "RGIAIOENLUS RU DOCAPILLUS | AGIALITES NEGRIFRONS | Black-Fronted Dottpel | OCHTHODROMUS BI",
-  "candidates": [
-   "Agialites negrifrons",
-   "Ochthodromus bicinctus"
-  ]
- },
- {
-  "file": "The birds of Australia (1890) (19761670904).jpg",
-  "ocr": "TALEGALLUS LATHAMI | Brush Turkey.",
-  "candidates": [
-   "Talegallus lathami"
-  ]
- },
- {
-  "file": "The birds of Australia (1890) (19761680814).jpg",
-  "ocr": "1. LEU COSPIZA | New. Holland Goshawk | RAII | 2. LEUCOSPIZA | G.J. Broinowsk:, Fecit | NO",
-  "candidates": [
-   "Leu cospiza"
-  ]
- },
- {
-  "file": "The birds of Australia (1890) (19761700984).jpg",
-  "ocr": "HIERAETUS | MORPHNO\u00cfDES (Kaup)- | Little Ea\u00f3le | G.J. Broinowski, Fecit.",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (1890) (19763291963).jpg",
-  "ocr": "PELAGODROMA | White-Caced | FREGATA (Bonap.) | Storm-Petrel | HALADROMA | G.u. Broinowski ",
+  "file": "The birds of Australia (1890) (19763336833).jpg",
+  "ocr": "G U. BROINOWSKI, FECIT | AReRINa",
   "candidates": []
  },
  {
@@ -411,12 +94,12 @@
   "candidates": []
  },
  {
-  "file": "The birds of Australia (1890) (19763339533).jpg",
-  "ocr": "THALASSEUS | Torres\" | CRISTATUS | Straits' Tern | THALASSEUS | POLIOCERCUS (Gould) | Bass",
+  "file": "The birds of Australia (1890) (19763340913).jpg",
+  "ocr": "",
   "candidates": []
  },
  {
-  "file": "The birds of Australia (1890) (19763340913).jpg",
+  "file": "The birds of Australia (1890) (19763345263).jpg",
   "ocr": "",
   "candidates": []
  },
@@ -441,12 +124,12 @@
   "candidates": []
  },
  {
-  "file": "The birds of Australia (1890) (19763381603).jpg",
-  "ocr": "CHORIOTIS | AUSTRALIS (Bonap:) | Australian | Bushard",
+  "file": "The birds of Australia (1890) (19763394313).jpg",
+  "ocr": "",
   "candidates": []
  },
  {
-  "file": "The birds of Australia (1890) (19763394313).jpg",
+  "file": "The birds of Australia (1890) (19763418723).jpg",
   "ocr": "",
   "candidates": []
  },
@@ -461,80 +144,19 @@
   "candidates": []
  },
  {
-  "file": "The birds of Australia (1890) (19763439293).jpg",
-  "ocr": "POLIOAETUS LEUCOGASTER. | White-bellied Sea-Eagle | G J. Broinowski, Fecit",
-  "candidates": [
-   "Polioaetus leucogaster"
-  ]
- },
- {
-  "file": "The birds of Australia (1890) (20196167240).jpg",
-  "ocr": "FREGRETTA | Black-bellied | MELANOGASTER (Gould) | Storm-Petrel | FREGRETTA | White-beilie",
-  "candidates": []
- },
- {
   "file": "The birds of Australia (1890) (20196173310).jpg",
   "ocr": "",
   "candidates": []
  },
  {
-  "file": "The birds of Australia (1890) (20196179090).jpg",
-  "ocr": "1. DONACOLA | CASTANEOTHORAX. (Gould) | Chestnut-breated Finch | 3. MUNIA | FLAVIPRYMNA | ",
+  "file": "The birds of Australia (1890) (20196255430).jpg",
+  "ocr": "",
   "candidates": []
  },
  {
-  "file": "The birds of Australia (1890) (20196187418).jpg",
-  "ocr": "I PTILOTISI | LEWINII. (Swains.). | Lewins | honey-eater | 3. STIGMATOPS OCULARIS (Gould.)",
-  "candidates": [
-   "Stigmatops ocularis"
-  ]
- },
- {
-  "file": "The birds of Australia (1890) (20196241568).jpg",
-  "ocr": "G.J. BROINOWSKI, FCT | a. MEGALOPREPIA ASGIMILIS (Bonap.) | Allied Fruit Pigeon. | 6. MYRI",
-  "candidates": [
-   "Megaloprepia asgimilis",
-   "Myristicivora spilorrhoa"
-  ]
- },
- {
-  "file": "The birds of Australia (1890) (20196241810).jpg",
-  "ocr": "OCHTHODROMUSINORNATUS (Gould) | Allied Dottre | AGIALITES | MONACHA | Hooded Dottpel | ERY",
-  "candidates": [
-   "Rnys cingtus"
-  ]
- },
- {
-  "file": "The birds of Australia (1890) (20196242718).jpg",
-  "ocr": "THALASSOICA GLACIALO\u00cfDES | (Reich) | Silvery-grey Petrel. | G J Broinowski Fecit.",
+  "file": "The birds of Australia (1890) (20196261990).jpg",
+  "ocr": "",
   "candidates": []
- },
- {
-  "file": "The birds of Australia (1890) (20196246678).jpg",
-  "ocr": "(I) NECTRIS | BREVICAUDUSI | (Bonap) | Petnol | (2) PUFFINUS. NUGAX: (Bonap) | Alled Petre",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (1890) (20196251860).jpg",
-  "ocr": "HAEMATOPUS | LONGIROSTRIS (Vieillot) | White-breasted Oyster-catcher | HAEMATOPUS | Sooty ",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (1890) (20196256188).jpg",
-  "ocr": "ADAMASTOR | CINEREA (Cones) | Great Grey Petrel | G.J. Broinowski Fecit",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (1890) (20196257398).jpg",
-  "ocr": "BUTOROIDES | FLAVICOLLIS (Lath) | Yellow-necked Mangrove Bittern | G.J.BROINOWSKI FECIT",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (1890) (20196257908).jpg",
-  "ocr": "MAJAQUEUS CONSPICILLATUS (Gould) | Spectacled Petrel. | GJ Broinowski, Fec",
-  "candidates": [
-   "Majaqueus conspicillatus"
-  ]
  },
  {
   "file": "The birds of Australia (1890) (20196273108).jpg",
@@ -547,35 +169,8 @@
   "candidates": []
  },
  {
-  "file": "The birds of Australia (1890) (20196277390).jpg",
-  "ocr": "PEDIONOMUS | Collared | TORQUATUS (Gould) | Plain-wanderer | TURNIX | SCINTILLANS (Gould) ",
-  "candidates": []
- },
- {
   "file": "The birds of Australia (1890) (20196283370).jpg",
   "ocr": "PL IVII",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (1890) (20196285348).jpg",
-  "ocr": "THALASSEUS | BENGALENSIS | Indian Tern | STERCORARIUS | Great | CATARRHACTES (GR.Gray) | S",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (1890) (20196286710).jpg",
-  "ocr": "G. J. Broinowski Fecit | MANUCODIA | GOULDII (G.R.Gray) | Gould | Manucode | 2 OREOISe CrE",
-  "candidates": [
-   "Chibia bracteata"
-  ]
- },
- {
-  "file": "The birds of Australia (1890) (20196287108).jpg",
-  "ocr": "LARUS | PACIFICUS (Lath:) | Pacific Gull | BRUCHIGAVIA | JAMESONII (Bonap) | Silver | Gull",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (1890) (20196288758).jpg",
-  "ocr": "BIZIURA | LOBATA (Eyton) | Musk.Duck | G.J. Broinowski Fecit",
   "candidates": []
  },
  {
@@ -601,11 +196,6 @@
  {
   "file": "The birds of Australia (1890) (20197604799).jpg",
   "ocr": "",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (1890) (20197605009).jpg",
-  "ocr": "32D025 | DIOMEDEA | CHLORORHYNCHOS (Lath) | Yellow-billed Albatose | CJ.Broinowski, Fec",
   "candidates": []
  },
  {
@@ -644,11 +234,6 @@
   "candidates": []
  },
  {
-  "file": "The birds of Australia (1890) (20197647059).jpg",
-  "ocr": "1 STREPERA | Black | FULIGINOSA (Gould) | Ma\u011fpie | G.J. Bpoinowski, Fecit. | 2 STREPERA | ",
-  "candidates": []
- },
- {
   "file": "The birds of Australia (1890) (20197651339).jpg",
   "ocr": "",
   "candidates": []
@@ -665,6 +250,11 @@
  },
  {
   "file": "The birds of Australia (1890) (20197676569).jpg",
+  "ocr": "",
+  "candidates": []
+ },
+ {
+  "file": "The birds of Australia (1890) (20197678749).jpg",
   "ocr": "",
   "candidates": []
  },
@@ -689,35 +279,6 @@
   "candidates": []
  },
  {
-  "file": "The birds of Australia (1890) (20358055166).jpg",
-  "ocr": "G.J. Broinowski Fecit | PSOPHODES | NIGROGULARIS (Gould) | 2 PSOPHODES CR\u00c9PITANS (Vip * Ho",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (1890) (20375630642).jpg",
-  "ocr": "PLOTUS NOV\u00c6-HOLLANDI\u00c6 (Gould) | New Holland Darter | G.J Bromowski Fecit",
-  "candidates": [
-   "Plotus novae"
-  ]
- },
- {
-  "file": "The birds of Australia (1890) (20375645582).jpg",
-  "ocr": "CHENOPIS ATRATA /Wagl) | Black Swan",
-  "candidates": [
-   "Chenopis atrata"
-  ]
- },
- {
-  "file": "The birds of Australia (1890) (20375651902).jpg",
-  "ocr": "PRIONaVEITA US (Cu) | PRION | TURTUR | Dove-like Prion | (Gould) | G.J.Bminowski Fecit",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (1890) (20375662592).jpg",
-  "ocr": "OSSIFRAGA | GIGANTEA (Bonap:) | Giant Petrel | G.J. Broinowski Fecit",
-  "candidates": []
- },
- {
   "file": "The birds of Australia (1890) (20375716842).jpg",
   "ocr": "",
   "candidates": []
@@ -733,16 +294,6 @@
   "candidates": []
  },
  {
-  "file": "The birds of Australia (1890) (20375729732).jpg",
-  "ocr": "LOBIVANELLUS | PERSONATUS (Gould) | Masked. Plover | 2 LOBIVANELLUS | Wattled | LOBATUS (G",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (1890) (20375731522).jpg",
-  "ocr": "HIRUNDO | FRONTRALIS (Ouoy er Gaim) | Welcome Swallow | LAGENOPLASTES | ARIEL (Gould) | Fa",
-  "candidates": []
- },
- {
   "file": "The birds of Australia (1890) (20375733072).jpg",
   "ocr": "",
   "candidates": []
@@ -753,7 +304,17 @@
   "candidates": []
  },
  {
+  "file": "The birds of Australia (1890) (20375758882).jpg",
+  "ocr": "",
+  "candidates": []
+ },
+ {
   "file": "The birds of Australia (1890) (20375763362).jpg",
+  "ocr": "",
+  "candidates": []
+ },
+ {
+  "file": "The birds of Australia (1890) (20375766972).jpg",
   "ocr": "",
   "candidates": []
  },
@@ -763,17 +324,17 @@
   "candidates": []
  },
  {
-  "file": "The birds of Australia (1890) (20375780392).jpg",
-  "ocr": "HIERACIDEA | Weskepn Rrawn | OCCIDENTALIS (Gould.) | Hawk | G J.Broinowski, Fecil | 2. HIE",
-  "candidates": []
- },
- {
   "file": "The birds of Australia (1890) (20384154675).jpg",
   "ocr": "",
   "candidates": []
  },
  {
   "file": "The birds of Australia (1890) (20384160705).jpg",
+  "ocr": "",
+  "candidates": []
+ },
+ {
+  "file": "The birds of Australia (1890) (20384172695).jpg",
   "ocr": "",
   "candidates": []
  },
@@ -800,6 +361,15 @@
  {
   "file": "The birds of Australia (1890) (20384224915).jpg",
   "ocr": "NECTRIS | CARNEIPES. | Fleshy-footed Petrel. | (Gould) | THIELLUS | SPHENURUS | Wedge-tail",
+  "candidates": [
+   "Nectris carneipes",
+   "Carneipes thiellus",
+   "Thiellus sphenurus"
+  ]
+ },
+ {
+  "file": "The birds of Australia (1890) (20384227115).jpg",
+  "ocr": "",
   "candidates": []
  },
  {
@@ -813,27 +383,23 @@
   "candidates": []
  },
  {
-  "file": "The birds of Australia (1890) (20384279215).jpg",
-  "ocr": "LIMNOCINOLUS ACUMINATUS (GOULD.) | Marsh Tringa | ACTODROMAS AUSTRALIS | Liftle Sandpiper:",
-  "candidates": [
-   "Limnocinolus acuminatus",
-   "Actodromas australis",
-   "Ancylochilus subarquatus"
-  ]
- },
- {
   "file": "The birds of Australia (1890) (20384281305).jpg",
   "ocr": "",
   "candidates": []
  },
  {
-  "file": "The birds of Australia (1890) (20384309685).jpg",
-  "ocr": "EOPSALTRIA | AUSTRALIS (GR Grav) | Yellow-breasred Robin | EOPSALTRIA | CAPITO (Gould) | L",
+  "file": "The birds of Australia (1890) (20384307695).jpg",
+  "ocr": "",
   "candidates": []
  },
  {
   "file": "The birds of Australia (1890) (20384314615).jpg",
   "ocr": "PL XLVI",
+  "candidates": []
+ },
+ {
+  "file": "The birds of Australia (1890) (20384319785).jpg",
+  "ocr": "",
   "candidates": []
  },
  {
@@ -877,11 +443,6 @@
   "candidates": []
  },
  {
-  "file": "The birds of Australia (1890) (20384358965).jpg",
-  "ocr": "HALIASTUR | LEUCOSTERNUS (Gould.) | White-breasted Sea-Eagle | G.J.Broinowski, Fecit",
-  "candidates": []
- },
- {
   "file": "The birds of Australia (1890) (20390311221).jpg",
   "ocr": "",
   "candidates": []
@@ -892,13 +453,8 @@
   "candidates": []
  },
  {
-  "file": "The birds of Australia (1890) (20390345841).jpg",
-  "ocr": "I ANTHOCH\u00c6A | Wattled Honey -eater | INAURIS. | 2 ANTHOCHAA | WarHlod | C.J.Broinowski Fee",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (1890) (20390353801).jpg",
-  "ocr": "SULA | AUSTRALIS (Gould) | Gannet",
+  "file": "The birds of Australia (1890) (20390338951).jpg",
+  "ocr": "",
   "candidates": []
  },
  {
@@ -907,21 +463,9 @@
   "candidates": []
  },
  {
-  "file": "The birds of Australia (1890) (20390394111).jpg",
-  "ocr": "\u00c6STRELATA | LEUCOCEPHALA (Bonap:) | White-headed Pernel | G.J Broinowski Fecit",
+  "file": "The birds of Australia (1890) (20390386721).jpg",
+  "ocr": "",
   "candidates": []
- },
- {
-  "file": "The birds of Australia (1890) (20390399151).jpg",
-  "ocr": "PH\u0152BETRIA | FULICINOSA (Gmel) | Sooty Albatross | G.J. Broinowski Fecit",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (1890) (20390436501).jpg",
-  "ocr": "CRACTICUS | NIGROGULARIS | (Gould) | Black-rhroated Crow-Shrike | G. J. Broinowski Fecit. ",
-  "candidates": [
-   "Icus picatus"
-  ]
  },
  {
   "file": "Falcunculus leucogaster.jpg",
@@ -934,92 +478,8 @@
   "candidates": []
  },
  {
-  "file": "The birds of Australia (16370666023).jpg",
-  "ocr": "EOPSALTRIA | AUSTRALIS (GR Gray) | Yellow-breasred Robin | EOPSALTRIA | CAPITO (Gould) | L",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16444746064).jpg",
-  "ocr": "SPILOGLAUX BOOBOOK. | Boobook 0wl. | C.J.Broinowski, Fecit. | SPILOGLAUX MACULATUS. | Spot",
-  "candidates": [
-   "Spiloglaux boobook",
-   "Spiloglaux maculatus"
-  ]
- },
- {
-  "file": "The birds of Australia (16444748174).jpg",
-  "ocr": "SCELOGLAUX | ALBIFACIES, (G.R.Gray) | Wekau. | C.J. Broinowski, Fecit. | HIERACOCLAUX CONN",
-  "candidates": [
-   "Hieracoclaux connivens"
-  ]
- },
- {
-  "file": "The birds of Australia (16444770284).jpg",
-  "ocr": "I. LEUCOSPIZA | New, Holland Goshawk | RAII | G.J Broinowski,Fecit | 2. LEUCOSPIZA | NOVE ",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16446991993).jpg",
-  "ocr": "PTEROPODOCYS | PHASIANELLA (Gould) | Ground | Graucalus. | G.J. Broinowski, Fecit | GRAUCA",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16447081923).jpg",
-  "ocr": "HALIASTUR | LEUCOSTERNUS (Gould.) | White-treasted Sea-Eagle | G.J.Broinowski, Fecit",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia BHL43580930.jpg",
-  "ocr": "G.J. Broinowski, Fecit | I GLYCIPHILA | FULVIFRONS. (Swains) | Fulvous-fronted Honey-eater",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia BHL43581011.jpg",
-  "ocr": "I ANELLOBIA LUNULATA (Could) | LUNULATA (Gould) | Lunulated Wattle-bird | 2 | ANELLOBIA ME",
-  "candidates": [
-   "Anellobia lunulata",
-   "Anellobia mellivora"
-  ]
- },
- {
-  "file": "The birds of Australia BHL43581053.jpg",
-  "ocr": "MIMETA VIRIDIS (Vig & Horsf) | New South Wales Oriole, | G.J Broinowski Fecit. | MIMETA FL",
-  "candidates": [
-   "Mimeta viridis",
-   "Mimeta flavocincta"
-  ]
- },
- {
-  "file": "The birds of Australia BHL43581065.jpg",
-  "ocr": "Male | 1.& 2. PTILONORHYNCHUS | HOLOSERICEUS. (Kuhl.) | Satin Bower-bird. | 2. Female | G.",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia BHL43581095.jpg",
-  "ocr": "1. DONACOLA | CASTANEOTHORAX. (Gould) | Chestnut-breated Finch. | 3. MUNIA | FLAVIPRYMNA |",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16802992408).jpg",
-  "ocr": "ZON\u00c6GINTHUS OCULEUS | Red-paped Finch | G.J. Broinowsk\u0131 Fecil | 3. AGINTHA TEMPORALIS | Re",
-  "candidates": [
-   "Zonaeginthus oculeus",
-   "Agintha temporalis"
-  ]
- },
- {
-  "file": "The birds of Australia (16802994908).jpg",
-  "ocr": "STICTOPTERA | BICHENOVII. | Bicheno's Finch | STICTOPTERA | Bl\u0432ck-Rumped | G J Broinowski ",
-  "candidates": []
- },
- {
   "file": "The birds of Australia (16803019058) (cropped).jpg",
   "ocr": "",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16803097368).jpg",
-  "ocr": "1GRAUCALUS HYPOLEUCUS (Gould) | White-bellied Graucalus | G.J. Broinowski Fecit | 2 GRAUCA",
   "candidates": []
  },
  {
@@ -1043,76 +503,9 @@
   "candidates": []
  },
  {
-  "file": "The birds of Australia (16859735767).jpg",
-  "ocr": "CRACTICUS | NIGROGULARIS (Gould) | Black-throated Crow-Shrike | G. J. Broinowski Fecit | 2",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16859744257).jpg",
-  "ocr": "STREPERA | FULIGINOSA (Gould) | Black Ma\u011fpie | G.J. Bpoinowski. Fecit. | 2 STREPERA | GRAC",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16859828487).jpg",
-  "ocr": "HIERAETUS | MORPHNO\u00cfDES (Kaup) | Little Eagle | G.J. Broinowski, Fecit.",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16879357218).jpg",
-  "ocr": "1 CRACTICUS | ARGENTEUS (Gould) | Silvery-backed Ceow -Shrike | 2 CRACTICUS | TORQUATUS | ",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16879359468).jpg",
-  "ocr": "1. | CRACTICUS | QUOYII | Quoy's Creow-Shrike | 2. GYMNORHINA | ORGANICUM | Tasmaman Crow-",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16879388968).jpg",
-  "ocr": "EUROSTOPODUS | GUTTATUS | Spotted Nightjar | G.J Broinowski Fecit | EU ROSTOPODUS | ALDOGU",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16879424118).jpg",
-  "ocr": "GYPOICTINIA MELANOSTERNON (Kaup). | Black-breasted Buzzard | GJ. Broinowski, Fecit.",
-  "candidates": [
-   "Gypoictinia melanosternon"
-  ]
- },
- {
-  "file": "The birds of Australia (16879661330).jpg",
-  "ocr": "I. ELANUS | AXILLARIS. | Black-shouldered Kite. | 2. ELANUS | SCRIPTUS | Letter-winged Kit",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16880930029).jpg",
-  "ocr": "GYMNORHINA | White-backed Crow-Shrike | LEUCONOTA (Gould) | G.J. Broinowski.Fecit. | 2 GYM",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16881013959).jpg",
-  "ocr": "POLIDAETUS LEUCOGASTER | White-bellied Sea-Eagle | G.J. Broinowski Fecit",
-  "candidates": [
-   "Polidaetus leucogaster"
-  ]
- },
- {
-  "file": "The birds of Australia (16964762926).jpg",
-  "ocr": "1, PO\u00cbPHILA | \u0417 \u0420\u041e\u0407PHA | MIRABILIS | (Hombet Jecq) | Besutiful Gress-Finch. | ACUTICAUDA |",
-  "candidates": []
- },
- {
   "file": "The birds of Australia (16964798886) (cropped).jpg",
   "ocr": "",
   "candidates": []
- },
- {
-  "file": "The birds of Australia (16989360832).jpg",
-  "ocr": "I CALAMOHERPE LONGIROSTRIS (Gould) | Lone-billed Reed-Warbler | G,J, Broinowski, Fecit) | ",
-  "candidates": [
-   "Calamoherpe longirostris",
-   "Calamoherpe australis"
-  ]
  },
  {
   "file": "The birds of Australia (16989411702) (cropped).jpg",
@@ -1120,62 +513,8 @@
   "candidates": []
  },
  {
-  "file": "The birds of Australia (16989433602).jpg",
-  "ocr": "1. SEISURA | INQUIETA | Restless Flycatcher | 2 | PIEZORHYNCHUS | NITIDUS (Gould) | Shinin",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16989870501).jpg",
-  "ocr": "MENURA | ALBERTI (Gould) | Prince Albert's Lyre-Bipd | G.J. Broinowski Fecir",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16989905171).jpg",
-  "ocr": "COLLURICINCLA | PARVULA (Gould) | Lirrle Shrike-Thrush | 2 | \u2022 COLLURICINCLAS | SELBII | G",
-  "candidates": []
- },
- {
   "file": "The birds of Australia (16989914311) (cropped).jpg",
   "ocr": "",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (16989920521).jpg",
-  "ocr": "I GRAUCALUS | MELANOPS (Vig* Horsf) | Black-Faced Graucalus | G.J. Bppinowski Fecit. | 2. ",
-  "candidates": [
-   "Craucalus parvirostris"
-  ]
- },
- {
-  "file": "The birds of Australia (17065696432).jpg",
-  "ocr": "3 | HIRUNDO | FRONTRALIS (Ouoy et Caim) | Welcome Swatlow | LAGENOPLASTES | ARIEL (Gould) ",
-  "candidates": []
- },
- {
-  "file": "The birds of Australia (17065712772).jpg",
-  "ocr": "I. HIERACOGLAUX STRENUUS | Great Owl of the Brushes. | 2. HIERACOGLAUX RUFUS | Rufous Owl.",
-  "candidates": [
-   "Hieracoglaux strenuus",
-   "Hieracoglaux rufus"
-  ]
- },
- {
-  "file": "The birds of Australia (17065726552).jpg",
-  "ocr": "CIRCUC ACCIMILIC | 4ueo honnio | (Jand & Selb) | CIRCUS | JARDINI(Gould) | Japdine's Harri",
-  "candidates": [
-   "Circuc accimilic"
-  ]
- },
- {
-  "file": "The birds of Australia (17067170055).jpg",
-  "ocr": "CYPSELUS | PACIFICUS (Steph) | Australian Swift | 2 | GJ. Broinowski Fecit | CH\u00c6TURA CAUDA",
-  "candidates": [
-   "Chaetura caudacuta"
-  ]
- },
- {
-  "file": "The birds of Australia (17067227265).jpg",
-  "ocr": "HALIASTUR | SPHENURUS | Whistling Eagle | G J Broinowsk\u0131 Fecit",
   "candidates": []
  }
 ]

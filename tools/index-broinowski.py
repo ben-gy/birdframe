@@ -29,6 +29,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import unicodedata
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -128,7 +129,8 @@ def _distance(a: str, b: str, cap: int = 2) -> int:
     return prev[-1]
 
 
-def validate(name: str, names: set, genera: set) -> tuple[str | None, str]:
+def validate(name: str, names: set, genera: set,
+             strong: bool = False) -> tuple[str | None, str]:
     """Accept, correct, or reject one OCR'd binomial.
 
     Vision misreads single characters - fluminca for fluminea, ouadristrigata
@@ -144,22 +146,73 @@ def validate(name: str, names: set, genera: set) -> tuple[str | None, str]:
         return close[0][1], "corrected from %r" % name
     if name.split()[0] in genera:
         return name, "unknown species, known genus"
-    return None, "rejected: unknown genus"
-def binomials(text: str) -> list[str]:
-    """Pull 'GENUS SPECIES' pairs out of a caption line.
+    if strong:
+        # Broinowski uses genera Gould never did - Majaqueus, Talegallus,
+        # Megaloprepia, Mimeta, Butoroides - and the first version of this check
+        # threw all of them away for not being in a Gould-derived vocabulary.
+        # A pair printed together on one line is the plate vouching for itself.
+        return name, "unknown genus, printed as a pair"
+    return None, "rejected: unknown genus, and the pair spans two lines"
+def binomials(text: str) -> list[tuple[str, bool]]:
+    """Pull 'GENUS SPECIES' pairs out of a caption, with a confidence flag.
 
-    The names are set in caps with the authority in brackets after them. Æ and Œ
-    are ligatures the period used freely - NÆVOSA is naevosa - and Vision returns
-    them faithfully, so they have to be expanded rather than stripped.
+    Vision returns the caption as separate observations and the two halves of a
+    name routinely land in different ones - "TACHYPTES | MFNOR (Bonap:)". Some
+    plates also set two species in two columns, so reading order interleaves
+    them: "THALASSEUS | Indian | BENGALENSIS | Tern | STERCORARIUS | Great".
+
+    So pairs are taken at two strengths:
+
+      strong - the two words sit together in one observation, as a printed
+               binomial does, or an authority follows in brackets;
+      weak   - the pair spans two observations, which is how a real name split
+               across lines looks, and also how two unrelated columns look.
+
+    Weak pairs need a known genus to survive. That distinction is what lets
+    "TALEGALLUS LATHAMI | Brush Turkey." through - one line, no authority, a
+    genus this vocabulary has never seen - while discarding the "Bengalensis
+    stercorarius" that the two-column plate manufactures out of thin air.
     """
-    t = (text.replace("Æ", "AE").replace("æ", "ae")
-             .replace("Œ", "OE").replace("œ", "oe"))
-    found = []
-    for genus, species in re.findall(r"\b([A-Z]{3,})\s+([A-Z]{3,})\b", t):
-        if genus in NOT_A_GENUS or species in NOT_A_GENUS:
+    lines = []
+    for raw_line in text.split(" | "):
+        t = unicodedata.normalize("NFKD", raw_line)
+        t = "".join(c for c in t if not unicodedata.combining(c))
+        t = (t.replace("Æ", "AE").replace("æ", "ae")
+              .replace("Œ", "OE").replace("œ", "oe"))
+        # A hyphenated compound is one word set as two: NOVA-HOLLANDIAE.
+        lines.append(re.sub(r"(?<=[A-Z])-(?=[A-Z])", "", t))
+
+    out, flat = [], []
+    for line in lines:
+        tokens = re.findall(r"[A-Z]{3,}|\([^)]*\)", line)
+        words = [t for t in tokens if not t.startswith("(")]
+        has_auth = any(t.startswith("(") for t in tokens)
+        for i in range(len(words) - 1):
+            a, b = words[i], words[i + 1]
+            if a in NOT_A_GENUS or b in NOT_A_GENUS:
+                continue
+            out.append((a.capitalize() + " " + b.lower(), True))
+        flat.append((words, has_auth))
+
+    # Cross-line pairs: last word of one observation, first of the next. Skip
+    # observations with no capitalised words at all - on a two-column plate the
+    # common names sit between the two halves of each binomial, so letting them
+    # break the chain loses "THALASSEUS | Indian | BENGALENSIS | Tern".
+    flat = [f for f in flat if f[0]]
+    for i in range(len(flat) - 1):
+        left, (right, right_auth) = flat[i][0], flat[i + 1]
+        a, b = left[-1], right[0]
+        if a in NOT_A_GENUS or b in NOT_A_GENUS:
             continue
-        found.append(genus.capitalize() + " " + species.lower())
-    return found
+        out.append((a.capitalize() + " " + b.lower(), right_auth))
+
+    seen, deduped = set(), []
+    for name, strong in out:
+        if name in seen:
+            continue
+        seen.add(name)
+        deduped.append((name, strong))
+    return deduped
 
 
 def ocr(paths: list[Path]) -> dict[str, str]:
@@ -225,15 +278,15 @@ def main() -> None:
     for stem, text in texts.items():
         raw = binomials(text)
         kept = []
-        for candidate in raw:
-            final, how = validate(candidate, known, genera)
+        for candidate, strong in raw:
+            final, how = validate(candidate, known, genera, strong)
             if final:
                 kept.append(final)
                 if how != "exact":
                     notes[final] = how
         if not kept:
             unread.append({"file": origin.get(stem, stem), "ocr": text[:90],
-                           "candidates": raw})
+                           "candidates": [c for c, _ in raw]})
             continue
         for name in kept:
             index.setdefault(name, origin.get(stem, stem))

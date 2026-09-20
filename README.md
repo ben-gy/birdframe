@@ -217,9 +217,9 @@ commonest bird here.
 | | Species | Observations |
 | --- | ---: | ---: |
 | Exact modern-name match | 258 (29%) | 49% |
-| Plus curated synonyms | **289 (33%)** | **66%** |
+| Plus curated synonyms | **394 (45%)** | **83%** |
 
-A third of the species covers two thirds of the birds you will actually hear,
+Under half the species covers 83% of the birds you will actually hear,
 because abundance is heavily skewed. Sources are consulted in a waterfall —
 Gould's *Birds of Australia* (685 names), Broinowski 1890/91, then Gould's
 *Birds of Europe* for the introduced species no 1848 Australian book could
